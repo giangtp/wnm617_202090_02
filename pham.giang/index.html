@@ -2,74 +2,111 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Home</title>
+	<title>Type Journal</title>
 
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+   <link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
+   <link rel="stylesheet" href="css/app.css">
+
+   <script src="lib/js/jquery-2.2.4.min.js"></script>
+   <script src="js/app.js"></script>
+
+   <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-	<input type="checkbox" id="menu" class="hidden">
 
-	<header class="navbar">
-		<div class="container display-flex flex-align-center">	
-			<div class="flex-none"><h1>Awesome Webpage</h1></div>
-			<div class="flex-stretch"></div>
-			
-			<!-- nav.nav>ul>li*4>a[href=#article$]>{Link $} -->
+	<section data-role="page" id="signin-page">
+      <div data-role="main" class="display-flex flex-column">
+         <form id="signin-form" data-ajax="false">
+            <div class="form-control">
+               <label for="signin-username" class="form-label">Username</label>
+               <input id="signin-username" type="text" class="form-input" data-role="none" placeholder="Type your username">
+            </div>
+            <div class="form-control">
+               <label for="signin-password" class="form-label">Password</label>
+               <input id="signin-password" type="password" class="form-input" data-role="none" placeholder="Type your password">
+            </div>
+            <div class="form-control">
+               <a href="#recent-page" class="form-button">Sign In</a>
+            </div>
+             <div class="form-control signin-alt">
+               Don't have an account?
+               <a href="#signup-page">Sign Up</a>
+            </div>
+         </form>
+      </div>
+   </section>
 
-			<div class="flex-none menu-button">
-				<label for="menu">&equiv;</label>
-			</div>
+   <section data-role="page" id="signup-page">
+      <div data-role="main" class="display-flex flex-align-center flex-justify-center">
+      	 <form id="signup-form" data-ajax="false">
+            <div class="form-control">
+               <label for="signup-username" class="form-label">Username</label>
+               <input id="signup-username" type="text" class="form-input" data-role="none" placeholder="Type your username">
+            </div>
+            <div class="form-control">
+               <label for="signup-password" class="form-label">Password</label>
+               <input id="signup-password" type="password" class="form-input" data-role="none" placeholder="Type your password">
+            </div>
+            <div class="form-control">
+               <label for="signup-password-confirm" class="form-label">Confirm Password</label>
+               <input id="signup-password-confirm" type="password" class="form-input" data-role="none" placeholder="Type your password">
+            </div>
+            <div class="form-control">
+               <a href="#recent-page" class="form-button">Sign Up</a>
+            </div>
+            <div class="form-control signin-alt">
+               Already have an account?
+               <a href="#signin-page">Sign In</a>
+            </div>
+         </form>
+      </div>
+   </section>
 
-			<nav class="nav flex-none">
-				<ul class="display-flex">
-					<li><a href="#article1">Link 1</a></li>
-					<li><a href="#article2">Link 2</a></li>
-					<li><a href="#article3">Link 3</a></li>
-					<li><a href="#article4">Link 4</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+   <section data-role="page" id="recent-page">
+      <div data-role="main">
+         Map!
+      </div>
+      <footer data-role="footer">
+         <ul>
+            <li><a href="#recent-page">Recent</a></li>
+            <li><a href="#list-page">List</a></li>
+            <li><a href="#user-profile-page">Profile</a></li>
+         </ul>
+      </footer>
+   </section>
 
-	<!-- .container>article#article$.article*4>h2{Article $}+div.article-body>p*4>lorem50 -->
+   <section data-role="page" id="list-page">
+      <header data-role="header">
+         <h1>List Page</h1>
+      </header>
+      <div data-role="main">
+         This is an animal List
+      </div>
+      <footer data-role="footer">
+         <ul>
+            <li><a href="#recent-page">Recent</a></li>
+            <li><a href="#list-page">List</a></li>
+            <li><a href="#user-profile-page">Profile</a></li>
+         </ul>
+      </footer>
+   </section>
 
-	<div class="container">
-		<article id="article1" class="article">
-			<h2>Article 1</h2>
-			<div class="article-body">
-				<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi sequi exercitationem dignissimos architecto recusandae beatae minima cupiditate explicabo consequuntur incidunt delectus vitae accusamus unde tenetur similique reiciendis ipsam tempore, soluta sapiente deserunt distinctio eaque dolorum suscipit. Ratione reprehenderit, vel, temporibus qui blanditiis at velit cum saepe labore odit ab, ipsam?</p>
-				<p>Quae reiciendis ratione sunt minima cumque accusantium aspernatur perferendis facere voluptatum corrupti, corporis suscipit veritatis recusandae eaque eos repellat, quia, aut autem molestias obcaecati! Illum alias perspiciatis quisquam nesciunt, vitae fugit provident error tempora debitis, corporis veritatis pariatur a libero iure harum praesentium vel ducimus beatae amet placeat, tempore, quas.</p>
-				<p>Labore a error, nobis. Modi natus doloremque sit facilis, placeat sunt id voluptatibus cupiditate, reprehenderit, vero, assumenda! Est possimus voluptatem sit culpa minus aperiam, eos natus dolore! Enim cupiditate quod, praesentium perferendis autem pariatur quo reiciendis ducimus veritatis vitae odio nostrum ullam voluptatem quis. Ex voluptas quam necessitatibus corrupti eveniet?</p>
-				<p>Vel, perferendis aut corrupti. Fugiat esse, quaerat sequi, beatae nobis temporibus ipsa inventore et! Accusantium, enim. Doloribus, harum velit atque iste amet laborum cum dicta eaque repudiandae non ullam quas! Voluptatibus doloremque eaque autem eum. Nemo voluptatem cum debitis est eligendi, distinctio molestiae error commodi similique, velit quam. Laborum, cum.</p>
-			</div>
-		</article>
-		<article id="article2" class="article">
-			<h2>Article 2</h2>
-			<div class="article-body">
-				<p>Lorem ipsum dolor, sit, amet consectetur adipisicing elit. Quos harum, minus assumenda cumque est quaerat in ullam reiciendis recusandae tempora dolores temporibus quidem qui minima voluptate cum praesentium voluptates blanditiis consequuntur cupiditate magnam veritatis expedita tempore et. Veritatis quis tenetur facere corporis iste aut nulla totam, ea facilis odio sit.</p>
-				<p>Voluptas, provident laboriosam fuga ipsa magni suscipit reiciendis, eligendi vel beatae sit aut harum mollitia laborum, delectus obcaecati iure itaque asperiores. Debitis quam similique error dolore sint repellendus dicta a aspernatur? Earum voluptate minima, facere illum enim, ex nulla vero sunt expedita, optio magni praesentium, doloremque! Exercitationem, ab error voluptate?</p>
-				<p>Illum reiciendis optio tempore dolore a quibusdam maxime obcaecati sequi eos voluptas fuga quo asperiores cumque eum, aliquid voluptates natus veniam ab? Pariatur dolor iure, voluptatibus quod quam harum nulla reprehenderit totam laborum esse optio molestiae, natus. Quos aperiam, itaque alias aspernatur atque amet recusandae! Illum, dicta odit voluptatem quae.</p>
-				<p>Aliquam quae possimus, veniam, atque explicabo sit, similique, repellendus est adipisci neque quod! Itaque explicabo perspiciatis, ex. Eveniet minus, omnis. Quae repellendus autem laboriosam. Harum non dolorem vero atque mollitia eligendi eum incidunt porro debitis perspiciatis corporis asperiores, cumque culpa odit expedita ducimus a nemo ut laudantium odio assumenda voluptatum?</p>
-			</div>
-		</article>
-		<article id="article3" class="article">
-			<h2>Article 3</h2>
-			<div class="article-body">
-				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident sunt voluptates dolorum? Debitis ad officiis vitae totam est ipsa ex, veritatis. Quas obcaecati asperiores voluptatem sint dolorem commodi beatae natus ad, fugit dolor, ipsa illum corrupti pariatur quos qui eum necessitatibus autem sapiente voluptas, recusandae nemo porro reprehenderit est. Suscipit!</p>
-				<p>Sed eius accusantium voluptatum distinctio cumque magni tenetur illum qui excepturi velit. Eius explicabo iure aliquam, ad enim quod necessitatibus! Magni explicabo voluptate sunt perspiciatis, odit voluptates unde doloremque, consectetur obcaecati modi dignissimos impedit non natus excepturi quos rerum. Culpa, molestiae esse. Beatae, officia voluptatem quae adipisci nostrum saepe culpa.</p>
-				<p>Temporibus nostrum earum, sunt a accusantium corporis nobis minima, accusamus! Eius unde assumenda esse quia ipsam hic non iure nihil ex at ipsa odit modi, similique corporis autem in quod, a ullam atque? Quam deleniti illo vero voluptates sunt earum nisi, aperiam esse, porro quas consequatur corrupti animi numquam eius.</p>
-				<p>Voluptate itaque commodi veniam, adipisci beatae sed unde laborum, impedit eaque blanditiis, sit laudantium asperiores voluptatum ab dicta doloribus. Beatae nihil optio consequuntur enim corrupti veritatis quaerat magni cum impedit sunt reprehenderit reiciendis quo accusantium repellat quod, quos, architecto est distinctio mollitia. Accusantium non vel eos molestias nisi illo! Aspernatur.</p>
-			</div>
-		</article>
-		<article id="article4" class="article">
-			<h2>Article 4</h2>
-			<div class="article-body">
-				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi eius, officiis magni voluptas consectetur repellat culpa eum sunt officia tempore ullam illum possimus placeat, necessitatibus ipsa eligendi laborum asperiores odio, beatae dicta! Alias recusandae dolores illum eos corporis quae eaque aspernatur repellat non, laudantium veritatis! Dolorem delectus minus repudiandae porro?</p>
-				<p>Eius necessitatibus, doloremque harum esse sapiente exercitationem voluptatibus dolorum obcaecati, deserunt minima enim at animi blanditiis voluptatem, tempore atque doloribus placeat! At, impedit sint obcaecati molestias quam harum corrupti delectus laudantium dolore a non dicta tenetur velit praesentium maxime asperiores minus qui sapiente possimus deleniti ex dolorem. Beatae ipsam, obcaecati?</p>
-				<p>Aliquid, aperiam obcaecati earum eligendi a illum, soluta fugit voluptatibus neque placeat nihil, iure ea ipsam dolorum perspiciatis labore laudantium quam magnam maxime explicabo nobis amet, maiores similique. Porro omnis numquam rerum quos, nesciunt mollitia recusandae ut minus, nam, consequuntur soluta inventore sapiente earum dolor facere modi. Rem, quod, sequi?</p>
-				<p>Ducimus, culpa nemo eligendi deleniti. Voluptate iure facere, amet expedita ratione, doloremque nesciunt repellat. Eveniet aspernatur iusto nemo eius saepe eaque molestiae assumenda, inventore omnis vel nisi, odio ipsum ea itaque ipsam sequi alias quos consequatur totam mollitia iure dolores voluptates, suscipit a! Earum dolores porro deleniti, nemo asperiores, maiores.</p>
-			</div>
-		</article>
-	</div>
+   <section data-role="page" id="user-profile-page">
+      <div data-role="main">
+         User Profile
+      </div>
+      <footer data-role="footer">
+         <ul>
+            <li><a href="#recent-page">Recent</a></li>
+            <li><a href="#list-page">List</a></li>
+            <li><a href="#user-profile-page">Profile</a></li>
+         </ul>
+      </footer>
+   </section>
+
+   <section data-role="page" id="type-profile-page">
+      <div data-role="main"></div>
+   </section>
+
 </body>
 </html>
