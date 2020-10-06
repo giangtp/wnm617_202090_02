@@ -121,6 +121,12 @@ hr.vertical-spacer {
 		margin: 0 0.5em;
 	}
 
+.overscrow{
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+
 
 /* FORMS */
 
@@ -192,7 +198,7 @@ hr.vertical-spacer {
 }
 [data-role='main'] {
    flex: 1 1 100%;
-   overflow:scroll;
+   overflow:hidden;
    position:relative;
 }
 .ui-header,
@@ -428,4 +434,125 @@ a.nav-link{
 .small-text{
 	font-size: 0.9em;
 	color: var(--color-neutral-medium);
+}
+
+
+
+/* MODALS */
+.modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.3s;
+    opacity: 0;
+    pointer-events: none;
+}
+.modal.active {
+   opacity:1;
+}
+.modal-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0,0,0,0.7);
+}
+
+
+/* MODAL POPUP*/
+.modal-popup {
+   position:absolute;
+   top:50%;
+   left:50%;
+   transform:translate(-50%,calc(-50% + 3em));
+   transition: all 0.3s;
+   width:80vw;
+}
+.modal-body {
+    background-color: var(--color-white);
+    padding: 1em;
+}
+.modal-head, .modal-foot {
+    background-color: var(--color-neutral-lighter);
+    padding: 0.5em 1em;
+}
+
+
+.modal.active .modal-back,
+.modal.active .modal-popup {
+    pointer-events: initial;
+}
+.modal.active .modal-popup {
+   transform:translate(-50%,-50%);
+}
+
+
+/* MODAL DRAWER */
+.modal-drawer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    transition:all 0.3s;
+    box-shadow:0 0 5px rgba(0,0,0,0.3);
+}
+
+.modal-drawer.left,
+.modal-drawer.right {
+   height:100%;
+   width:70vw;
+}
+.modal-drawer.left { left:0; transform:translateX(-100%); }
+.modal-drawer.right { right:0; transform:translateX(100%); }
+
+.modal-drawer.top,
+.modal-drawer.bottom {
+   height:30vh;
+   width:100%;
+}
+.modal-drawer.top { top:0; transform:translateY(-100%); }
+.modal-drawer.bottom { bottom:0; transform:translateY(100%); }
+
+.modal.active .modal-drawer {
+   transform:translate(0);
+   pointer-events:initial;
+}
+
+
+.modal-drawer .modal-body {
+   flex: 1 1 100%;
+}
+
+
+
+.modal-foot input {
+   display:block;
+   width:100%;
+   text-align:right;
+   border-width:0;
+   font-weight:bold;
+   background-color:transparent;
+   outline:0;
+}
+
+
+
+
+/* FLOATER */
+.floater { position:absolute; }
+.floater.right { right:1em; }
+.floater.left { left:1em; }
+.floater.top { top:1em; }
+.floater.bottom { bottom:1em; }
+
+
+/* CIRCLE BUTTON */
+.btn-circle {
+    background-color: white;
+    line-height: 3rem;
+    width: 3rem;
+    display: inline-block;
+    text-align: center;
+    border-radius: 2rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    font-size: 1.5em;
 }
