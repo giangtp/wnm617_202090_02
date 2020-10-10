@@ -127,6 +127,7 @@ hr.vertical-spacer {
 	overflow: auto;
 }
 
+.text-centered{ text-align: center; }
 
 /* FORMS */
 
@@ -165,23 +166,27 @@ hr.vertical-spacer {
     text-align: center;
     color: var(--color-white);
 }
+	.form-button.half{
+		width: 50%;
+		margin: 0 auto;
+	}
 	.form-button.secondary{
 		background-color: var(--color-neutral-light);
 		color: var(--color-black);
 	}
 
-.floating-button{
+
+.button-circle{
 	border-radius: 50%;
 	background-color: var(--color-neutral-medium);
 	height: 4em;
 	width: 4em;
+	line-height: 4.3em;
+	display: inline-block;
+	text-align: center;
 	box-shadow: 0 0 5px rgba(0,0,0,0.15);
-	position: fixed;
-	bottom: 4.5em;
-	right: 1.5em;
 	color: white;
 }
-
 
 
 /* PAGE LAYOUTS */
@@ -208,13 +213,17 @@ hr.vertical-spacer {
    line-height:var(--header-height); */
    border-width:0;
    box-shadow:0 0 5px rgba(0,0,0,0.15);
-   padding: 1em 1.5em;
    overflow:hidden;
    position:relative;
 }
 
+.ui-footer{
+	padding: 0.7em 1.5em;
+}
+
 .ui-header{
 	background-color:var(--color-neutral-light);
+	padding: 1em 1.5em;
 }
 
 .ui-header .ui-title {
@@ -262,12 +271,20 @@ a.nav-link{
 }
 
 
+/* FLOATER */
+.floater { position:absolute; }
+.floater.right { right:1.5em; }
+.floater.left { left:1.5em; }
+.floater.top { top:1.5em; }
+.floater.bottom { bottom:1.5em; }
+
+
 
 /* TAB GROUP */
 
 .tabgroup{
 	width: 100%;
-	padding:2em;
+	padding:1em 2em;
 }
 
 .tabgroup .tabs {
@@ -323,13 +340,26 @@ a.nav-link{
 
 /* IMAGES */
 
-.logo{
+.logo {
 	width: 4em;
+}
+
+.icon img{
+	width: 3em;
 }
 
 .icon{
 	font-size: 1.5em;
 }
+	.icon.small{
+		font-size: 1em;
+	}
+	.icon.medium{
+		font-size: 1.3em;
+	}
+	.icon.large{
+		font-size: 3em;
+	}
 
 .image-circle img {
 		width: 100%;
@@ -339,6 +369,18 @@ a.nav-link{
 		object-fit: cover;
 		object-position: center;
 		border-radius: 50%;
+		/* vertical-align: text-bottom;
+		box-shadow: 0px 0px 10px var(--color-neutral); */
+	}
+
+.image-square img {
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 10px;
 		/* vertical-align: text-bottom;
 		box-shadow: 0px 0px 10px var(--color-neutral); */
 	}
@@ -369,6 +411,13 @@ a.nav-link{
 	width: 5em;
 }
 
+.location-image{
+    background-position:center;
+    background-size:cover;
+   	height: 45vh;
+   	background-image: url(../images/Empty-Image-2.png);
+}
+
 
 /* PAGES */
 
@@ -382,6 +431,25 @@ a.nav-link{
 #signup-form {
    padding:1em;
 }
+
+.signin-alt {
+    padding: 1em;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.signin-error{
+	background-color: var(--color-white);
+	text-align: center;
+	padding: 1em;
+	transform: translateY(1em);
+   	transition: all 0.3s;
+   	opacity: 0;
+}
+	.signin-error.active{
+		transform: translateY(-1em);
+		opacity: 1;
+	}
 
 #recent-page [data-role='main'] {
    background-image:url(../images/map.png);
@@ -412,6 +480,20 @@ a.nav-link{
 	background-image: url(../images/map.png);
 	background-position:center;
 	background-size:cover;
+	position: relative;
+}
+
+.location-icon{
+	position: absolute;
+	top: calc(100% - 45%);
+	left: calc(100% - 85%);
+	width: 15%;
+	height: auto;
+}
+
+.location-icon.add{
+	top: calc(100% - 65%);
+	left: calc(100% - 25%);
 }
 
 .user-prodile-header{
@@ -426,7 +508,7 @@ a.nav-link{
 	position: relative;
 }
 
-.back-button{
+.topnav-button{
 	margin-left: 0.5em;
 	line-height: 1.4em;
 }
@@ -434,6 +516,15 @@ a.nav-link{
 .small-text{
 	font-size: 0.9em;
 	color: var(--color-neutral-medium);
+}
+
+.footer-nav p{
+	margin: 0;
+	font-size: 0.9em;
+}
+
+.description li:not(:last-child) {
+	padding-bottom: 0.5em;
 }
 
 
@@ -532,27 +623,4 @@ a.nav-link{
    font-weight:bold;
    background-color:transparent;
    outline:0;
-}
-
-
-
-
-/* FLOATER */
-.floater { position:absolute; }
-.floater.right { right:1em; }
-.floater.left { left:1em; }
-.floater.top { top:1em; }
-.floater.bottom { bottom:1em; }
-
-
-/* CIRCLE BUTTON */
-.btn-circle {
-    background-color: white;
-    line-height: 3rem;
-    width: 3rem;
-    display: inline-block;
-    text-align: center;
-    border-radius: 2rem;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-    font-size: 1.5em;
 }

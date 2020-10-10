@@ -9,11 +9,12 @@ const checkSigninForm = () => {
       console.log('success');
       sessionStorage.userId = 3;
       $("#signin-form")[0].reset();
+      $(".signin-error").removeClass("active");
    } else {
       // not logged in
       console.log('failure');
       sessionStorage.removeItem('userId');
-
+      $(".signin-error").addClass("active");
       // Assignment: What happens if users fail logging in
    }
 

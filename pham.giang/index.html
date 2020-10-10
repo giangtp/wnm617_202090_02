@@ -26,7 +26,7 @@
       		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh</p>
       		<hr class="spacer small">
       		<div class="onboarding-image">
-      			<img src="images/Empty Image.png" alt="Image">
+      			<img src="images/Empty-Image.png" alt="Image">
       		</div>
       		<hr class="spacer">
       		<a href="#signin-page" class="form-button">Skip</a>
@@ -58,12 +58,23 @@
 		            <div class="form-control">
 		               <input type="submit" class="form-button" value="Sign In" data-role="none">
 		            </div>
+		            <div class="form-control signin-alt">
+		               <a href="#">Forgot your username or password?</a>
+		            </div>
+		            <div class='form-control signin-error'>
+		            	<i class='fas icon small flex-none'>&#xf06a;</i> 
+		            	<span>Incorrect username or password. Please try again</span>
+		            </div>
 		        </form>
 
 		        <form id="signup-form" class="flex-stretch content" data-ajax="false">
 		            <div class="form-control">
 		               <label for="signup-username" class="form-label">Username</label>
 		               <input id="signup-username" type="text" class="form-input" data-role="none" placeholder="Type your username">
+		            </div>
+		            <div class="form-control">
+		               <label for="signup-fullname" class="form-label">Full Name</label>
+		               <input id="signup-fullname" type="text" class="form-input" data-role="none" placeholder="Type your full name">
 		            </div>
 		            <div class="form-control">
 		               <label for="signup-password" class="form-label">Password</label>
@@ -86,7 +97,7 @@
       	<div class="overscrow">
 	      	<ul class="recent-list display-inline-flex">
 	      		<li>
-	      			<a href="#type-profile-page">
+	      			<a href="#">
 		            	<figure class="image-circle recent-list-image">
 	            			<img src="images/Type Icon.png">
 	            			<figcaption>Type 1</figcaption>
@@ -94,7 +105,7 @@
 		            </a>
 	      		</li>
 	      		<li>
-	      			<a href="#type-profile-page">
+	      			<a href="#">
 		            	<figure class="image-circle recent-list-image">
 	            			<img src="images/Type Icon.png">
 	            			<figcaption>Type 2</figcaption>
@@ -102,7 +113,7 @@
 		            </a>
 	      		</li>
 	      		<li>
-	      			<a href="#type-profile-page">
+	      			<a href="#">
 		            	<figure class="image-circle recent-list-image">
 	            			<img src="images/Type Icon.png">
 	            			<figcaption>Type 3</figcaption>
@@ -110,7 +121,7 @@
 		            </a>
 	      		</li>
 	      		<li>
-	      			<a href="#type-profile-page">
+	      			<a href="#">
 		            	<figure class="image-circle recent-list-image">
 	            			<img src="images/Type Icon.png">
 	            			<figcaption>Type 4</figcaption>
@@ -118,74 +129,209 @@
 		            </a>
 	      		</li>
 	      		<li>
-	      			<a href="#type-profile-page">
+	      			<a href="#">
 		            	<figure class="image-circle recent-list-image">
 	            			<img src="images/Type Icon.png">
 	            			<figcaption>Type 5</figcaption>
 	            		</figure> 
 		            </a>
 	      		</li>
-	      		<li>
-	      			<a href="#type-profile-page">
-		            	<figure class="image-circle recent-list-image">
-	            			<img src="images/Type Icon.png">
-	            			<figcaption>Type 6</figcaption>
-	            		</figure> 
-		            </a>
-	      		</li>
-	      		<li>
-	      			<a href="#type-profile-page">
-		            	<figure class="image-circle recent-list-image">
-	            			<img src="images/Type Icon.png">
-	            			<figcaption>Type 7</figcaption>
-	            		</figure> 
-		            </a>
-	      		</li>
-	      		<li>
-	      			<a href="#type-profile-page">
-		            	<figure class="image-circle recent-list-image">
-	            			<img src="images/Type Icon.png">
-	            			<figcaption>Type 8</figcaption>
-	            		</figure> 
-		            </a>
-	      		</li>
-	      		<li>
-	      			<a href="#type-profile-page">
-		            	<figure class="image-circle recent-list-image">
-	            			<img src="images/Type Icon.png">
-	            			<figcaption>Type 9</figcaption>
-	            		</figure> 
-		            </a>
-	      		</li>
-	      		<li>
-	      			<a href="#type-profile-page">
-		            	<figure class="image-circle recent-list-image">
-	            			<img src="images/Type Icon.png">
-	            			<figcaption>Type 10</figcaption>
-	            		</figure> 
-		            </a>
-	      		</li>
 	      	</ul>
+      	</div>
+      	<div class="location-icon">
+      		<a href="#location-page"><img src="images/Location Icon.png" alt="Location Icon"></a>
+      	</div>
+      	<div class="location-icon add">
+      		<a href="#location-add-page"><img src="images/Location Add.png" alt="Location Add Icon"></a>
       	</div>
       </div>
       <footer data-role="footer">
-         <ul>
-            <li><a href="#recent-page">Recent</a></li>
-            <li><a href="#list-page">List</a></li>
-            <li><a href="#user-profile-page">Profile</a></li>
+         <ul class="footer-nav">
+            <li>
+            	<a href="#recent-page"><i class='fas icon medium'>&#xf1da;</i><p>Recent</p></a>
+            </li>
+            <li>
+            	<a href="#list-page"><i class='fas icon medium'>&#xf0ca;</i><p>List</p></a>
+            </li>
+            <li>
+            	<a href="#user-profile-page"><i class='fas icon medium'>&#xf2bd;</i><p>Profile</p></a>
+            </li>
          </ul>
       </footer>
    </section>
+
+
+   <section data-role="page" id="location-add-page">
+		<header data-role="header">
+			<ul>
+				<li>
+					<a href="#" data-rel="back" class="nav-link">
+						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+					</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main" class="page-side-padding page-top-padding">
+			<div class="display-flex flex-align-center flex-column">
+	        	<a href="#">
+	        		<div class="image-circle edit-image">
+	        			<img src="images/Empty-Image-2.png">
+	        		</div>
+	        	</a>
+	        	<p class="small-text">Upload Image</p>
+        	</div>
+
+        	<form id="edit-location-form" class="flex-stretch content active" data-ajax="false">
+	            <div class="form-control">
+	               <label for="edit-date" class="form-label">Date Spotted</label>
+	               <input id="edit-date" type="text" class="form-input" data-role="none">
+	            </div>
+	            <div class="form-control">
+	               <label for="edit-application" class="form-label">Application</label>
+	               <input id="edit-application" type="text" class="form-input" data-role="none">
+	            </div>
+	            <div class="form-control">
+	               <label for="edit-note" class="form-label">Note</label>
+	               <textarea id="edit-note" data-role="none" class="form-input" maxlength="250"></textarea>
+	            </div>
+	            <div class="form-control display-flex">
+	               <a href="#" data-rel="back" class="form-button">Add</a>
+	               <hr class="vertical-spacer small">
+	               <a href="#" data-rel="back" class="form-button secondary">Cancel</a>
+	            </div>
+		    </form>
+		</div>
+	</section>
+
+
+   	<section data-role="page" id="location-page">
+		<header data-role="header">
+			<ul>
+				<li class="flex-stretch">
+					<a href="#" data-rel="back" class="nav-link">
+						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+					</a>
+				</li>
+				<li class="flex-none">
+					<a href="#" data-activate="#confirm-delete-3" class="nav-link">
+						<span class="topnav-button">Delete</span>
+					</a>
+				</li>
+			</ul>
+		</header>
+
+		<div data-role="main">		
+	        <div class="location-image"></div>
+
+        	<div class="page-side-padding page-top-padding">
+	        	<ul class="description">
+	        		<li><strong>Date Spotted</strong>: 10/10/2020</li>
+	        		<li><strong>Application</strong>: Poster</li>
+	        		<li><strong>Note</strong>: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer scelerisque elit ex feugiat commodo eu eu nisl. Integer in facilisis purus. Mauris non leo felis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+	        	</ul>
+        	</div>
+
+        	<a href="#location-edit-page"class="button-circle floater bottom right">
+        		<i class='fas icon'>&#xf304;</i>
+        	</a>
+		</div>
+
+		<div class="modal" id="confirm-delete-3">
+         <div class="modal-back" data-deactivate="#confirm-delete-3"></div>
+         <div class="modal-popup">
+            <div class="modal-body">
+            	<div class="display-flex flex-column flex-align-center">
+	            	<div class="icon">
+	            		<img src="images/Cancel Icon.png">
+	            	</div>
+	            	<h3>Are you sure?</h3>
+            		<span class="text-centered">Do you really want to delete this? This action cannot be done.</span>
+	            </div>
+            	<hr class="spacer">
+            	<div class="display-flex">
+	               <a href="#" data-deactivate="#confirm-delete-3" class="form-button">Delete</a>
+	               <hr class="vertical-spacer small">
+	               <a href="#" data-deactivate="#confirm-delete-3" class="form-button secondary">Cancel</a>
+	            </div>
+            </div>
+         </div>
+      </div>
+	</section>
+
+
+   <section data-role="page" id="location-edit-page">
+		<header data-role="header">
+			<ul>
+				<li class="flex-stretch">
+					<a href="#" data-rel="back" class="nav-link">
+						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+					</a>
+				</li>
+				<li class="flex-none">
+					<a href="#" data-activate="#confirm-delete-4" class="nav-link">
+						<span class="topnav-button">Delete</span>
+					</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main" class="page-side-padding page-top-padding">
+			<div class="display-flex flex-align-center flex-column">
+	        	<a href="#">
+	        		<div class="image-circle edit-image">
+	        			<img src="images/Empty-Image-2.png">
+	        		</div>
+	        	</a>
+	        	<p class="small-text">Edit Image</p>
+        	</div>
+
+        	<form id="edit-location-form" class="flex-stretch content active" data-ajax="false">
+	            <div class="form-control">
+	               <label for="edit-date" class="form-label">Date Spotted</label>
+	               <input id="edit-date" type="text" class="form-input" data-role="none" value="10/10/2020">
+	            </div>
+	            <div class="form-control">
+	               <label for="edit-application" class="form-label">Application</label>
+	               <input id="edit-application" type="text" class="form-input" data-role="none" value="Poster">
+	            </div>
+	            <div class="form-control">
+	               <label for="edit-note" class="form-label">Note</label>
+	               <textarea id="edit-note" data-role="none" class="form-input" maxlength="250">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer scelerisque elit ex feugiat commodo eu eu nisl. Integer in facilisis purus. Mauris non leo felis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</textarea>
+	            </div>
+	            <div class="form-control display-flex">
+	               <a href="#" data-rel="back" class="form-button">Confirm</a>
+	               <hr class="vertical-spacer small">
+	               <a href="#" data-rel="back" class="form-button secondary">Cancel</a>
+	            </div>
+		    </form>
+		</div>
+
+		<div class="modal" id="confirm-delete-4">
+         <div class="modal-back" data-deactivate="#confirm-delete-4"></div>
+         <div class="modal-popup">
+            <div class="modal-body">
+            	<div class="display-flex flex-column flex-align-center">
+	            	<div class="icon">
+	            		<img src="images/Cancel Icon.png">
+	            	</div>
+	            	<h3>Are you sure?</h3>
+            		<span class="text-centered">Do you really want to delete this? This action cannot be done.</span>
+	            </div>
+            	<hr class="spacer">
+            	<div class="display-flex">
+	               <a href="#" data-deactivate="#confirm-delete-4" class="form-button">Delete</a>
+	               <hr class="vertical-spacer small">
+	               <a href="#" data-deactivate="#confirm-delete-4" class="form-button secondary">Cancel</a>
+	            </div>
+            </div>
+         </div>
+      </div>
+	</section>
 
    <section data-role="page" id="list-page">
       	<header data-role="header" class="display-flex display-justify-center">
       		<input id="type-list-search" type="search" class="form-input flex-stretch" data-role="none" placeholder="Seach">
       		<hr class="vertical-spacer small">
-      		<div class="flex-none">
-	      		<a href="#" data-activate="#list-add-modal">
-	      			<i class='fas icon flex-none' style="line-height: 1.45em;">&#xf002;</i>
-	      		</a>
-      		</div>
+	      	<i class='fas icon flex-none' style="line-height: 1.45em;">&#xf002;</i>
     	</header>
       <div data-role="main">
       		<div class="overscrow">
@@ -272,28 +418,24 @@
 		            	</a>
 		            </li>
 		        </ul>
-
-		        <a href="#type-add-page"class="floating-button display-flex flex-align-center flex-justify-center">
-		        	<i class='fas icon'>&#xf067;</i>
-		        </a>
 	        </div>
+	        <a href="#type-add-page"class="button-circle floater bottom right">
+		        <i class='fas icon'>&#xf067;</i>
+		    </a>
       </div>
       <footer data-role="footer">
-         <ul>
-            <li><a href="#recent-page">Recent</a></li>
-            <li><a href="#list-page">List</a></li>
-            <li><a href="#user-profile-page">Profile</a></li>
+         <ul class="footer-nav">
+            <li>
+            	<a href="#recent-page"><i class='fas icon medium'>&#xf1da;</i><p>Recent</p></a>
+            </li>
+            <li>
+            	<a href="#list-page"><i class='fas icon medium'>&#xf0ca;</i><p>List</p></a>
+            </li>
+            <li>
+            	<a href="#user-profile-page"><i class='fas icon medium'>&#xf2bd;</i><p>Profile</p></a>
+            </li>
          </ul>
       </footer>
-
-      <div class="modal" id="list-add-modal">
-         <div class="modal-back" data-deactivate="#list-add-modal"></div>
-         <div class="modal-popup">
-            <div class="modal-head">head</div>
-            <div class="modal-body">body</div>
-            <div class="modal-foot">foot</div>
-         </div>
-      </div>
    </section>
 
    <section data-role="page" id="type-add-page">
@@ -301,7 +443,7 @@
 			<ul>
 				<li>
 					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="back-button">Back</span>
+						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
 					</a>
 				</li>
 			</ul>
@@ -325,12 +467,8 @@
 	               <label for="add-classification" class="form-label">Classification</label>
 	               <input id="add-classification" type="text" class="form-input" data-role="none">
 	            </div>
-	            <div class="form-control">
-	               <label for="add-note" class="form-label">Note</label>
-	               <textarea id="add-note" data-role="none" class="form-input"></textarea>
-	            </div>
 	            <div class="form-control display-flex">
-	               <a href="#" data-rel="back" class="form-button">Confirm</a>
+	               <a href="#" data-rel="back" class="form-button">Add</a>
 	               <hr class="vertical-spacer small">
 	               <a href="#" data-rel="back" class="form-button secondary">Cancel</a>
 	            </div>
@@ -341,9 +479,14 @@
 	<section data-role="page" id="type-profile-page">
 		<header data-role="header">
 			<ul>
-				<li>
+				<li class="flex-stretch">
 					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="back-button">Back</span>
+						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+					</a>
+				</li>
+				<li class="flex-none">
+					<a href="#" data-activate="#confirm-delete" class="nav-link">
+						<span class="topnav-button">Delete</span>
 					</a>
 				</li>
 			</ul>
@@ -358,29 +501,61 @@
 	        	<h2>Type Name</h2>
         	</div>
 
-        	<ul class="display-flex flex-column flex-align-center">
+        	<ul class="text-centered">
         		<li><strong>Classification</strong>: N/A</li>
         		<li><strong>Number Spotted</strong>: 0</li>
         		<li><strong>Last Spotted</strong>: N/A</li>
-        		<li><strong>Note</strong>: N/A</li>
         	</ul>
 
-        	<hr class="spacer small">
+        	<hr class="spacer">
 
-        	<div class="map"></div>
+        	<div class="map">
+        		<div class="location-icon">
+		      		<a href="#location-page"><img src="images/Location Icon.png" alt="Location Icon"></a>
+		      	</div>
+		      	<div class="location-icon add">
+		      		<a href="#location-add-page"><img src="images/Location Add.png" alt="Location Add Icon"></a>
+		      	</div>
+        	</div>
 
-        	<a href="#type-edit-page"class="floating-button display-flex flex-align-center flex-justify-center">
+        	<a href="#type-edit-page"class="button-circle floater bottom right">
         		<i class='fas icon'>&#xf304;</i>
         	</a>
 		</div>
+
+		<div class="modal" id="confirm-delete">
+         <div class="modal-back" data-deactivate="#confirm-delete"></div>
+         <div class="modal-popup">
+            <div class="modal-body">
+            	<div class="display-flex flex-column flex-align-center">
+	            	<div class="icon">
+	            		<img src="images/Cancel Icon.png">
+	            	</div>
+	            	<h3>Are you sure?</h3>
+            		<span class="text-centered">Do you really want to delete this? This action cannot be done.</span>
+	            </div>
+            	<hr class="spacer">
+            	<div class="display-flex">
+	               <a href="#list-page" data-deactivate="#confirm-delete" class="form-button">Delete</a>
+	               <hr class="vertical-spacer small">
+	               <a href="#" data-deactivate="#confirm-delete" class="form-button secondary">Cancel</a>
+	            </div>
+            </div>
+         </div>
+      </div>
 	</section>
 
 	<section data-role="page" id="type-edit-page">
 		<header data-role="header">
 			<ul>
-				<li>
+				<li class="flex-stretch">
 					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="back-button">Back</span>
+						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+					</a>
+				</li>
+				<li class="flex-none">
+					<a href="#" data-activate="#confirm-delete-2" class="nav-link">
+						<span class="topnav-button">Delete</span>
 					</a>
 				</li>
 			</ul>
@@ -398,15 +573,11 @@
         	<form id="edit-type-form" class="flex-stretch content active" data-ajax="false">
 	            <div class="form-control">
 	               <label for="edit-type-name" class="form-label">Type Name</label>
-	               <input id="edit-type-name" type="text" class="form-input" data-role="none">
+	               <input id="edit-type-name" type="text" class="form-input" data-role="none" value="Type Name">
 	            </div>
 	            <div class="form-control">
 	               <label for="edit-classification" class="form-label">Classification</label>
-	               <input id="edit-classification" type="text" class="form-input" data-role="none">
-	            </div>
-	            <div class="form-control">
-	               <label for="edit-note" class="form-label">Note</label>
-	               <textarea id="edit-note" data-role="none" class="form-input"></textarea>
+	               <input id="edit-classification" type="text" class="form-input" data-role="none" value="N/A">
 	            </div>
 	            <div class="form-control display-flex">
 	               <a href="#" data-rel="back" class="form-button">Confirm</a>
@@ -415,6 +586,27 @@
 	            </div>
 		    </form>
 		</div>
+
+		<div class="modal" id="confirm-delete-2">
+         <div class="modal-back" data-deactivate="#confirm-delete-2"></div>
+         <div class="modal-popup">
+            <div class="modal-body">
+            	<div class="display-flex flex-column flex-align-center">
+	            	<div class="icon">
+	            		<img src="images/Cancel Icon.png">
+	            	</div>
+	            	<h3>Are you sure?</h3>
+            		<span class="text-centered">Do you really want to delete this? This action cannot be done.</span>
+	            </div>
+            	<hr class="spacer">
+            	<div class="display-flex">
+	               <a href="#list-page" data-deactivate="#confirm-delete-2" class="form-button">Delete</a>
+	               <hr class="vertical-spacer small">
+	               <a href="#" data-deactivate="#confirm-delete-2" class="form-button secondary">Cancel</a>
+	            </div>
+            </div>
+         </div>
+      </div>
 	</section>
 
 	<section data-role="page" id="user-profile-page">
@@ -425,30 +617,39 @@
 	        			<img src="images/User Icon.png">
 	        		</div>
 	        	</a>
-	        	<h2>Username</h2>
+	        	<h2>Adam Apple</h2>
         	</div>
   	 	</header>
 		<div data-role="main" class="page-side-padding">
-        	<ul class="display-flex flex-column flex-align-center">
-        		<li><strong>Email</strong>: user@gmail.com</li>
+        	<ul class="text-centered description">
+        		<li><strong>Username</strong>: adam101</li>
+        		<li><strong>Email</strong>: adam101@gmail.com</li>
         		<li><strong>Phone</strong>: (000) 000-0000</li>
-        		<li><strong>Password</strong>: *******</li>
         	</ul>
 
-        	<hr class="spacer large">
+			<div class="form-control display-flex flex-column flex-align-center">
+				<div class="signin-alt">
+		        	<a href="#password-edit-page">Update Password</a>
+		        </div>
+        		<a href="#" class="form-button half secondary js-logout">Logout</a>
+        	</div>
 
-        	<p><a href="#" class="form-button js-logout">Logout</a></p>
-
-        	<a href="#user-edit-page"class="floating-button display-flex flex-align-center flex-justify-center">
+        	<a href="#user-edit-page"class="button-circle floater bottom right">
         		<i class='fas icon'>&#xf304;</i>
         	</a>
 		</div>
 
 		<footer data-role="footer">
-         <ul>
-            <li><a href="#recent-page">Recent</a></li>
-            <li><a href="#list-page">List</a></li>
-            <li><a href="#user-profile-page">Profile</a></li>
+         <ul class="footer-nav">
+            <li>
+            	<a href="#recent-page"><i class='fas icon medium'>&#xf1da;</i><p>Recent</p></a>
+            </li>
+            <li>
+            	<a href="#list-page"><i class='fas icon medium'>&#xf0ca;</i><p>List</p></a>
+            </li>
+            <li>
+            	<a href="#user-profile-page"><i class='fas icon medium'>&#xf2bd;</i><p>Profile</p></a>
+            </li>
          </ul>
       </footer>
    </section>
@@ -458,7 +659,7 @@
 			<ul>
 				<li>
 					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="back-button">Back</span>
+						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
 					</a>
 				</li>
 			</ul>
@@ -476,16 +677,41 @@
         	<form id="edit-user-form" class="flex-stretch content active" data-ajax="false">
 	            <div class="form-control">
 	               <label for="edit-username" class="form-label">User Name</label>
-	               <input id="edit-username" type="text" class="form-input" data-role="none">
+	               <input id="edit-username" type="text" class="form-input" data-role="none" value="adam101">
+	            </div>
+	            <div class="form-control">
+	               <label for="edit-full-name" class="form-label">Full Name</label>
+	               <input id="edit-full-name" type="text" class="form-input" data-role="none" value="Adam Apple">
 	            </div>
 	            <div class="form-control">
 	               <label for="edit-email" class="form-label">Email</label>
-	               <input id="edit-email" type="text" class="form-input" data-role="none">
+	               <input id="edit-email" type="text" class="form-input" data-role="none" value="user@gmail.com">
 	            </div>
 	            <div class="form-control">
 	               <label for="edit-phone" class="form-label">Phone</label>
-	               <input id="edit-phone" type="text" class="form-input" data-role="none">
+	               <input id="edit-phone" type="text" class="form-input" data-role="none" value="(000) 000-0000">
 	            </div>
+	            <div class="form-control display-flex">
+	               <a href="#" data-rel="back" class="form-button">Confirm</a>
+	               <hr class="vertical-spacer small">
+	               <a href="#" data-rel="back" class="form-button secondary">Cancel</a>
+	            </div>
+		    </form>
+		</div>
+	</section>
+
+	<section data-role="page" id="password-edit-page">
+		<header data-role="header">
+			<ul>
+				<li>
+					<a href="#" data-rel="back" class="nav-link">
+						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+					</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main" class="page-side-padding page-top-padding">
+        	<form id="edit-user-form" class="flex-stretch content active" data-ajax="false">
 	            <div class="form-control">
 	               <label for="old-password" class="form-label">Old Password</label>
 	               <input id="old-password" type="text" class="form-input" data-role="none">
