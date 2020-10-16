@@ -1,8 +1,22 @@
 //Document Ready
 
+const makeWarning = (target,message) => {
+   $(target).addClass("active")
+      .find(".message").html(message);
+   setTimeout(()=>{
+      $(target).removeClass("active")
+   },2000);
+}
+
 const checkSigninForm = () => {
    let user = $("#signin-username").val();
    let pass = $("#signin-password").val();
+
+   console.log(user,pass)
+   if(user=="" || pass=="") {
+      makeWarning("#warning-modal","Please type in a username and password.");
+      return;
+   }
 
    if(user == 'user' && pass == 'pass') {
       // logged in
@@ -11,10 +25,11 @@ const checkSigninForm = () => {
       $("#signin-form")[0].reset();
    } else {
       // not logged in
-      console.log('failure');
+       console.log('failure');
       sessionStorage.removeItem('userId');
-      $(".signin-error").addClass("active");
-      // Assignment: What happens if users fail logging in
+
+      // DO SOMETHING HERE
+      makeWarning("#warning-modal","Incorrect username or password. Please try again.");
    }
 
    checkUserId();

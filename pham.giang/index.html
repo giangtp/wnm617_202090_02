@@ -36,7 +36,7 @@
 	<section data-role="page" id="signin-page">
       <div data-role="main" class="display-flex flex-align-center flex-justify-center flex-column">
       	 <div class="logo">
-            <img src="images/logo-neutral.png" alt="logo">
+            <img src="images/logo-white.png" alt="logo">
          </div>
 
          <div class="tabgroup">
@@ -58,12 +58,8 @@
 		            <div class="form-control">
 		               <input type="submit" class="form-button secondary" value="Sign In" data-role="none">
 		            </div>
-		            <div class="form-control signin-alt">
+		            <div class="signin-alt">
 		               <a href="#">Forgot your username or password?</a>
-		            </div>
-		            <div class='form-control signin-error'>
-		            	<i class='fas icon small flex-none'>&#xf06a;</i> 
-		            	<span>Incorrect username or password. Please try again</span>
 		            </div>
 		        </form>
 
@@ -88,51 +84,58 @@
 		               <a href="#recent-page" class="form-button secondary ui-link">Sign Up</a>
 		            </div>
 				</form>
+
+				<div class="modal" id="warning-modal">
+			      <div class="modal-toast bottom" data-deactivate="#warning-modal">
+			      	<i class='fas icon small flex-none' style="color: var(--color-main);">&#xf06a;</i> 
+					<span class="message">Message</span>
+			      </div>
+			  	</div>
 			</div>
 		</div>
    </section>
 
    <section data-role="page" id="recent-page">
       <div data-role="main">
-      	<div class="overscrow">
-	      	<ul class="recent-list display-inline-flex">
-	      		<li>
-	      			<a href="#">
-		            	<div class="image-circle image-border recent-list-image">
-	            			<img src="images/Helvetica Icon.png">
-	            		</div> 
-		            </a>
-	      		</li>
-	      		<li>
-	      			<a href="#">
-		            	<div class="image-circle image-border recent-list-image">
-	            			<img src="images/Bodoni Icon.png">
-	            		</div> 
-		            </a>
-	      		</li>
-	      		<li>
-	      			<a href="#">
-		            	<div class="image-circle image-border recent-list-image">
-	            			<img src="images/Futura Icon.png">
-	            		</div> 
-		            </a>
-	      		</li>
-	      		<li>
-	      			<a href="#">
-		            	<div class="image-circle image-border recent-list-image">
-	            			<img src="images/Times Icon.png">
-	            		</div> 
-		            </a>
-	      		</li>
-	      		<li>
-	      			<a href="#">
-		            	<div class="image-circle image-border recent-list-image">
-	            			<img src="images/Bebas Icon.png">
-	            		</div> 
-		            </a>
-	      		</li>
-	      	</ul>
-      	</div>
+      	<ul class="recent-list display-inline-flex" data-deactivate=".add">
+      		<li>
+      			<a href="#">
+	            	<div class="image-circle image-border recent-list-image">
+            			<img src="images/Helvetica Icon.png">
+            		</div> 
+	            </a>
+      		</li>
+      		<li>
+      			<a href="#">
+	            	<div class="image-circle image-border recent-list-image">
+            			<img src="images/Bodoni Icon.png">
+            		</div> 
+	            </a>
+      		</li>
+      		<li>
+      			<a href="#">
+	            	<div class="image-circle image-border recent-list-image">
+            			<img src="images/Futura Icon.png">
+            		</div> 
+	            </a>
+      		</li>
+      		<li>
+      			<a href="#">
+	            	<div class="image-circle image-border recent-list-image">
+            			<img src="images/Times Icon.png">
+            		</div> 
+	            </a>
+      		</li>
+      		<li>
+      			<a href="#">
+	            	<div class="image-circle image-border recent-list-image">
+            			<img src="images/Bebas Icon.png">
+            		</div> 
+	            </a>
+      		</li>
+      	</ul>
+      	<div data-activate=".add" style="height: 100%;"></div>
+
       	<div class="location-icon">
       		<a href="#location-page"><img src="images/Location Icon.png" alt="Location Icon"></a>
       	</div>
@@ -140,23 +143,11 @@
       		<a href="#location-add-page"><img src="images/Location Add.png" alt="Location Add Icon"></a>
       	</div>
       </div>
-      <footer data-role="footer">
-         <ul class="footer-nav">
-            <li>
-            	<a href="#recent-page"><i class='fas icon medium'>&#xf1da;</i><p>Recent</p></a>
-            </li>
-            <li>
-            	<a href="#list-page"><i class='fas icon medium'>&#xf0ca;</i><p>List</p></a>
-            </li>
-            <li>
-            	<a href="#user-profile-page"><i class='fas icon medium'>&#xf2bd;</i><p>Profile</p></a>
-            </li>
-         </ul>
-      </footer>
+      <footer data-role="footer" data-template="#footer-template"></footer>
    </section>
 
 
-   <section data-role="page" id="location-add-page">
+   <section data-role="page" id="location-add-page" data-deactivate=".add">
 		<header data-role="header">
 			<ul>
 				<li>
@@ -220,23 +211,23 @@
 		</header>
 
 		<div data-role="main">	
-			<div class="overscrow">	
-		        <div class="location-image">
-		        	<img src="images/helvetica-location-1.jpg" alt="">
-		        </div>
-
-	        	<div class="page-side-padding page-top-padding">
-		        	<ul class="info">
-		        		<li><strong>Date Spotted</strong>: 10/10/2020</li>
-		        		<li><strong>Application</strong>: Sign</li>
-		        		<li><strong>Note</strong>: Strikingly stark with interesting texture. How everything is all lowercase gives it a lot of personality. Really well-aligned. The tiny almost-touching spaces at the top of the d and the h's ascenders are kinda genius.</li>
-		        	</ul>
+	        <div class="overscroll">
+	        	<div class="location-image">
+	        		<img src="images/helvetica-location-1.jpg" alt="">
 	        	</div>
-
+	        	
+	        	<div class="page-side-padding page-top-padding">
+	        		<ul class="info">
+	        			<li><strong>Date Spotted</strong>: 10/10/2020</li>
+	        			<li><strong>Application</strong>: Sign</li>
+	        			<li><strong>Note</strong>: Strikingly stark with interesting texture. How everything is all lowercase gives it a lot of personality. Really well-aligned. The tiny almost-touching spaces at the top of the d and the h's ascenders are kinda genius.</li>
+	        		</ul>
+	    		</div>
+	
 	        	<a href="#location-edit-page"class="button-circle floater bottom right">
 	        		<i class='fas icon'>&#xf304;</i>
 	        	</a>
-        	</div>
+	        </div>
 		</div>
 	</section>
 
@@ -300,7 +291,7 @@
 	      	<i class='fas icon flex-none' style="line-height: 1.45em;">&#xf002;</i>
     	</header>
       <div data-role="main">
-      		<div class="overscrow">
+      		<div class="overscroll">
 		      	<ul class="type-list">
 		         	<!-- li*10>a[href=#type-profile-page]{type $} -->
 		            <li>
@@ -389,19 +380,7 @@
 		        <i class='fas icon'>&#xf067;</i>
 		    </a>
       </div>
-      <footer data-role="footer">
-         <ul class="footer-nav">
-            <li>
-            	<a href="#recent-page"><i class='fas icon medium'>&#xf1da;</i><p>Recent</p></a>
-            </li>
-            <li>
-            	<a href="#list-page"><i class='fas icon medium'>&#xf0ca;</i><p>List</p></a>
-            </li>
-            <li>
-            	<a href="#user-profile-page"><i class='fas icon medium'>&#xf2bd;</i><p>Profile</p></a>
-            </li>
-         </ul>
-      </footer>
+      <footer data-role="footer" data-template="#footer-template"></footer>
    </section>
 
    <section data-role="page" id="type-add-page">
@@ -433,6 +412,10 @@
 	               <label for="add-type-name" class="form-label">Type Name</label>
 	               <input id="add-type-name" type="text" class="form-input" data-role="none">
 	            </div>
+	             <div class="form-control">
+	               <label for="add-category" class="form-label">Category</label>
+	               <input id="add-category" type="text" class="form-input" data-role="none">
+	            </div>
 	            <div class="form-control">
 	               <label for="add-classification" class="form-label">Classification</label>
 	               <input id="add-classification" type="text" class="form-input" data-role="none">
@@ -462,8 +445,8 @@
 			</ul>
 		</header>
 		<div data-role="main">
-			<div class="overscrow page-side-padding page-top-padding">
-				<div class="display-flex flex-align-center flex-column">
+			<div class="overscroll page-side-padding page-top-padding">
+				<div class="scroll-scale display-flex flex-align-center flex-column">
 		        	<a href="#type-edit-page">
 		        		<div class="image-circle profile-image">
 		        			<img src="images/Helvetica Icon.png">
@@ -472,21 +455,24 @@
 		        	<h2>Helvetica</h2>
 	        	</div>
 
-	        	<ul class="text-centered">
-	        		<li><strong>Classification</strong>: San-serif</li>
-	        		<li><strong>Number Spotted</strong>: 1</li>
-	        		<li><strong>Last Spotted</strong>: 10/10/2020</li>
-	        	</ul>
-
 	        	<hr class="spacer small">
 
-	        	<div class="map">
-	        		<div class="location-icon">
-			      		<a href="#location-page"><img src="images/Location Icon.png" alt="Location Icon"></a>
-			      	</div>
-			      	<div class="location-icon add">
-			      		<a href="#location-add-page"><img src="images/Location Add.png" alt="Location Add Icon"></a>
-			      	</div>
+	        	<div class="info">
+	        		<ul class="text-centered">
+	        			<li><strong>Category</strong>: San-serif</li>
+	        			<li><strong>Classification</strong>: Neo-grotesque</li>
+	        			<li><strong>Number Spotted</strong>: 1</li>
+	        			<li><strong>Last Spotted</strong>: 10/10/2020</li>
+	        		</ul>
+	        		
+	        		<div class="map" data-activate=".add">
+	        			<div class="location-icon">
+				      		<a href="#location-page"><img src="images/Location Icon.png" alt="Location Icon"></a>
+				      	</div>
+				      	<div class="location-icon add">
+				      		<a href="#location-add-page"><img src="images/Location Add.png" alt="Location Add Icon"></a>
+				      	</div>
+	        		</div>
 	        	</div>
 
 	        	<a href="#type-edit-page"class="button-circle floater bottom right">
@@ -532,8 +518,12 @@
 	               <input id="edit-type-name" type="text" class="form-input" data-role="none" value="Helvetica">
 	            </div>
 	            <div class="form-control">
+	               <label for="edit-category" class="form-label">Category</label>
+	               <input id="edit-category" type="text" class="form-input" data-role="none" value="San-serif">
+	            </div>
+	            <div class="form-control">
 	               <label for="edit-classification" class="form-label">Classification</label>
-	               <input id="edit-classification" type="text" class="form-input" data-role="none" value="San-serif">
+	               <input id="edit-classification" type="text" class="form-input" data-role="none" value="Neo-grotesque">
 	            </div>
 	            <div class="form-control display-flex">
 	               <a href="#" data-rel="back" class="form-button">Confirm</a>
@@ -545,7 +535,7 @@
 	</section>
 
 	<section data-role="page" id="user-profile-page">
-  	 	<header data-role="header" class="user-prodile-header">
+  	 	<header data-role="header" class="user-profile-header">
   	 		<div class="display-flex flex-align-center flex-column">
 	        	<a href="#user-edit-page">
 	        		<div class="image-circle profile-image">
@@ -567,19 +557,7 @@
         	</a>
 		</div>
 
-		<footer data-role="footer">
-         <ul class="footer-nav">
-            <li>
-            	<a href="#recent-page"><i class='fas icon medium'>&#xf1da;</i><p>Recent</p></a>
-            </li>
-            <li>
-            	<a href="#list-page"><i class='fas icon medium'>&#xf0ca;</i><p>List</p></a>
-            </li>
-            <li>
-            	<a href="#user-profile-page"><i class='fas icon medium'>&#xf2bd;</i><p>Profile</p></a>
-            </li>
-         </ul>
-      </footer>
+		<footer data-role="footer" data-template="#footer-template"></footer>
 
       <div class="modal" id="setting-modal">
          <div class="modal-back" data-deactivate="#setting-modal"></div>
@@ -697,6 +675,20 @@
             </div>
          </div>
      </div>
+
+   <script type="text/template" id="footer-template">
+   <ul class="footer-nav" data-deactivate=".add">
+       <li>
+       	<a href="#recent-page" id="recent-nav"><i class='fas icon medium'>&#xf1da;</i><p>Recent</p></a>
+       </li>
+       <li>
+       	<a href="#list-page" id="list-nav"><i class='fas icon medium'>&#xf0ca;</i><p>List</p></a>
+       </li>
+       <li>
+       	<a href="#user-profile-page" id="profile-nav"><i class='fas icon medium'>&#xf2bd;</i><p>Profile</p></a>
+       </li>
+    </ul>
+   </script>
 
 </body>
 </html>
