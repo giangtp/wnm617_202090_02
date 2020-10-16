@@ -302,7 +302,7 @@ a.nav-link{
 
 .tabgroup{
 	width: 100%;
-	padding:1em 2em;
+	padding:0 2em;
 }
 
 .tabgroup .tabs {
@@ -524,7 +524,7 @@ section#user-profile-page a#profile-nav {
 /* IMAGES */
 
 .logo {
-	width: 4em;
+	width: 7em;
 }
 
 .icon img{
