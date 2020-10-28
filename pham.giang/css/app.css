@@ -234,12 +234,12 @@ textarea {
 
 .ui-footer{
 	color: var(--color-neutral-medium);
-	padding: 0.7em 0;
+	padding: 0.6em 0;
 }
 
 .ui-header{
 	background-color:var(--color-main);
-	padding: 1em 1.5em;
+	padding: 0.7em 1.5em;
 	background: linear-gradient(90deg, rgba(225,76,86,1) 0%, rgba(248,162,86,1) 100%);
 	color: var(--color-white);
 }
@@ -516,7 +516,7 @@ section#user-profile-page a#profile-nav {
 
 .footer-nav p{
 	margin: 0;
-	font-size: 0.9em;
+	font-size: 0.8em;
 }
 
 
@@ -539,6 +539,9 @@ section#user-profile-page a#profile-nav {
 	}
 	.icon.small{
 		font-size: 1em;
+	}
+	.icon.XM{
+		font-size: 1.15em;
 	}
 	.icon.medium{
 		font-size: 1.3em;
@@ -677,7 +680,7 @@ section#user-profile-page a#profile-nav {
 /* RECENT PAGE */
 
 #recent-page [data-role='main'] {
-   background-image:url(../images/map.png);
+   background-image:url(../images/map.jpg);
    background-position:center;
    background-size:cover;
 }
@@ -701,7 +704,7 @@ section#user-profile-page a#profile-nav {
 
 .map{
 	height: 30vh;
-	background-image: url(../images/map.png);
+	background-image: url(../images/map.jpg);
 	background-position:center;
 	background-size:cover;
 	position: relative;
