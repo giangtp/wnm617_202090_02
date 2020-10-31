@@ -14,8 +14,12 @@
       return this.username + '@gmail.com';
     },
     password: 'md5(pass)',
-    
-    
+    phone: '{{phone()}}',
+
+    types_spot: '{{integer(1, 15)}}',
+    locations_spot: function(tags){
+      return this.types_spot * Math.floor((Math.random() * 3) + 1);
+    },
     
     
     img: function(tags) {
@@ -23,40 +27,71 @@
         tags.integer (700, 999) +
         '/fff/?text=' +
         this.username;
-    },
-    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
+    }
   }
 ]
 
 
-//ANIMAL TEMPLATE (track_animals)
+//TYPE TEMPLATE (track_types)
 [
   '{{repeat(50)}}',
   {
     id: '{{index(1)}}',
     user_id: '{{integer(1, 10)}}',
-    name: '{{company()}}',
+    name: '{{random("Times", "Helvetica", "Cambria", "Georgia", "Arial", "Open Sans", "Futura", "Garamond", "Bodoni", "Didot", "Gotham", "Frutiger", "Sabon", "Gill Sans", "Baskerville", "Avenir", "Univers", "Trajan", "Franklin Gothic", "Clarendon", "Goudy", "Rockwell", "Myriad", "Minion", "Mrs Eaves", "Proxima Nova", "Gibson", "Century Gothic", "Neutra Text", "DIN", "Avant Garde", "Montserrat", "Palatino", "Verdana", "Caslon", "Roboto", "Raleway", "Lato", "Akzidenz-Grotesk", "Bembo", "Optima", "Courier", "Noto Sans", "Interstate", "Adelle", "Hoefler", "Calibri", "Meta", "Lucida Sans", "VAG Rounded")}}',
     
-    type: '{{random("dog", "horse", "cat")}}',
-    breed: function(tags) {
-      var breeds = {
-        "dog":["shiba", "yorkie", "dachshund", "yorkie"],
-        "horse":["shetland", "andalusia", "unicorn"],
-        "cat": ["calico", "ginger", "jellicle", "tuxedo"]
-      };
-      var chosen_type = breeds[this.type];
-      var chosen_index = tags.integer(0, chosen_type.length-1);
-      return chosen_type[chosen_index];
+    category: function(tags){
+      var serif = ['Times', 'Baskerville', 'Mrs Eaves', 'Cambria', 'Georgia', 'Garamond', 'Bodoni', 'Didot', 'Sabon', 'Trajan', 'Clarendon', 'Goudy', 'Minion', 'Palatino', 'Caslon', 'Bembo', 'Courier', 'Rockwell', 'Adelle', 'Hoefler'];
+      if (serif.includes(this.name)) {
+        return "Serif";
+      }
+      else {return "Sans Serif";}
     },
-    
-    description: '{{lorem(3, "sentences)}}', 
+
+    classification: function(tags) {
+      
+      //Serifs
+      var transitional = ['Times', 'Baskerville', 'Mrs Eaves', 'Cambria', 'Georgia'];
+      var old_style = ['Garamond', 'Sabon', 'Goudy', 'Minion', 'Palatino', 'Caslon', 'Bembo', 'Hoefler'];
+      var didone = ['Bodoni', 'Didot'];
+      var slab_serif = ['Clarendon', 'Courier', 'Rockwell', 'Adelle'];
+
+      //Sans-Serifs
+      var neo_grotesque = ['Helvetica', 'Arial', 'Univers', 'Roboto', 'Raleway', 'Interstate'];
+      var humanist = ['Open Sans', 'Frutiger', 'Gill Sans', 'Myriad', 'Gibson', 'Lato', 'Verdana', 'Meta', 'Lucida Sans', 'Calibri', 'Noto Sans', 'Optima'];
+      var geometric = ['Futura', 'Avenir', 'Gotham', 'Century Gothic', 'Avant Garde', 'VAG Rounded', 'Neutra Text', 'VAG Rounded', 'Montserrat', 'Proxima Nova'];
+      var grotesque = ['Franklin Gothic', 'Akzidenz-Grotesk', 'DIN'];
+
+      if (transitional.includes(this.name)){
+        return "Transitional";
+      } else if (old_style.includes(this.name)){
+        return "Old-Style";
+      } else if (didone.includes(this.name)){
+        return "Didone";
+      } else if (slab_serif.includes(this.name)){
+        return "Slab Serif";
+      } else if (neo_grotesque.includes(this.name)){
+        return "Neo-Grotesque";
+      } else if (humanist.includes(this.name)){
+        return "Humanist";
+      } else if (geometric.includes(this.name)){
+        return "Geometric";
+      } else if (grotesque.includes(this.name)){
+        return "Grotesque";
+      } else { 
+        return "Display Serif";
+      }
+    },
+
     img: function(tags) {
-      return 'https://via.placeholder.com/400/' + 
-        tags.integer (700, 999) +
+      return 'https://via.placeholder.com/400/' +
+        tags.integer(700,999) +
         '/fff/?text=' +
         this.name;
     },
-    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
+    number_spot: '{{integer(1, 20)}}',
+    last_spot: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd")}}'
+
   }
 ]
 
@@ -66,21 +101,23 @@
   '{{repeat(250)}}',
   {
     id: '{{index(1)}}',
-    animal_id: '{{integer(1, 50)}}',
+    type_id: '{{integer(1, 50)}}',
 
     lat: '{{floating(37.794437,37.604999)}}',
     lng: '{{floating(-122.518907,-122.513602)}}',
     
-    description: '{{lorem(3, "sentences)}}', 
+    note: '{{lorem(3, "sentences")}}', 
     img: function(tags) {
       return 'https://via.placeholder.com/400/' + 
         tags.integer (700, 999) +
-        '/fff/?text=' +
-        this.name;
+        '/fff/?text=' + 'location' +
+        this.id;
     },
-    icon: 'https//via.placeholder.com/100/?text=ICON',
+    icon: 'images/Location Icon.png',
+
+    application: '{{random("poster", "packaging", "sign", "digital ad", "billboard", "book cover")}}',
     
-    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
+    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd")}}'
   }
 ]
 
@@ -130,3 +167,14 @@
     }
   }
 ]
+
+   /* breed: function(tags) {
+      var breeds = {
+        "dog":["shiba", "yorkie", "dachshund", "yorkie"],
+        "horse":["shetland", "andalusia", "unicorn"],
+        "cat": ["calico", "ginger", "jellicle", "tuxedo"]
+      };
+      var chosen_type = breeds[this.type];
+      var chosen_index = tags.integer(0, chosen_type.length-1);
+      return chosen_type[chosen_index];
+    },*/

@@ -50,8 +50,8 @@ function makeQuery($c,$ps,$p) {
 echo json_encode(
    makeQuery(
       makeConn(),
-      "SELECT * FROM track_animals WHERE type = ? AND breed = ?",
-      ['cat','calico']
+      "SELECT * FROM track_types WHERE category = ? AND classification = ?",
+      ['Serif','Transitional']
    ),
    JSON_NUMERIC_CHECK
 );
