@@ -47,6 +47,41 @@ function makeQuery($c,$ps,$p) {
    }
 }
 
+function makeStatement($data){
+	$c = makeConn();
+	$t = @$data->type;
+	$p = @$data->params;
+
+	switch($t){
+		case "users_all":
+			return makeQuery($c, SELECT * FROM track_users,[]);
+		case "types_all":
+			return makeQuery($c, SELECT * FROM track_types,[]);
+		case "locations_all":
+			return makeQuery($c, SELECT * FROM track_locations,[]);
+
+		case "user_by_id":
+        return makeQuery($c,"SELECT * FROM track_users WHERE id = ?",$p);
+      	case "type_by_id":
+        return makeQuery($c,"SELECT * FROM track_types WHERE id = ?",$p);
+      	case "location_by_id":
+        return makeQuery($c,"SELECT * FROM track_locations WHERE id = ?",$p);
+
+
+     	case "types_by_user_id":
+        return makeQuery($c,"SELECT * FROM track_types WHERE user_id = ?",$p);
+     	case "locations_by_type_id":
+        return makeQuery($c,"SELECT * FROM track_locations WHERE type_id = ?",$p);
+
+        case "check_signin":
+        return makeQuery($c,"SELECT * FROM track_users WHERE username = ? AND password = md5(?)",$p);
+
+		default: return("error"=>"No Matched Type");
+	}
+}
+
+$data = json_decode(file_get_contents("php://input"));
+
 echo json_encode(
    makeQuery(
       makeConn(),
