@@ -7,16 +7,14 @@
 } */
 
 const makeTypeList = templater((o)=>`
-<a href="#type-profile-page" class="typelist-item">
-   <div class="typelist-image">
-      <img src="${o.img}" alt="">
-   </div>
-   <div class="typellist-description">
-      <div class="typellist-name">${o.name}</div>
-      <div class="typelist-type"><strong>type</strong> ${o.category}</div>
-      <div class="typelist-breed"><strong>breed</strong> ${o.classification}</div>
-   </div>
-</a>
+<li>
+	<a href="#type-profile-page" class="display-flex flex-align-center">
+		<div class="image-circle listing-image">
+			<img src="${o.img}">
+		</div>
+		<h3>${o.name}</h3>
+	</a>
+</li>
 `);
 
 const makeUserProfile = templater(o=>`
