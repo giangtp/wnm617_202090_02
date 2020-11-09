@@ -14,6 +14,7 @@ $(()=>{
          case 'recent-page': RecentPage(); break;
          case 'list-page': ListPage(); break;
          case 'user-profile-page': UserProfilePage(); break;
+         case 'type-profile-page': TypeProfilePage(); break;
       }
    })
 
@@ -32,6 +33,11 @@ $(()=>{
    .on("click",".js-logout",function(e){
       sessionStorage.removeItem('userId');
       checkUserId();
+   })
+
+   .on("click",".js-type-jump",function(e){
+      sessionStorage.typeId = $(this).data("id");
+      $.mobile.navigate("#type-profile-page");
    })
 
 

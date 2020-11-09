@@ -54,11 +54,11 @@ function makeStatement($data){
 
 	switch($t){
 		case "users_all":
-			return makeQuery($c, SELECT * FROM track_users,[]);
+			return makeQuery($c, "SELECT * FROM track_users",[]);
 		case "types_all":
-			return makeQuery($c, SELECT * FROM track_types,[]);
+			return makeQuery($c, "SELECT * FROM track_types",[]);
 		case "locations_all":
-			return makeQuery($c, SELECT * FROM track_locations,[]);
+			return makeQuery($c, "SELECT * FROM track_locations",[]);
 
 		case "user_by_id":
         return makeQuery($c,"SELECT * FROM track_users WHERE id = ?",$p);
@@ -76,17 +76,26 @@ function makeStatement($data){
         case "check_signin":
         return makeQuery($c,"SELECT * FROM track_users WHERE username = ? AND password = md5(?)",$p);
 
-		default: return("error"=>"No Matched Type");
+        case "recent_locations":
+        return makeQuery($c,"
+        	SELECT * 
+        	FROM `track_types` t
+        	INNER JOIN (
+        		SELECT type_id, MAX(date_create) as date_create, lat, lng, icon
+        		FROM `track_locations`
+        		GROUP BY type_id
+        	) l
+        	ON t.id = l.type_id
+        	WHERE t.user_id = ?
+        ",$p);
+
+		default: return ["error"=>"No Matched type"];
 	}
 }
 
 $data = json_decode(file_get_contents("php://input"));
 
 echo json_encode(
-   makeQuery(
-      makeConn(),
-      "SELECT * FROM track_types WHERE category = ? AND classification = ?",
-      ['Serif','Transitional']
-   ),
+   makeStatement($data),
    JSON_NUMERIC_CHECK
 );

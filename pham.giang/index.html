@@ -100,43 +100,8 @@
 
    <section data-role="page" id="recent-page">
       <div data-role="main">
-      	<ul class="recent-list display-inline-flex" data-deactivate=".add">
-      		<li>
-      			<a href="#">
-	            	<div class="image-circle image-border recent-list-image">
-            			<img src="images/Helvetica Icon.png">
-            		</div> 
-	            </a>
-      		</li>
-      		<li>
-      			<a href="#">
-	            	<div class="image-circle image-border recent-list-image">
-            			<img src="images/Bodoni Icon.png">
-            		</div> 
-	            </a>
-      		</li>
-      		<li>
-      			<a href="#">
-	            	<div class="image-circle image-border recent-list-image">
-            			<img src="images/Futura Icon.png">
-            		</div> 
-	            </a>
-      		</li>
-      		<li>
-      			<a href="#">
-	            	<div class="image-circle image-border recent-list-image">
-            			<img src="images/Times Icon.png">
-            		</div> 
-	            </a>
-      		</li>
-      		<li>
-      			<a href="#">
-	            	<div class="image-circle image-border recent-list-image">
-            			<img src="images/Bebas Icon.png">
-            		</div> 
-	            </a>
-      		</li>
-      	</ul>
+      	<ul class="recent-list display-inline-flex"></ul>
+
       	<div data-activate=".add" style="height: 100%;"></div>
 
       	<div class="location-icon">
@@ -369,39 +334,11 @@
 		</header>
 		<div data-role="main">
 			<div class="overscroll page-side-padding page-top-padding">
-				<div class="display-flex flex-align-center flex-column">
-		        	<a href="#type-edit-page">
-		        		<div class="image-circle profile-image">
-		        			<img src="images/Helvetica Icon.png">
-		        		</div>
-		        	</a>
-		        	<h2>Helvetica</h2>
-	        	</div>
-
-	        	<hr class="spacer small">
-
-	        	<div class="info">
-	        		<ul class="text-centered">
-	        			<li><strong>Category</strong>: San-serif</li>
-	        			<li><strong>Classification</strong>: Neo-grotesque</li>
-	        			<li><strong>Number Spotted</strong>: 1</li>
-	        			<li><strong>Last Spotted</strong>: 10/10/2020</li>
-	        		</ul>
-	        		
-	        		<div class="map" data-activate=".add">
-	        			<div class="location-icon">
-				      		<a href="#location-page"><img src="images/Location Icon.png" alt="Location Icon"></a>
-				      	</div>
-				      	<div class="location-icon add">
-				      		<a href="#location-add-page"><img src="images/Location Add.png" alt="Location Add Icon"></a>
-				      	</div>
-	        		</div>
-	        	</div>
-
-	        	<a href="#type-edit-page"class="button-circle floater bottom right">
-	        		<i class='fas icon'>&#xf304;</i>
-	        	</a>
+				<div class="profile"></div>
 	        </div>
+	        <a href="#type-edit-page"class="button-circle floater bottom right">
+				<i class='fas icon'>&#xf304;</i>
+			</a>
 		</div>
 	</section>
 
@@ -458,26 +395,12 @@
 	</section>
 
 	<section data-role="page" id="user-profile-page">
-  	 	<header data-role="header" class="user-profile-header">
-  	 		<div class="display-flex flex-align-center flex-column">
-	        	<a href="#user-edit-page">
-	        		<div class="image-circle profile-image">
-	        			<img src="images/Adam Apple.jpg">
-	        		</div>
-	        	</a>
-	        	<h2>Adam Apple</h2>
-        	</div>
-  	 	</header>
-		<div data-role="main" class="page-side-padding">
-        	<ul class="info">
-        		<li><strong>Username</strong>: adam101</li>
-        		<li><strong>Email</strong>: adam101@gmail.com</li>
-        		<li><strong>Phone</strong>: (123) 999-9999</li>
-        	</ul>
-
-        	<a href="#" data-activate="#setting-modal" class="button-circle floater bottom right">
-        		<i class='fas icon'>&#xf013;</i>
-        	</a>
+		<div data-role="main">
+			<div class="profile">
+			</div>
+			<a href="#" data-activate="#setting-modal" class="button-circle floater bottom right">
+				<i class='fas icon'>&#xf013;</i>
+			</a>
 		</div>
 
 		<footer data-role="footer" data-template="#footer-template"></footer>

@@ -238,7 +238,6 @@ textarea {
 }
 
 .ui-header{
-	background-color:var(--color-main);
 	padding: 0.7em 1.5em;
 	background: linear-gradient(90deg, rgba(225,76,86,1) 0%, rgba(248,162,86,1) 100%);
 	color: var(--color-white);
@@ -755,6 +754,7 @@ section#user-profile-page a#profile-nav {
     overflow: visible;
     margin-bottom: 8em;
     padding: 4em 0;
+    background: linear-gradient(90deg, rgba(225,76,86,1) 0%, rgba(248,162,86,1) 100%); 
 }
 	.user-profile-header>div{
 		position: relative;
