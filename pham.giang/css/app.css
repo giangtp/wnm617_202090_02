@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@300;400&display=swap');
 
 *,*::after,*::before {
 	box-sizing: border-box;
@@ -116,6 +116,11 @@ hr.spacer {
 		margin: 0.5em 0;
 		border-width: 0;
 	}
+	.spacer.xs{
+		margin: 0.35em 0;
+		border-width: 0;
+	}
+
 
 hr.vertical-spacer {
 	margin: 0 1em;
@@ -176,6 +181,7 @@ input[type="search"] {
     margin: 0;
     outline: 0;
     text-align: center;
+    font-weight: bold;
 }
 	.form-button.half{
 		width: 50%;
@@ -184,6 +190,10 @@ input[type="search"] {
 	.form-button.secondary{
 		background-color: var(--color-neutral-dark);
 		color: var(--color-white);
+	}
+	.form-button ~ a{
+		color: var(--color-main);
+		display: block;
 	}
 
 
@@ -388,7 +398,7 @@ a.nav-link{
 }
 .modal-body {
     background-color: var(--color-white);
-    padding: 1em;
+    padding: 1.2em;
     border-radius: 10px;
     text-align: center;
 }
@@ -702,14 +712,12 @@ section#user-profile-page a#profile-nav {
 }
 
 .map{
-	height: 30vh;
+	height: 35vh;
 	background-image: url(../images/map.jpg);
 	background-position:center;
 	background-size:cover;
 	position: relative;
-	border-radius: 10px;
-	margin: 1em;
-	margin-top: 0;
+	overflow: hidden;
 }
 
 /* MAP ELEMENTS */
@@ -771,3 +779,18 @@ section#user-profile-page a#profile-nav {
 	.info li:not(:last-child) {
 		border-bottom: 1px solid var(--color-neutral-light);
 	}
+.info.card{
+	height: max-content;
+	width: 50%;
+	border-radius: 10px;
+	padding: 1.2em;
+	background-color: var(--color-neutral-light);
+}
+.info.card p {
+	margin:0;
+	font-size: 3em;
+	font-weight: 300;
+	color: var(--color-main);
+	text-align: right;
+	line-height: 0.9em;
+}
