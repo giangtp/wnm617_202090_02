@@ -15,6 +15,10 @@ $(()=>{
          case 'list-page': ListPage(); break;
          case 'user-profile-page': UserProfilePage(); break;
          case 'type-profile-page': TypeProfilePage(); break;
+         case 'location-page': LocationPage(); break;
+         case 'location-edit-page': LocationEditPage(); break;
+         case 'user-edit-page': UserEditPage(); break;
+         case 'type-edit-page': TypeEditPage(); break;
       }
    })
 

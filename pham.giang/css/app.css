@@ -602,6 +602,10 @@ section#user-profile-page a#profile-nav {
 	margin-right: 1em;
 }
 
+.recent-list{
+	position: relative;
+	z-index: 4;
+}
 .recent-list-image{
 	width: max-content;
 }
@@ -609,6 +613,14 @@ section#user-profile-page a#profile-nav {
 		height: 4em;
 		width: 4em;
 	}
+.view-all{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	line-height: 1.1em;
+	font-size: 0.8em;
+}
 
 .profile-image img{
 	height: 8em;
@@ -688,18 +700,12 @@ section#user-profile-page a#profile-nav {
 
 /* RECENT PAGE */
 
-#recent-page [data-role='main'] {
-   background-image:url(../images/map.jpg);
-   background-position:center;
-   background-size:cover;
-}
-
 .recent-list{
 	overflow: auto;
 	padding: 1em 1.5em;
 	width: 100%;
 }
-	.recent-list li:not(:last-child) {
+	.recent-list li {
 		padding-right: 1em;
 	}
 
@@ -711,13 +717,22 @@ section#user-profile-page a#profile-nav {
 	border-bottom: 1px solid var(--color-neutral-light);
 }
 
-.map{
-	height: 35vh;
-	background-image: url(../images/map.jpg);
-	background-position:center;
-	background-size:cover;
+.profile-top{
+	height: 65%;
+	flex: none;
+	overflow: auto;
+}
+.profile-bottom{
 	position: relative;
-	overflow: hidden;
+	flex: 1;
+}
+
+.map{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 /* MAP ELEMENTS */

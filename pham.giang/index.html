@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Type Journal</title>
@@ -13,12 +14,17 @@
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
 
 	<script src="js/functions.js"></script>
+	<script src="js/map.js"></script>
     <script src="js/pages.js"></script>
     <script src="js/parts.js"></script>
     <script src="js/signin.js"></script>
     <script src="js/app.js"></script>
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
+
+	<script defer
+	    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8uP2GClx-eiFhxqhJyNEl0rximv0FExk">
+	</script>
 
 </head>
 <body>
@@ -99,23 +105,17 @@
    </section>
 
    <section data-role="page" id="recent-page">
-      <div data-role="main">
-      	<ul class="recent-list display-inline-flex"></ul>
+	    <div data-role="main">
+	      	<div class="map"></div>
+	      	<ul class="recent-list display-inline-flex"></ul>
 
-      	<div data-activate=".add" style="height: 100%;"></div>
+	  	</div>
 
-      	<div class="location-icon">
-      		<a href="#location-page"><img src="images/Location Icon.png" alt="Location Icon"></a>
-      	</div>
-      	<div class="location-icon add">
-      		<a href="#location-add-page"><img src="images/Location Add.png" alt="Location Add Icon"></a>
-      	</div>
-      </div>
-      <footer data-role="footer" data-template="#footer-template"></footer>
+    	<footer data-role="footer" data-template="#footer-template"></footer>
    </section>
 
 
-   <section data-role="page" id="location-add-page" data-deactivate=".add">
+   <section data-role="page" id="location-add-page">
 		<header data-role="header">
 			<ul>
 				<li>
@@ -179,23 +179,11 @@
 		</header>
 
 		<div data-role="main">	
-	        <div class="overscroll">
-	        	<div class="location-image">
-	        		<img src="images/helvetica-location-1.jpg" alt="">
-	        	</div>
-	        	
-	        	<div class="page-side-padding page-top-padding">
-	        		<ul class="info">
-	        			<li><strong>Date Spotted</strong>: 10/10/2020</li>
-	        			<li><strong>Application</strong>: Sign</li>
-	        			<li><strong>Note</strong>: Strikingly stark with interesting texture. How everything is all lowercase gives it a lot of personality. Really well-aligned. The tiny almost-touching spaces at the top of the d and the h's ascenders are kinda genius.</li>
-	        		</ul>
-	    		</div>
-	
-	        	<a href="#location-edit-page"class="button-circle floater bottom right">
-	        		<i class='fas icon'>&#xf304;</i>
-	        	</a>
+	        <div class="overscroll profile">
 	        </div>
+	        <a href="#location-edit-page"class="button-circle floater bottom right">
+        		<i class='fas icon'>&#xf304;</i>
+        	</a>
 		</div>
 	</section>
 
@@ -332,9 +320,14 @@
 				</li>
 			</ul>
 		</header>
-		<div data-role="main">
-			<div class="profile"></div>
-	        <a href="#type-edit-page"class="button-circle floater bottom right">
+		<div data-role="main" class="display-flex flex-column">
+			<div class="profile-top">
+				<div class="profile"></div>
+			</div>
+			<div class="profile-bottom">
+				<div class="map"></div>
+			</div>
+	        <a href="#type-edit-page"class="button-circle floater bottom right js-type-edit">
 				<i class='fas icon'>&#xf304;</i>
 			</a>
 		</div>
@@ -355,40 +348,8 @@
 				</li>
 			</ul>
 		</header>
-		<div data-role="main" class="page-side-padding page-top-padding">
-			<div class="display-flex flex-align-center flex-column">
-	        	<a href="#">
-	        		<div class="image-circle edit-image">
-	        			<div class="overlay"></div>
-	        			<img src="images/Helvetica Icon.png">
-	        			<div class="edit-image-icon">
-		        			<i class='fas icon XS'>&#xf304;</i>
-		        		</div>
-	        		</div>
-	        	</a>
-        	</div>
-
-        	<hr class="spacer small">
-
-        	<form id="edit-type-form" class="flex-stretch content active" data-ajax="false">
-	            <div class="form-control">
-	               <label for="edit-type-name" class="form-label">Type Name</label>
-	               <input id="edit-type-name" type="text" class="form-input" data-role="none" value="Helvetica">
-	            </div>
-	            <div class="form-control">
-	               <label for="edit-category" class="form-label">Category</label>
-	               <input id="edit-category" type="text" class="form-input" data-role="none" value="San-serif">
-	            </div>
-	            <div class="form-control">
-	               <label for="edit-classification" class="form-label">Classification</label>
-	               <input id="edit-classification" type="text" class="form-input" data-role="none" value="Neo-grotesque">
-	            </div>
-	            <div class="form-control">
-	               <a href="#" data-rel="back" class="form-button">Confirm</a>
-	               <hr class="spacer xs">
-	               <a href="#" data-rel="back" class="text-centered">Cancel</a>
-	            </div>
-		    </form>
+		<div data-role="main">
+			<div class="edit-form page-side-padding page-top-padding"></div>
 		</div>
 	</section>
 
@@ -521,7 +482,7 @@
      </div>
 
    <script type="text/template" id="footer-template">
-   <ul class="footer-nav" data-deactivate=".add">
+   <ul class="footer-nav">
        <li>
        	<a href="#recent-page" id="recent-nav"><i class='fas icon XM'>&#xf1da;</i><p>Recent</p></a>
        </li>

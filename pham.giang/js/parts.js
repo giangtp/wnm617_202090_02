@@ -6,6 +6,14 @@
 	},'');
 } */
 
+const makeRecentList = templater(o=>`
+<li>
+	<div class="image-circle image-border recent-list-image js-type-jump">
+		<img src="${o.img}">
+	</div> 
+</li>
+`);
+
 const makeTypeList = templater(o=>`
 <li>
 	<div class="display-flex flex-align-center js-type-jump" data-id="${o.id}">
@@ -28,7 +36,7 @@ const makeUserProfile = templater(o=>`
     	<h2>${o.name}</h2>
 	</div>
 </div>
-<div class="overscroll page-side-padding">
+<div class="page-side-padding">
 	<ul class="info">
 		<li><strong>Username</strong>: ${o.username}</li>
 		<li><strong>Email</strong>: ${o.email}</li>
@@ -52,7 +60,7 @@ const makeUserProfile = templater(o=>`
 `);
 
 const makeTypeProfile = templater(o=>`
-<div class="overscroll page-side-padding page-top-padding">
+<div class="page-side-padding page-top-padding">
 	<div class="display-flex flex-align-center flex-column">
 		<a href="#type-edit-page">
 			<div class="image-circle profile-image">
@@ -73,25 +81,55 @@ const makeTypeProfile = templater(o=>`
 		</ul>
 	</div>
 </div>
+`);
 
-<div class="map" data-activate=".add">
-	<div class="location-icon">
-  		<a href="#location-page"><img src="images/Location Icon.png" alt="Location Icon"></a>
-  	</div>
-  	<div class="location-icon add">
-  		<a href="#location-add-page"><img src="images/Location Add.png" alt="Location Add Icon"></a>
-  	</div>
+const makeLocationProfile = templater(o=>`
+<div class="location-image">
+	<img src="${o.img}">
+</div>
+
+<div class="page-side-padding page-top-padding">
+	<ul class="info">
+		<li><strong>Date Spotted</strong>: ${o.date_create}</li>
+		<li><strong>Application</strong>: ${o.application}</li>
+		<li><strong>Note</strong>: ${o.note}</li>
+	</ul>
 </div>
 `);
 
-const makeRecentList = templater(o=>`
-<li>
+
+const makeTypeEdit = templater(o=>`
+<div class="display-flex flex-align-center flex-column">
 	<a href="#">
-		<div class="image-circle image-border recent-list-image">
+		<div class="image-circle edit-image">
+			<div class="overlay"></div>
 			<img src="${o.img}">
-		</div> 
+			<div class="edit-image-icon">
+    			<i class='fas icon XS'>&#xf304;</i>
+    		</div>
+		</div>
 	</a>
-</li>
+</div>
+
+<hr class="spacer small">
+
+<form id="edit-type-form" class="flex-stretch content active" data-ajax="false">
+    <div class="form-control">
+       <label for="edit-type-name" class="form-label">Type Name</label>
+       <input id="edit-type-name" type="text" class="form-input" data-role="none" value="${o.name}">
+    </div>
+    <div class="form-control">
+       <label for="edit-category" class="form-label">Category</label>
+       <input id="edit-category" type="text" class="form-input" data-role="none" value="${o.category}">
+    </div>
+    <div class="form-control">
+       <label for="edit-classification" class="form-label">Classification</label>
+       <input id="edit-classification" type="text" class="form-input" data-role="none" value="${o.classification}">
+    </div>
+    <div class="form-control">
+       <a href="#" data-rel="back" class="form-button">Confirm</a>
+       <hr class="spacer xs">
+       <a href="#" data-rel="back" class="text-centered">Cancel</a>
+    </div>
+</form>
 `);
-
-
