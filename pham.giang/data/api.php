@@ -73,8 +73,20 @@ function makeStatement($data){
      	case "locations_by_type_id":
         return makeQuery($c,"SELECT * FROM track_locations WHERE type_id = ?",$p);
 
+        case "locations_by_user_id":
+        return makeQuery($c,"
+        	SELECT * 
+        	FROM `track_types` t
+        	LEFT JOIN `track_locations` l
+        	ON t.id = l.type_id
+        	WHERE t.user_id = ?
+        ",$p);
+
         case "check_signin":
         return makeQuery($c,"SELECT * FROM track_users WHERE username = ? AND password = md5(?)",$p);
+
+        case "recent_types":
+        return makeQuery($c,"SELECT * FROM track_types WHERE id = ? LIMIT 6",$p);
 
         case "recent_locations":
         return makeQuery($c,"
@@ -89,7 +101,8 @@ function makeStatement($data){
         	WHERE t.user_id = ?
         ",$p);
 
-		default: return ["error"=>"No Matched type"];
+        case "latest_location":
+        return makeQuery($c,"SELECT MAX(date_create) as last_spot FROM track_locations WHERE type_id = ?",$p);
 	}
 }
 

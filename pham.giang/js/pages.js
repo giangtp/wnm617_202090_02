@@ -1,6 +1,6 @@
 const RecentPage = async() => {
  
-	let types = await query({type:'types_by_user_id',params:[sessionStorage.userId]});
+	let types = await query({type:'recent_types',params:[sessionStorage.userId]});
 	let locs = await query({type:'recent_locations',params:[sessionStorage.userId]});
 
 	console.log(types, locs);
@@ -30,30 +30,31 @@ const ListPage = async() => {
 }
 
 const UserProfilePage = async() => {
-   let d = await query({type:'user_by_id',params:[sessionStorage.userId]});
-   console.log(d)
+   let user = await query({type:'user_by_id',params:[sessionStorage.userId]});
+   let types = await query({type:'types_by_user_id',params:[sessionStorage.userId]});
+   let locs = await query({type:'locations_by_user_id',params:[sessionStorage.userId]});
 
-   $("#user-profile-page .profile").html(makeUserProfile(d.result));
+   console.log(user, types, locs);
+
+   $("#user-profile-page .profile").html(makeUserProfile(user.result));
+   $("#user-profile-page .types-spot").html(types.result.length);
+   $("#user-profile-page .locations-spot").html(locs.result.length);
 }
 
 const TypeProfilePage = async() => {
 
-   query({
-      type:'type_by_id',
-      params:[sessionStorage.typeId]
-   }).then(d=>{
-      console.log(d)
+	let type = await query({type:'type_by_id',params:[sessionStorage.typeId]});
+	let loc = await query({type:'latest_location',params:[sessionStorage.typeId]});
+	let allLocs = await query({type:'locations_by_type_id',params:[sessionStorage.typeId]});
 
-      $("#type-profile-page .profile").html(makeTypeProfile(d.result));
-   });
+	console.log(type, loc, allLocs);
 
-   query({
-      type:'locations_by_type_id',
-      params:[sessionStorage.typeId]
-   }).then(d=>{
-      makeMap("#type-profile-page .map").then(map_el=>{
-         makeMarkers(map_el,d.result);
-      })
+	$("#type-profile-page .profile").html(makeTypeProfile(type.result));
+	$("#type-profile-page .last-spot").html(makeLastSpot(loc.result));
+
+	$("#type-profile-page .locations-spot").html(allLocs.result.length);
+    makeMap("#type-profile-page .map").then(map_el=>{
+         makeMarkers(map_el,allLocs.result);
    })
 }
 
@@ -68,5 +69,20 @@ const TypeEditPage = async() => {
    let d = await query({type:'type_by_id',params:[sessionStorage.typeId]});
    console.log(d)
 
-   $("#type-edit-page .profile").html(makeTypeEdit(d.result));
+   $("#type-edit-page .edit-form").html(makeTypeEdit(d.result));
 }
+
+const UserEditPage = async() => {
+   let d = await query({type:'user_by_id',params:[sessionStorage.userId]});
+   console.log(d)
+
+   $("#user-edit-page .edit-form").html(makeUserEdit(d.result));
+}
+
+const LocationEditPage = async() => {
+   let d = await query({type:'type_by_id',params:[sessionStorage.locationId]});
+   console.log(d)
+
+   $("#location-edit-page .edit-form").html(makeLocationEdit(d.result));
+}
+

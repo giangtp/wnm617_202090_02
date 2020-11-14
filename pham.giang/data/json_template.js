@@ -15,12 +15,6 @@
     },
     password: 'md5(pass)',
     phone: '{{phone()}}',
-
-    types_spot: '{{integer(1, 15)}}',
-    locations_spot: function(tags){
-      return this.types_spot * Math.floor((Math.random() * 3) + 1);
-    },
-    
     
     img: function(tags) {
       return 'https://via.placeholder.com/400/' + 
@@ -88,10 +82,7 @@
         tags.integer(700,999) +
         '/fff/?text=' +
         this.name;
-    },
-    number_spot: '{{integer(1, 20)}}',
-    last_spot: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd")}}'
-
+    }
   }
 ]
 
@@ -103,8 +94,8 @@
     id: '{{index(1)}}',
     type_id: '{{integer(1, 50)}}',
 
-    lat: '{{floating(37.794437,37.604999)}}',
-    lng: '{{floating(-122.518907,-122.513602)}}',
+    lat: '{{floating(37.784206,37.643083)}}',
+    lng: '{{floating(-122.509814,-122.394388)}}',
     
     note: '{{lorem(3, "sentences")}}', 
     img: function(tags) {

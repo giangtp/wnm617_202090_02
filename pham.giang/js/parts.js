@@ -8,7 +8,7 @@
 
 const makeRecentList = templater(o=>`
 <li>
-	<div class="image-circle image-border recent-list-image js-type-jump">
+	<div class="image-circle image-border recent-list-image js-type-jump" data-id="${o.id}">
 		<img src="${o.img}">
 	</div> 
 </li>
@@ -47,13 +47,13 @@ const makeUserProfile = templater(o=>`
 		<div class="info card">
 			<strong>Types</strong>
 			<hr class="spacer small">
-			<p>${o.types_spot}</p>
+			<p class="types-spot"></p>
 		</div>
 		<hr class="vertical-spacer small">
 		<div class="info card">
 			<strong>Locations</strong>
 			<hr class="spacer small">
-			<p>${o.locations_spot}</p>
+			<p class="locations-spot"></p>
 		</div>
 	</div>
 </div>
@@ -76,8 +76,8 @@ const makeTypeProfile = templater(o=>`
 		<ul class="text-centered">
 			<li><strong>Category</strong>: ${o.category}</li>
 			<li><strong>Classification</strong>: ${o.classification}</li>
-			<li><strong>Number Spotted</strong>: ${o.number_spot}</li>
-			<li><strong>Last Spotted</strong>: ${o.last_spot}</li>
+			<li><strong>Number Spotted</strong>: <span class="locations-spot"></span></li>
+			<li><strong>Last Spotted</strong>: <span class="last-spot"></span></li>
 		</ul>
 	</div>
 </div>
@@ -133,3 +133,81 @@ const makeTypeEdit = templater(o=>`
     </div>
 </form>
 `);
+
+const makeUserEdit = templater(o=>`
+<div class="display-flex flex-align-center flex-column">
+	<a href="#">
+		<div class="image-circle edit-image">
+			<div class="overlay"></div>
+			<img src="${o.img}">
+			<div class="edit-image-icon">
+    			<i class='fas icon XS'>&#xf304;</i>
+    		</div>
+		</div>
+	</a>
+</div>
+
+<hr class="spacer small">
+
+<form id="edit-user-form" class="flex-stretch content active" data-ajax="false">
+    <div class="form-control">
+       <label for="edit-username" class="form-label">User Name</label>
+       <input id="edit-username" type="text" class="form-input" data-role="none" value="${o.username}">
+    </div>
+    <div class="form-control">
+       <label for="edit-fullname" class="form-label">Full Name</label>
+       <input id="edit-fullname" type="text" class="form-input" data-role="none" value="${o.name}">
+    </div>
+    <div class="form-control">
+       <label for="edit-email" class="form-label">Email</label>
+       <input id="edit-email" type="text" class="form-input" data-role="none" value="${o.email}">
+    </div>
+    <div class="form-control">
+       <label for="edit-phone" class="form-label">Phone</label>
+       <input id="edit-phone" type="text" class="form-input" data-role="none" value="${o.phone}">
+    </div>
+    <div class="form-control">
+       <a href="#" data-rel="back" class="form-button">Confirm</a>
+       <hr class="spacer xs">
+       <a href="#" data-rel="back" class="text-centered">Cancel</a>
+    </div>
+</form>
+`);
+
+const makeLocationEdit = templater(o=>`
+<div class="display-flex flex-align-center flex-column">
+	<a href="#">
+		<div class="image-circle edit-image">
+			<div class="overlay"></div>
+			<img src="${o.img}">
+			<div class="edit-image-icon">
+    			<i class='fas icon XS'>&#xf304;</i>
+    		</div>
+		</div>
+	</a>
+</div>
+
+<hr class="spacer small">
+
+<form id="edit-location-form" class="flex-stretch content active" data-ajax="false">
+    <div class="form-control">
+       <label for="edit-date" class="form-label">Date Spotted</label>
+       <input id="edit-date" type="text" class="form-input" data-role="none" value="${o.date_create}">
+    </div>
+    <div class="form-control">
+       <label for="edit-application" class="form-label">Application</label>
+       <input id="edit-application" type="text" class="form-input" data-role="none" value="${o.application}">
+    </div>
+    <div class="form-control">
+       <label for="edit-note" class="form-label">Note</label>
+       <textarea id="edit-note" data-role="none" class="form-input" maxlength="250">${o.note}</textarea>
+    </div>
+    <div class="form-control">
+       <a href="#" data-rel="back" class="form-button">Confirm</a>
+       <hr class="spacer xs">
+       <a href="#" data-rel="back" class="text-centered">Cancel</a>
+    </div>
+</form>
+`);
+
+const makeLastSpot = templater(o=>`${o.last_spot}`);
