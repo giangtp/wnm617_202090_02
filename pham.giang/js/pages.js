@@ -18,7 +18,20 @@ const RecentPage = async() => {
 
 	// console.log(map_el.data('map'))
 
-	makeMarkers(map_el,locs.result);
+	makeMarkers(map_el,valid_types);
+
+   map_el.data("markers").forEach((o,i)=>{
+      o.addListener("click",function(){
+         // console.log("honk")
+
+        /* sessionStorage.typeId = valid_types[i].type_id;
+         $.mobile.navigate("#type-profile-page"); */
+
+         $("#recent-type-modal").addClass("active");
+         $("#recent-type-modal .modal-body")
+            .html(makeTypePopup(valid_types[i]))
+      }) 
+   })
 }
 
 //async and await

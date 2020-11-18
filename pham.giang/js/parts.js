@@ -211,3 +211,19 @@ const makeLocationEdit = templater(o=>`
 `);
 
 const makeLastSpot = templater(o=>`${o.last_spot}`);
+
+const makeTypePopup = o=>`
+<div class="display-flex">
+<div>
+   <img src="${o.img}" alt="" style="width:100px;height:100px">
+</div>
+<div style="padding-left:1em">
+   <div class="profile-name">${o.name}</div>
+   <div><strong>Type</strong>: ${o.category}</div>
+   <div><strong>Breed</strong>: ${o.classification}</div>
+</div>
+</div>
+<div>
+<a href="#" class="form-button js-animal-jump" data-id="${o.type_id}">Visit</a> 
+</div>
+`;

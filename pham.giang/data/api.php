@@ -93,7 +93,7 @@ function makeStatement($data){
         	SELECT * 
         	FROM `track_types` t
         	INNER JOIN (
-        		SELECT type_id, MAX(date_create) as date_create, lat, lng, icon
+        		SELECT id, type_id, MAX(date_create) as date_create, lat, lng, icon
         		FROM `track_locations`
         		GROUP BY type_id
         	) l
