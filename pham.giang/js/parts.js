@@ -215,15 +215,17 @@ const makeLastSpot = templater(o=>`${o.last_spot}`);
 
 const makeTypePopup = o=>`
 <div class="display-flex">
-	<div>
-	   <img src="${o.img}" alt="" style="width:100px;height:100px">
+	<div class="image-circle">
+	   <img src="${o.img}" style="width:100px;height:100px">
 	</div>
 	<hr class="vertical-spacer small">
 	<div class="flex-stretch">
 		<div>
 		   <h3>${o.name}</h3>
-		   <div><strong>Category</strong>: ${o.category}</div>
-		   <div><strong>Classification</strong>: ${o.classification}</div>
+		   <h6>Category</h6>
+		   <div>${o.category}</div>
+		   <h6>Classification</h6>
+		   <div>${o.classification}</div>
 		</div>
 	</div>
 </div>
@@ -233,14 +235,16 @@ const makeTypePopup = o=>`
 
 const makeLocationPopup = o=>`
 <div class="display-flex">
-	<div>
-	   <img src="${o.img}" alt="" style="width:100px;height:100px">
+	<div class="image-circle">
+	   <img src="${o.img}" style="width:100px;height:100px">
 	</div>
 	<hr class="vertical-spacer small">
 	<div class="flex-stretch">
 		<div>
-		   <div><strong>Date Spotted</strong>: ${o.date_create}</div>
-		   <div><strong>Application</strong>: ${o.application}</div>
+		   <h6>Date Spotted</h6> 
+		   <div>${o.date_create}</div>
+		   <h6>Application</h6> 
+		   <div>${o.application}</div>
 		</div>
 	</div>
 </div>

@@ -106,7 +106,7 @@
     },
     icon: 'images/Location Icon.png',
 
-    application: '{{random("poster", "packaging", "sign", "digital ad", "billboard", "book cover")}}',
+    application: '{{random("Poster", "Packaging", "Sign", "Digital ad", "Billboard", "Book cover")}}',
     
     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd")}}'
   }

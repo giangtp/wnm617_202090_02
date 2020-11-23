@@ -85,7 +85,7 @@ const TypeProfilePage = async() => {
 
 	         $("#location-modal").addClass("active");
 	         $("#location-modal .modal-body")
-	            .html(makeLocationPopup(allLocs[i]))
+	            .html(makeLocationPopup(allLocs.result[i]))
 	      }) 
 	   })
    })
@@ -113,7 +113,7 @@ const UserEditPage = async() => {
 }
 
 const LocationEditPage = async() => {
-   let d = await query({type:'type_by_id',params:[sessionStorage.locationId]});
+   let d = await query({type:'location_by_id',params:[sessionStorage.locationId]});
    console.log(d)
 
    $("#location-edit-page .edit-form").html(makeLocationEdit(d.result));
