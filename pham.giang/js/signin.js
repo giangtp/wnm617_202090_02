@@ -15,7 +15,7 @@ const checkSigninForm = async () => {
    console.log(user,pass)
 
    if(user=="" || pass=="") {
-      makeWarning("#warning-modal","Type a Username and Password");
+      makeWarning("#warning-modal","Type in a Username and Password");
       return;
    }
 
@@ -35,7 +35,7 @@ const checkSigninForm = async () => {
       sessionStorage.removeItem('userId');
 
       // DO SOMETHING HERE
-      makeWarning("#warning-modal","Sign In Failed");
+      makeWarning("#warning-modal","Incorrect Username or Password");
    }
 
    checkUserId();

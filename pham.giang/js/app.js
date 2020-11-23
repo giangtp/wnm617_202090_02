@@ -44,6 +44,11 @@ $(()=>{
       $.mobile.navigate("#type-profile-page");
    })
 
+   .on("click",".js-location-jump",function(e){
+      sessionStorage.locationId = $(this).data("id");
+      $.mobile.navigate("#location-page");
+   })
+
 
    .on("click","[data-activate]",function(){
       let target = $(this).data('activate');

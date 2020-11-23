@@ -39,7 +39,17 @@ const ListPage = async() => {
 	let d = await query({type:'types_by_user_id',params:[sessionStorage.userId]});
 	console.log(d);
 
-	$("#list-page .type-list").html(makeTypeList(d.result));
+	if(d.result.length==0) {
+    	$("#list-page .type-list").html(
+    		`<div class="display-flex flex-align-center flex-column page-side-padding page-top-padding text-centered">
+	    		<img class="illustration" src='images/blank_slate.png'alt='blank slate'>
+	    		<h3>Your journal is empty</h3>
+	    		<p>Tap on the <strong>+</strong> icon and start adding your types now!</p>
+    		 </div>`
+    	);
+   } else {
+    	$("#list-page .type-list").html(makeTypeList(d.result));
+   }
 }
 
 const UserProfilePage = async() => {
@@ -68,6 +78,16 @@ const TypeProfilePage = async() => {
 	$("#type-profile-page .locations-spot").html(allLocs.result.length);
     makeMap("#type-profile-page .map").then(map_el=>{
          makeMarkers(map_el,allLocs.result);
+
+	    map_el.data("markers").forEach((o,i)=>{
+	      o.addListener("click",function(){
+	         // console.log("honk")
+
+	         $("#location-modal").addClass("active");
+	         $("#location-modal .modal-body")
+	            .html(makeLocationPopup(allLocs[i]))
+	      }) 
+	   })
    })
 }
 

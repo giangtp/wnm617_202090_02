@@ -86,7 +86,19 @@ function makeStatement($data){
         return makeQuery($c,"SELECT * FROM track_users WHERE username = ? AND password = md5(?)",$p);
 
         case "recent_types":
-        return makeQuery($c,"SELECT * FROM track_types WHERE id = ? LIMIT 6",$p);
+        return makeQuery($c,"
+        	SELECT * 
+        	FROM `track_types` t
+        	INNER JOIN (
+        		SELECT id, type_id, MAX(date_create) as date_create, lat, lng, icon
+        		FROM `track_locations`
+        		GROUP BY type_id
+        		ORDER BY `date_create` DESC
+        	) l
+        	ON t.id = l.type_id
+        	WHERE t.user_id = ?
+        	LIMIT 5
+        ",$p);
 
         case "recent_locations":
         return makeQuery($c,"
@@ -96,6 +108,7 @@ function makeStatement($data){
         		SELECT id, type_id, MAX(date_create) as date_create, lat, lng, icon
         		FROM `track_locations`
         		GROUP BY type_id
+        		ORDER BY `date_create` DESC
         	) l
         	ON t.id = l.type_id
         	WHERE t.user_id = ?

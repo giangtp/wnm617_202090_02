@@ -107,18 +107,16 @@
    <section data-role="page" id="recent-page">
 	    <div data-role="main">
 	      	<div class="map">	
-				<div class="modal" id="recent-type-modal">
-		            <div class="modal-drawer bottom">
-		               <div class="modal-close-floater top right">
-		                  <div class="btn-circle" data-deactivate="#recent-animal-modal">&times;</div>
-		               </div>
-		               <div class="modal-head">head</div>
-		               <div class="modal-body"></div>
-		            </div>
-		         </div>
 	      	</div>
 	      	<ul class="recent-list display-inline-flex"></ul>
-
+	      	<div class="modal" id="recent-type-modal">
+	            <div class="modal-drawer bottom">
+	            	<div class="floater close-button" data-deactivate="#recent-type-modal" class="flex-none">
+	            		<i class='fas icon small'>&#xf00d;</i>
+	            	</div>
+	               <div class="modal-body"></div>
+	            </div>
+	         </div>
 	  	</div>
 
     	<footer data-role="footer" data-template="#footer-template"></footer>
@@ -304,6 +302,14 @@
 			</div>
 			<div class="profile-bottom">
 				<div class="map"></div>
+				<div class="modal" id="location-modal">
+	            <div class="modal-drawer bottom">
+		            	<div class="floater close-button" data-deactivate="#location-modal" class="flex-none">
+		            		<i class='fas icon small'>&#xf00d;</i>
+		            	</div>
+		               <div class="modal-body"></div>
+		            </div>
+		        </div>
 			</div>
 	        <a href="#type-edit-page"class="button-circle floater bottom right js-type-edit">
 				<i class='fas icon'>&#xf304;</i>

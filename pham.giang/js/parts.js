@@ -8,7 +8,7 @@
 
 const makeRecentList = templater(o=>`
 <li>
-	<div class="image-circle image-border recent-list-image js-type-jump" data-id="${o.id}">
+	<div class="image-circle image-border recent-list-image js-type-jump" data-id="${o.type_id}">
 		<img src="${o.img}">
 	</div> 
 </li>
@@ -34,6 +34,7 @@ const makeUserProfile = templater(o=>`
     		</div>
     	</a>
     	<h2>${o.name}</h2>
+    	<p class="small-text">Location, CA</p>
 	</div>
 </div>
 <div class="page-side-padding">
@@ -214,16 +215,35 @@ const makeLastSpot = templater(o=>`${o.last_spot}`);
 
 const makeTypePopup = o=>`
 <div class="display-flex">
-<div>
-   <img src="${o.img}" alt="" style="width:100px;height:100px">
+	<div>
+	   <img src="${o.img}" alt="" style="width:100px;height:100px">
+	</div>
+	<hr class="vertical-spacer small">
+	<div class="flex-stretch">
+		<div>
+		   <h3>${o.name}</h3>
+		   <div><strong>Category</strong>: ${o.category}</div>
+		   <div><strong>Classification</strong>: ${o.classification}</div>
+		</div>
+	</div>
 </div>
-<div style="padding-left:1em">
-   <div class="profile-name">${o.name}</div>
-   <div><strong>Type</strong>: ${o.category}</div>
-   <div><strong>Breed</strong>: ${o.classification}</div>
+<hr class="spacer xs">
+<a href="#" class="form-button js-type-jump" data-id="${o.type_id}" data-deactivate="#recent-type-modal">Visit</a> 
+`;
+
+const makeLocationPopup = o=>`
+<div class="display-flex">
+	<div>
+	   <img src="${o.img}" alt="" style="width:100px;height:100px">
+	</div>
+	<hr class="vertical-spacer small">
+	<div class="flex-stretch">
+		<div>
+		   <div><strong>Date Spotted</strong>: ${o.date_create}</div>
+		   <div><strong>Application</strong>: ${o.application}</div>
+		</div>
+	</div>
 </div>
-</div>
-<div>
-<a href="#" class="form-button js-animal-jump" data-id="${o.type_id}">Visit</a> 
-</div>
+<hr class="spacer xs">
+<a href="#" class="form-button js-location-jump" data-id="${o.id}" data-deactivate="#location-modal">Visit</a> 
 `;

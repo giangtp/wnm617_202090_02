@@ -42,6 +42,11 @@ h2{
 	color: var(--color-main);
 }
 
+h2~p,
+h3~p{
+	margin-top: 0;
+}
+
 a{
 	color: inherit;
 	text-decoration: none;
@@ -305,6 +310,10 @@ a.nav-link{
 .floater.top { top:1.5em; }
 .floater.bottom { bottom:1.5em; }
 
+.floater.right.zero { right:0em; }
+.floater.left.zero { left:0em; }
+.floater.top.zero { top:0em; }
+.floater.bottom.zero { bottom:0em; }
 
 
 /* TAB GROUP */
@@ -395,15 +404,15 @@ a.nav-link{
    transform:translate(-50%,calc(-50% + 3em));
    transition: all 0.3s;
    width:80vw;
+   text-align: center;
 }
 .modal-body {
     background-color: var(--color-white);
     padding: 1.2em;
     border-radius: 10px;
-    text-align: center;
 }
 .modal-head, .modal-foot {
-    background-color: var(--color-neutral-lighter);
+    background-color: var(--color-main);
     padding: 0.5em 1em;
 }
 
@@ -442,6 +451,7 @@ a.nav-link{
     flex-direction: column;
     transition:all 0.3s;
     box-shadow:0 0 5px rgba(0,0,0,0.3);
+    border-radius: 10px;
 }
 
 .modal-drawer.left,
@@ -454,11 +464,12 @@ a.nav-link{
 
 .modal-drawer.top,
 .modal-drawer.bottom {
-   height:30vh;
-   width:100%;
+   height:max-content;
+   width:90%;
+   left: 5%;
 }
-.modal-drawer.top { top:0; transform:translateY(-100%); }
-.modal-drawer.bottom { bottom:0; transform:translateY(100%); }
+.modal-drawer.top { top:1em; transform:translateY(-100%); }
+.modal-drawer.bottom { bottom:1em; transform:translateY(100%); }
 
 .modal.active .modal-drawer {
    transform:translate(0);
@@ -559,6 +570,12 @@ section#user-profile-page a#profile-nav {
 		font-size: 3em;
 	}
 
+.close-button{
+	color: var(--color-neutral-medium);
+	top: 0.5em;
+	right: 0.5em;
+}
+
 .image-border{
 	border: 5px solid var(--color-white);
 	box-shadow:0 0 5px rgba(0,0,0,0.3);
@@ -602,17 +619,6 @@ section#user-profile-page a#profile-nav {
 	margin-right: 1em;
 }
 
-.recent-list{
-	position: relative;
-	z-index: 4;
-}
-.recent-list-image{
-	width: max-content;
-}
-	.recent-list-image img{
-		height: 4em;
-		width: 4em;
-	}
 .view-all{
 	display: flex;
 	justify-content: center;
@@ -620,6 +626,7 @@ section#user-profile-page a#profile-nav {
 	text-align: center;
 	line-height: 1.1em;
 	font-size: 0.8em;
+	text-shadow: 0 0 5px var(--color-white);
 }
 
 .profile-image img{
@@ -654,6 +661,13 @@ section#user-profile-page a#profile-nav {
 	bottom: 0;
 	right: 0;
 }
+
+.illustration{
+	width: 70%;
+}
+	.illustration~h3{
+		color:var(--color-main);
+	}
 
 
 
@@ -704,9 +718,19 @@ section#user-profile-page a#profile-nav {
 	overflow: auto;
 	padding: 1em 1.5em;
 	width: 100%;
+	position: absolute;
+	z-index: 4;
 }
 	.recent-list li {
 		padding-right: 1em;
+	}
+
+.recent-list-image{
+	width: max-content;
+}
+	.recent-list-image img{
+		height: 4em;
+		width: 4em;
 	}
 
 
