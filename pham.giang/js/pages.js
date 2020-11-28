@@ -11,8 +11,14 @@ const RecentPage = async() => {
       return r;
    },[])
 
-	$("#recent-page .recent-list").html(makeRecentList(types.result))
-	.append("<li class='view-all'><a href='#list-page'>View All</a></li>");
+   if(types.result.length!=0) {
+		$("#recent-page .recent-list").html(makeRecentList(types.result))
+		.append("<li class='view-all'><a href='#list-page'>View All</a></li>");
+   } else {
+   		// Do nothing
+   }
+
+	
 
 	let map_el = await makeMap("#recent-page .map");
 

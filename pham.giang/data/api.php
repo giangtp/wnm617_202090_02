@@ -116,6 +116,33 @@ function makeStatement($data){
 
         case "latest_location":
         return makeQuery($c,"SELECT MAX(date_create) as last_spot FROM track_locations WHERE type_id = ?",$p);
+
+
+        // CRUD
+
+        //INSERT
+        case "insert_user":
+        	$r = makeQuery($c,"SELECT * FROM `track_users` WHERE `username` = ? OR `email` = ?",[$p[0],$p[1]]);
+        	if(count($r['result'])) return ['error'=>"Username or Email already exists"];
+
+        	$r = makeQuery($c, "INSERT INTO 
+        		`track_users`
+        		(`username`, `name`, `email`, `password`, `img`, `phone`)
+        		VALUES
+        		(?,?,?,md5(?), 'https://via.placeholder.com/400/?text=USER', `?`)
+        		",$p, false);
+        	return ["id"=>$c->lastInsertId()];
+
+	      case "insert_type":
+	         $r = makeQuery($c,"INSERT INTO
+	            `track_types`
+	            (`user_id`,`name`,`category`,`classification`, `img`)
+	            VALUES
+	            (?, ?, ?, ?, 'https://via.placeholder.com/400/?text=ANIMAL')
+	            ",$p,false);
+	         return ["id"=>$c->lastInsertId()];
+
+        default: return ["error"=>"No matched type"];
 	}
 }
 

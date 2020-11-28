@@ -796,16 +796,19 @@ section#user-profile-page a#profile-nav {
 
 /* PROFILE PAGE */
 
-.user-profile-header{
+.user-profile-top{
 	height: 8em;
     overflow: visible;
-    margin-bottom: 8em;
+    margin-bottom: 3em;
     padding: 4em 0;
+	flex: 0;
+	position: relative;
     background: linear-gradient(90deg, rgba(225,76,86,1) 0%, rgba(248,162,86,1) 100%); 
 }
-	.user-profile-header>div{
-		position: relative;
-	}
+.user-profile-bottom{
+	flex: 1;
+	overflow: auto;
+}
 
 .info {
 	border-radius: 10px;

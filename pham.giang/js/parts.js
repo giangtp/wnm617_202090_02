@@ -26,18 +26,20 @@ const makeTypeList = templater(o=>`
 `);
 
 const makeUserProfile = templater(o=>`
-<div class="user-profile-header">
+<div class="user-profile-top">
  		<div class="display-flex flex-align-center flex-column">
     	<a href="#user-edit-page">
     		<div class="image-circle profile-image">
     			<img src="${o.img}">
     		</div>
     	</a>
-    	<h2>${o.name}</h2>
-    	<p class="small-text">Location, CA</p>
 	</div>
 </div>
-<div class="page-side-padding">
+<div class="user-profile-bottom page-side-padding">
+	<div class="text-centered">
+		<h2>${o.name}</h2>
+	    <p class="small-text">Location, CA</p>
+    </div>
 	<ul class="info">
 		<li><strong>Username</strong>: ${o.username}</li>
 		<li><strong>Email</strong>: ${o.email}</li>

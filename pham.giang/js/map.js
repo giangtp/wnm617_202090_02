@@ -10,6 +10,7 @@ const makeMap = async (target, center={lat: 37.786206, lng: -122.399341}) => {
             center: center,
             zoom: 12,
             disableDefaultUI: true
+            // mapId: '8970dca3c060ed9a'
          }),
          "infoWindow":new google.maps.InfoWindow({content:''})
      });

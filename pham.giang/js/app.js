@@ -30,6 +30,17 @@ $(()=>{
       checkSigninForm();
    })
 
+   .on("submit","#signup-form",function(e){
+      e.preventDefault();
+      checkSignupForm();
+   })
+
+    // FORM SUBMIT BY BUTTON
+
+   .on("click",".js-type-add",function(e){
+      checkTypeAddForm();
+   })
+
 
 
    /* ANCHOR CLICKS */
