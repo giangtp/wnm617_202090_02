@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 30, 2020 at 11:38 PM
+-- Generation Time: Nov 28, 2020 at 04:18 PM
 -- Server version: 5.6.49-cll-lve
 -- PHP Version: 7.3.6
 
@@ -35,26 +35,25 @@ CREATE TABLE `track_users` (
   `email` varchar(128) NOT NULL,
   `password` varchar(32) NOT NULL,
   `phone` varchar(15) NOT NULL,
-  `types_spot` int(5) NOT NULL,
-  `locations_spot` int(5) NOT NULL,
-  `img` varchar(256) NOT NULL
+  `img` varchar(256) NOT NULL,
+  `occupation` varchar(64) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `track_users`
 --
 
-INSERT INTO `track_users` (`id`, `name`, `username`, `email`, `password`, `phone`, `types_spot`, `locations_spot`, `img`) VALUES
-(1, 'Cleveland Winters', 'user1', 'user1@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(949) 514-3619', 4, 12, 'https://via.placeholder.com/400/911/fff/?text=user1'),
-(2, 'Audrey Erickson', 'user2', 'user2@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(839) 520-2463', 12, 12, 'https://via.placeholder.com/400/706/fff/?text=user2'),
-(3, 'Weaver Haney', 'user3', 'user3@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(967) 412-2552', 14, 14, 'https://via.placeholder.com/400/960/fff/?text=user3'),
-(4, 'Annmarie Wilder', 'user4', 'user4@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(826) 584-3761', 9, 27, 'https://via.placeholder.com/400/872/fff/?text=user4'),
-(5, 'Sheri Bush', 'user5', 'user5@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(893) 565-2950', 10, 30, 'https://via.placeholder.com/400/934/fff/?text=user5'),
-(6, 'Laverne Carrillo', 'user6', 'user6@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(904) 408-3635', 6, 18, 'https://via.placeholder.com/400/802/fff/?text=user6'),
-(7, 'Merle Gillespie', 'user7', 'user7@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(941) 580-3223', 7, 7, 'https://via.placeholder.com/400/862/fff/?text=user7'),
-(8, 'Kendra Wright', 'user8', 'user8@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(827) 512-2516', 4, 8, 'https://via.placeholder.com/400/914/fff/?text=user8'),
-(9, 'Shelby Leonard', 'user9', 'user9@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(888) 533-2464', 3, 3, 'https://via.placeholder.com/400/911/fff/?text=user9'),
-(10, 'Kim Barrett', 'user10', 'user10@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(826) 427-3305', 6, 6, 'https://via.placeholder.com/400/998/fff/?text=user10');
+INSERT INTO `track_users` (`id`, `name`, `username`, `email`, `password`, `phone`, `img`, `occupation`) VALUES
+(1, 'Patel Singleton', 'user1', 'user1@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(908) 564-3177', 'https://via.placeholder.com/400/900/fff/?text=user1', 'Product Designer'),
+(2, 'Mckenzie Knowles', 'user2', 'user2@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(890) 496-2198', 'https://via.placeholder.com/400/723/fff/?text=user2', 'Game Designer'),
+(3, 'Debora Sellers', 'user3', 'user3@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(998) 436-2731', 'https://via.placeholder.com/400/892/fff/?text=user3', 'Motion Designer'),
+(4, 'Kayla Nicholson', 'user4', 'user4@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(833) 573-3252', 'https://via.placeholder.com/400/776/fff/?text=user4', 'Game Designer'),
+(5, 'Leslie Vasquez', 'user5', 'user5@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(962) 415-2648', 'https://via.placeholder.com/400/864/fff/?text=user5', 'Photographer'),
+(6, 'Madden Blackburn', 'user6', 'user6@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(862) 588-3215', 'https://via.placeholder.com/400/832/fff/?text=user6', 'Interior Designer'),
+(7, 'Cervantes Lancaster', 'user7', 'user7@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(990) 472-2621', 'https://via.placeholder.com/400/898/fff/?text=user7', 'UX Designer'),
+(8, 'Washington Jimenez', 'user8', 'user8@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(978) 429-3731', 'https://via.placeholder.com/400/919/fff/?text=user8', 'Motion Designer'),
+(9, 'Herman Rollins', 'user9', 'user9@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(943) 495-3242', 'https://via.placeholder.com/400/761/fff/?text=user9', 'Product Designer'),
+(10, 'Ella Fields', 'user10', 'user10@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(961) 463-2713', 'https://via.placeholder.com/400/750/fff/?text=user10', 'Freelancer');
 
 --
 -- Indexes for dumped tables

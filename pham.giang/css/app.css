@@ -799,14 +799,14 @@ section#user-profile-page a#profile-nav {
 .user-profile-top{
 	height: 8em;
     overflow: visible;
-    margin-bottom: 3em;
+    margin-bottom: 4em;
     padding: 4em 0;
-	flex: 0;
+	flex: 1;
 	position: relative;
     background: linear-gradient(90deg, rgba(225,76,86,1) 0%, rgba(248,162,86,1) 100%); 
 }
 .user-profile-bottom{
-	flex: 1;
+	flex: 0;
 	overflow: auto;
 }
 

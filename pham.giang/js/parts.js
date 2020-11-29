@@ -27,18 +27,16 @@ const makeTypeList = templater(o=>`
 
 const makeUserProfile = templater(o=>`
 <div class="user-profile-top">
- 		<div class="display-flex flex-align-center flex-column">
-    	<a href="#user-edit-page">
-    		<div class="image-circle profile-image">
-    			<img src="${o.img}">
-    		</div>
-    	</a>
+ 	<div class="display-flex flex-align-center flex-column">
+		<div class="image-circle profile-image">
+			<img src="${o.img}">
+		</div>
 	</div>
 </div>
 <div class="user-profile-bottom page-side-padding">
 	<div class="text-centered">
 		<h2>${o.name}</h2>
-	    <p class="small-text">Location, CA</p>
+	    <p">${o.occupation}</p>
     </div>
 	<ul class="info">
 		<li><strong>Username</strong>: ${o.username}</li>
@@ -72,9 +70,7 @@ const makeTypeProfile = templater(o=>`
 		</a>
 		<h2>${o.name}</h2>
 	</div>
-
-	<hr class="spacer small">
-
+	<div>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</div>
 	<div class="info">
 		<ul class="text-centered">
 			<li><strong>Category</strong>: ${o.category}</li>
@@ -162,6 +158,10 @@ const makeUserEdit = templater(o=>`
        <input id="edit-fullname" type="text" class="form-input" data-role="none" value="${o.name}">
     </div>
     <div class="form-control">
+       <label for="edit-occupation" class="form-label">Occupation</label>
+       <input id="edit-occupation" type="text" class="form-input" data-role="none" value="${o.occupation}">
+    </div>
+    <div class="form-control">
        <label for="edit-email" class="form-label">Email</label>
        <input id="edit-email" type="text" class="form-input" data-role="none" value="${o.email}">
     </div>
@@ -223,7 +223,7 @@ const makeTypePopup = o=>`
 	<hr class="vertical-spacer small">
 	<div class="flex-stretch">
 		<div>
-		   <h3>${o.name}</h3>
+		   <h4>${o.name}</h4>
 		   <h6>Category</h6>
 		   <div>${o.category}</div>
 		   <h6>Classification</h6>

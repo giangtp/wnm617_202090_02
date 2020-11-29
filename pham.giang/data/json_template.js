@@ -21,7 +21,8 @@
         tags.integer (700, 999) +
         '/fff/?text=' +
         this.username;
-    }
+    },
+    occupation: '{{random("Graphic Designer", "UX Designer", "Interior Designer", "Product Designer", "Art Director", "Visual Designer", "Photographer", "Video Editor", "Web Designer", "Illustrator", "Game Designer", "Motion Designer", "Freelancer")}}'
   }
 ]
 
