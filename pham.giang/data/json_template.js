@@ -83,7 +83,9 @@
         tags.integer(700,999) +
         '/fff/?text=' +
         this.name;
-    }
+    },
+
+    description: '{{lorem(1, "sentences")}}'
   }
 ]
 

@@ -180,19 +180,15 @@
 					</a>
 				</li>
 				<li class="flex-none">
-					<a href="#" data-activate="#confirm-delete" class="nav-link">
-						<span class="topnav-button">Delete</span>
+					<a href="#location-edit-page" class="nav-link">
+						<span class="topnav-button">Edit</span>
 					</a>
 				</li>
 			</ul>
 		</header>
 
 		<div data-role="main">	
-	        <div class="overscroll profile">
-	        </div>
-	        <a href="#location-edit-page"class="button-circle floater bottom right">
-        		<i class='fas icon'>&#xf304;</i>
-        	</a>
+	        <div class="profile"></div>
 		</div>
 	</section>
 
@@ -275,6 +271,10 @@
 	               <input id="add-classification" type="text" class="form-input" data-role="none">
 	            </div>
 	            <div class="form-control">
+	               <label for="add-description" class="form-label">Description</label>
+     			   <textarea id="add-description" data-role="none" class="form-input" maxlength="100"></textarea>
+	            </div>
+	            <div class="form-control">
 	               <a href="#" data-rel="back" class="form-button" class="js-type-add">Confirm</a>
 	               <hr class="spacer xs">
 	               <a href="#" data-rel="back" class="text-centered">Cancel</a>
@@ -303,21 +303,38 @@
 				<div class="profile"></div>
 			</div>
 			<div class="profile-bottom">
-				<div class="map"></div>
-				<div class="modal" id="location-modal">
-	            <div class="modal-drawer bottom">
-		            	<div class="floater close-button" data-deactivate="#location-modal" class="flex-none">
-		            		<i class='fas icon small'>&#xf00d;</i>
-		            	</div>
-		               <div class="modal-body"></div>
-		            </div>
-		        </div>
+				<a href="#type-map-page">
+					<div class="map"></div>
+				</a>
 			</div>
 	        <!-- <a href="#type-edit-page"class="button-circle floater bottom right">
 				<i class='fas icon'>&#xf304;</i>
 			</a> -->
 		</div>
 	</section>
+
+	 <section data-role="page" id="type-map-page">
+	 	<header data-role="header">
+			<ul>
+				<li class="flex-stretch">
+					<a href="#" data-rel="back" class="nav-link">
+						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+					</a>
+				</li>
+			</ul>
+		</header>
+	    <div data-role="main">
+	      	<div class="map"></div>
+			<div class="modal" id="location-modal">
+            <div class="modal-drawer bottom">
+	            	<div class="floater close-button" data-deactivate="#location-modal" class="flex-none">
+	            		<i class='fas icon small'>&#xf00d;</i>
+	            	</div>
+	               <div class="modal-body"></div>
+	            </div>
+	        </div>
+	  	</div>
+   </section>
 
 	<section data-role="page" id="type-edit-page">
 		<header data-role="header">

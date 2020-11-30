@@ -84,16 +84,27 @@ const TypeProfilePage = async() => {
 	$("#type-profile-page .locations-spot").html(allLocs.result.length);
     makeMap("#type-profile-page .map").then(map_el=>{
          makeMarkers(map_el,allLocs.result);
+   })
+}
 
-	    map_el.data("markers").forEach((o,i)=>{
-	      o.addListener("click",function(){
-	         // console.log("honk")
+const TypeMapPage = async() => {
 
-	         $("#location-modal").addClass("active");
-	         $("#location-modal .modal-body")
-	            .html(makeLocationPopup(allLocs.result[i]))
-	      }) 
-	   })
+  let d = await query({type:'locations_by_type_id',params:[sessionStorage.typeId]});
+
+  console.log(d);
+
+    makeMap("#type-map-page .map").then(map_el=>{
+         makeMarkers(map_el,d.result);
+
+      map_el.data("markers").forEach((o,i)=>{
+        o.addListener("click",function(){
+           // console.log("honk")
+
+           $("#location-modal").addClass("active");
+           $("#location-modal .modal-body")
+              .html(makeLocationPopup(d.result[i]))
+        }) 
+     })
    })
 }
 

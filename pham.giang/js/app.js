@@ -19,6 +19,7 @@ $(()=>{
          case 'location-edit-page': LocationEditPage(); break;
          case 'user-edit-page': UserEditPage(); break;
          case 'type-edit-page': TypeEditPage(); break;
+         case 'type-map-page': TypeMapPage(); break;
       }
    })
 

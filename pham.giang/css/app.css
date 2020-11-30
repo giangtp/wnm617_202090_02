@@ -144,6 +144,9 @@ hr.vertical-spacer {
 }
 
 .text-centered{ text-align: center; }
+.text-right{ text-align: right; }
+.text-left{ text-align: left; }
+
 
 
 
@@ -741,12 +744,12 @@ section#user-profile-page a#profile-nav {
 	border-bottom: 1px solid var(--color-neutral-light);
 }
 
-.profile-top{
-	height: 65%;
+#type-profile-page .profile-top{
+	height: 67%;
 	flex: none;
 	overflow: auto;
 }
-.profile-bottom{
+#type-profile-page .profile-bottom{
 	position: relative;
 	flex: 1;
 }
@@ -823,7 +826,7 @@ section#user-profile-page a#profile-nav {
 	}
 .info.card{
 	height: max-content;
-	width: 50%;
+	width: 100%;
 	border-radius: 10px;
 	padding: 1.2em;
 	background-color: var(--color-neutral-light);
@@ -835,4 +838,27 @@ section#user-profile-page a#profile-nav {
 	color: var(--color-main);
 	text-align: right;
 	line-height: 0.9em;
+}
+.info.card.half{
+	width: 50%;
+}
+
+/* LOCATION PAGE */
+#location-page .profile-top{
+	flex: 1;
+	position: relative;
+}
+#location-page .profile-bottom{
+	overflow: auto;
+	flex: 0;
+}
+
+/* TABLE */
+
+table{
+	width: 100%;
+}
+td {
+	padding: 0.5em;
+	border-bottom: 1px solid var(--color-neutral-light);
 }

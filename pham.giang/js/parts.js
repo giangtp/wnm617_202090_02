@@ -45,13 +45,13 @@ const makeUserProfile = templater(o=>`
 	</ul>
 	<hr class="spacer small">
 	<div class="display-flex">
-		<div class="info card">
+		<div class="info card half">
 			<strong>Types</strong>
 			<hr class="spacer small">
 			<p class="types-spot"></p>
 		</div>
 		<hr class="vertical-spacer small">
-		<div class="info card">
+		<div class="info card half">
 			<strong>Locations</strong>
 			<hr class="spacer small">
 			<p class="locations-spot"></p>
@@ -70,24 +70,35 @@ const makeTypeProfile = templater(o=>`
 		</a>
 		<h2>${o.name}</h2>
 	</div>
-	<div>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</div>
-	<div class="info">
-		<ul class="text-centered">
-			<li><strong>Category</strong>: ${o.category}</li>
-			<li><strong>Classification</strong>: ${o.classification}</li>
-			<li><strong>Number Spotted</strong>: <span class="locations-spot"></span></li>
-			<li><strong>Last Spotted</strong>: <span class="last-spot"></span></li>
-		</ul>
-	</div>
+	<table>
+		<tr>
+			<td><strong>Category</strong></td>
+			<td class="text-right">${o.category}</td>
+		</tr>
+		<tr>
+			<td><strong>Classification</strong></td>
+			<td class="text-right">${o.classification}</td>
+		</tr>
+		<tr>
+			<td><strong>Spotted</strong></td>
+			<td class="text-right"><span class="locations-spot"></span></td>
+		</tr>
+		<tr>
+			<td><strong>Last Seen</strong></td>
+			<td class="text-right"><span class="last-spot"></span></td>
+		</tr>
+	</table>
+	<hr class="spacer small">
+	<div class="info card">${o.description}</div>
 </div>
 `);
 
 const makeLocationProfile = templater(o=>`
-<div class="location-image">
+<div class="location-image profile-top">
 	<img src="${o.img}">
 </div>
 
-<div class="page-side-padding page-top-padding">
+<div class="page-side-padding page-top-padding profile-bottom">
 	<ul class="info">
 		<li><strong>Date Spotted</strong>: ${o.date_create}</li>
 		<li><strong>Application</strong>: ${o.application}</li>
@@ -124,6 +135,10 @@ const makeTypeEdit = templater(o=>`
     <div class="form-control">
        <label for="edit-classification" class="form-label">Classification</label>
        <input id="edit-classification" type="text" class="form-input" data-role="none" value="${o.classification}">
+    </div>
+    <div class="form-control">
+       <label for="edit-description" class="form-label">Description</label>
+       <textarea id="edit-description" data-role="none" class="form-input" maxlength="100">${o.description}</textarea>
     </div>
     <div class="form-control">
        <a href="#" data-rel="back" class="form-button">Confirm</a>
