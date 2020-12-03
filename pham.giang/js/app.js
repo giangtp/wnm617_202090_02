@@ -11,7 +11,9 @@ $(()=>{
 
       // Routing
       switch(ui.toPage[0].id) {
-         case 'recent-page': RecentPage(); break;
+         case 'recent-page': RecentPage();
+            $('#recent-type-modal').removeClass('.active');  
+            break;
          case 'list-page': ListPage(); break;
          case 'user-profile-page': UserProfilePage(); break;
          case 'type-profile-page': TypeProfilePage(); break;
@@ -19,7 +21,9 @@ $(()=>{
          case 'location-edit-page': LocationEditPage(); break;
          case 'user-edit-page': UserEditPage(); break;
          case 'type-edit-page': TypeEditPage(); break;
-         case 'type-map-page': TypeMapPage(); break;
+         case 'type-map-page': TypeMapPage(); 
+            $('#location-modal').removeClass('.active');
+            break;
       }
    })
 
@@ -36,18 +40,38 @@ $(()=>{
       checkSignupForm();
    })
 
-    // FORM SUBMIT BY BUTTON
+   .on("submit","#user-edit-form",function(e){
+      e.preventDefault();
+      checkUserEditForm();
+   })
 
-   .on("click",".js-type-add",function(e){
+   .on("submit","#type-add-form",function(e){
+      e.preventDefault();
       checkTypeAddForm();
    })
 
+   .on("submit","#type-edit-form",function(e){
+      e.preventDefault();
+      checkTypeEditForm();
+   })
+
+   .on("submit","#location-add-form",function(e){
+      e.preventDefault();
+      checkLocationAddForm();
+   })
+
+   .on("submit","#location-edit-form",function(e){
+      e.preventDefault();
+      checkLocationEditForm();
+   })
 
 
    /* ANCHOR CLICKS */
 
    .on("click",".js-logout",function(e){
       sessionStorage.removeItem('userId');
+      $("#signin-page .signup").removeClass("active");
+      $("#signin-page .signin").addClass("active");
       checkUserId();
    })
 
@@ -59,6 +83,12 @@ $(()=>{
    .on("click",".js-location-jump",function(e){
       sessionStorage.locationId = $(this).data("id");
       $.mobile.navigate("#location-page");
+   })
+   .on("click",".js-type-delete",function(e){
+      checkTypeDelete($(this).data("id"));
+   })
+   .on("click",".js-location-delete",function(e){
+      checkLocationDelete($(this).data("id"));
    })
 
 

@@ -120,27 +120,88 @@ function makeStatement($data){
 
         // CRUD
 
-        //INSERT
+        // INSERT
         case "insert_user":
         	$r = makeQuery($c,"SELECT * FROM `track_users` WHERE `username` = ? OR `email` = ?",[$p[0],$p[1]]);
         	if(count($r['result'])) return ['error'=>"Username or Email already exists"];
 
         	$r = makeQuery($c, "INSERT INTO 
         		`track_users`
-        		(`username`, `name`, `email`, `password`, `img`, `phone`)
+        		(`name`,`username`,`email`,`password`,`phone`,`img`,`occupation`)
         		VALUES
-        		(?,?,?,md5(?), 'https://via.placeholder.com/400/?text=USER', `?`)
-        		",$p, false);
+        		(?,?,?,md5(?),?,'https://via.placeholder.com/400/?text=USER',?)
+        		",$p,false);
         	return ["id"=>$c->lastInsertId()];
 
 	      case "insert_type":
 	         $r = makeQuery($c,"INSERT INTO
 	            `track_types`
-	            (`user_id`,`name`,`category`,`classification`, `img`)
+	            (`user_id`,`name`,`category`,`classification`,`img`,`description`,`type_rating`)
 	            VALUES
-	            (?, ?, ?, ?, 'https://via.placeholder.com/400/?text=ANIMAL')
+	            (?,?,?,?,'https://via.placeholder.com/400/?text=TYPE',?,?)
 	            ",$p,false);
 	         return ["id"=>$c->lastInsertId()];
+
+        case "insert_location":
+         $r = makeQuery($c,"INSERT INTO
+            `track_locations`
+            (`type_id`,`lat`,`lng`,`usage_rating`,`img`,`icon`,`application`,`font_style``note`,`date_create`)
+            VALUES
+            (?, ?, ?, ?, 'https://via.placeholder.com/400/?text=LOCATION','images/Location Icon.png',?,?,?, NOW())
+            ",$p,false);
+         return ["id"=>$c->lastInsertId()];
+
+
+        // UPDATE
+
+         case "update_user":
+         $r = makeQuery($c,"UPDATE
+            `track_users`
+            SET
+               `username` = ?,
+               `name` = ?,
+               `email` = ?,
+               `phone` = ?,
+               `occupation` = ?
+            WHERE `id` = ?
+            ",$p,false);
+         return ["result"=>"success"];
+
+         case "update_type":
+         $r = makeQuery($c,"UPDATE
+            `track_types`
+            SET
+               `name` = ?,
+               `category` = ?,
+               `classification` = ?,
+               `description` = ?,
+               `type_rating` = ?
+            WHERE `id` = ?
+            ",$p,false);
+         return ["result"=>"success"];
+
+         case "update_location":
+         $r = makeQuery($c,"UPDATE
+            `track_locations`
+            SET
+               `usage_rating` = ?,
+               `application` = ?,
+               `font_style` = ?,
+               `note` = ?
+            WHERE `id` = ?
+            ",$p,false);
+         return ["result"=>"success"];
+
+
+
+         // DELETE
+
+        case "delete_type":
+           return makeQuery($c,"DELETE FROM `track_types` WHERE `id` = ?",$p,false);
+
+        case "delete_location":
+           return makeQuery($c,"DELETE FROM `track_locations` WHERE `id` = ?",$p,false);
+
 
         default: return ["error"=>"No matched type"];
 	}

@@ -72,6 +72,10 @@ const makeTypeProfile = templater(o=>`
 	</div>
 	<table>
 		<tr>
+			<td><strong>Rating</strong></td>
+			<td class="text-right">${o.type_rating}</td>
+		</tr>
+		<tr>
 			<td><strong>Category</strong></td>
 			<td class="text-right">${o.category}</td>
 		</tr>
@@ -100,8 +104,10 @@ const makeLocationProfile = templater(o=>`
 
 <div class="page-side-padding page-top-padding profile-bottom">
 	<ul class="info">
+		<li><strong>Usage Rating</strong>: ${o.usage_rating}</li>
 		<li><strong>Date Spotted</strong>: ${o.date_create}</li>
 		<li><strong>Application</strong>: ${o.application}</li>
+		<li><strong>Font Style</strong>: ${o.font_style}</li>
 		<li><strong>Note</strong>: ${o.note}</li>
 	</ul>
 </div>
@@ -123,10 +129,14 @@ const makeTypeEdit = templater(o=>`
 
 <hr class="spacer small">
 
-<form id="edit-type-form" class="flex-stretch content active" data-ajax="false">
+<form id="type-edit-form" class="flex-stretch content active" data-ajax="false">
     <div class="form-control">
        <label for="edit-type-name" class="form-label">Type Name</label>
        <input id="edit-type-name" type="text" class="form-input" data-role="none" value="${o.name}">
+    </div>
+    <div class="form-control">
+       <label for="edit-type-rating" class="form-label">Rating</label>
+       <input id="edit-type-rating" type="text" class="form-input" data-role="none" value="${o.type_rating}">
     </div>
     <div class="form-control">
        <label for="edit-category" class="form-label">Category</label>
@@ -141,7 +151,7 @@ const makeTypeEdit = templater(o=>`
        <textarea id="edit-description" data-role="none" class="form-input" maxlength="100">${o.description}</textarea>
     </div>
     <div class="form-control">
-       <a href="#" data-rel="back" class="form-button">Confirm</a>
+   		<input type="submit" class="form-button" value="Confirm" data-role="none">
        <hr class="spacer xs">
        <a href="#" data-rel="back" class="text-centered">Cancel</a>
     </div>
@@ -163,7 +173,7 @@ const makeUserEdit = templater(o=>`
 
 <hr class="spacer small">
 
-<form id="edit-user-form" class="flex-stretch content active" data-ajax="false">
+<form id="user-edit-form" class="flex-stretch content active" data-ajax="false">
     <div class="form-control">
        <label for="edit-username" class="form-label">User Name</label>
        <input id="edit-username" type="text" class="form-input" data-role="none" value="${o.username}">
@@ -178,14 +188,14 @@ const makeUserEdit = templater(o=>`
     </div>
     <div class="form-control">
        <label for="edit-email" class="form-label">Email</label>
-       <input id="edit-email" type="text" class="form-input" data-role="none" value="${o.email}">
+       <input id="edit-email" type="email" class="form-input" data-role="none" value="${o.email}">
     </div>
     <div class="form-control">
        <label for="edit-phone" class="form-label">Phone</label>
-       <input id="edit-phone" type="text" class="form-input" data-role="none" value="${o.phone}">
+       <input id="edit-phone" type="tel" class="form-input" data-role="none" value="${o.phone}">
     </div>
     <div class="form-control">
-       <a href="#" data-rel="back" class="form-button">Confirm</a>
+       <input type="submit" class="form-button" value="Confirm" data-role="none">
        <hr class="spacer xs">
        <a href="#" data-rel="back" class="text-centered">Cancel</a>
     </div>
@@ -207,21 +217,25 @@ const makeLocationEdit = templater(o=>`
 
 <hr class="spacer small">
 
-<form id="edit-location-form" class="flex-stretch content active" data-ajax="false">
-    <div class="form-control">
-       <label for="edit-date" class="form-label">Date Spotted</label>
-       <input id="edit-date" type="text" class="form-input" data-role="none" value="${o.date_create}">
+<form id="location-edit-form" class="flex-stretch content active" data-ajax="false">
+	<div class="form-control">
+       <label for="edit-usage-rating" class="form-label">Usage Rating</label>
+       <input id="edit-usage-rating" type="text" class="form-input" data-role="none" value="${o.usage_rating}">
     </div>
     <div class="form-control">
        <label for="edit-application" class="form-label">Application</label>
        <input id="edit-application" type="text" class="form-input" data-role="none" value="${o.application}">
     </div>
     <div class="form-control">
+       <label for="edit-font-style" class="form-label">Font Style</label>
+       <input id="edit-font-style" type="text" class="form-input" data-role="none" value="${o.font_style}">
+    </div>
+    <div class="form-control">
        <label for="edit-note" class="form-label">Note</label>
        <textarea id="edit-note" data-role="none" class="form-input" maxlength="250">${o.note}</textarea>
     </div>
     <div class="form-control">
-       <a href="#" data-rel="back" class="form-button">Confirm</a>
+       <input type="submit" class="form-button" value="Confirm" data-role="none">
        <hr class="spacer xs">
        <a href="#" data-rel="back" class="text-centered">Cancel</a>
     </div>
@@ -267,4 +281,36 @@ const makeLocationPopup = o=>`
 </div>
 <hr class="spacer xs">
 <a href="#" class="form-button js-location-jump" data-id="${o.id}" data-deactivate="#location-modal">Visit</a> 
+`;
+
+const makeTypeDelete = o=>`
+<div class="display-flex flex-column flex-align-center">
+	<div class="icon">
+		<img src="images/Cancel Icon.png">
+	</div>
+	<h3>Are you sure?</h3>
+	<span>Do you really want to delete this? This action cannot be done.</span>
+</div>
+<hr class="spacer small">
+<div>
+	<a href="#"data-deactivate="#type-delete-modal" class="form-button js-type-delete" data-id="${o.id}">Confirm</a>
+   <hr class="spacer xs">
+   <a href="#" data-deactivate="#type-delete-modal" class="text-centered">Cancel</a>
+</div>
+`;
+
+const makeLocationDelete = o=>`
+<div class="display-flex flex-column flex-align-center">
+	<div class="icon">
+		<img src="images/Cancel Icon.png">
+	</div>
+	<h3>Are you sure?</h3>
+	<span>Do you really want to delete this? This action cannot be done.</span>
+</div>
+<hr class="spacer small">
+<div>
+	<a href="#"data-deactivate="#location-delete-modal" class="form-button js-location-delete" data-id="${o.id}">Confirm</a>
+   <hr class="spacer xs">
+   <a href="#" data-deactivate="#location-delete-modal" class="text-centered">Cancel</a>
+</div>
 `;

@@ -85,7 +85,8 @@
         this.name;
     },
 
-    description: '{{lorem(1, "sentences")}}'
+    description: '{{lorem(1, "sentences")}}',
+    type_rating: '{{integer(1,5)}}'
   }
 ]
 
@@ -110,6 +111,9 @@
     icon: 'images/Location Icon.png',
 
     application: '{{random("Poster", "Packaging", "Sign", "Digital ad", "Billboard", "Book cover")}}',
+    font_style: '{{random("Bold", "Italic", "Underline", "Capitalized", "Small Caps", "Light", "Bold Italic", "Black", "Regular")}}',
+    usage_rating: '{{integer(1,5)}}',
+
     
     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd")}}'
   }

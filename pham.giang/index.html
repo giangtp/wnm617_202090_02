@@ -3,11 +3,17 @@
 <head>
 	
 	<meta charset="UTF-8">
+	<meta name=”apple-mobile-web-app-capable” content=”yes”>
+	<meta name="mobile-web-app-capable" content="yes">
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Type Journal</title>
 
 	<link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
 	<link rel="stylesheet" href="css/app.css">
+
+	<link rel="apple-touch-icon" href="./site_logo.png">
+    <link rel="icon" href="./site_logo.png">
 
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
@@ -52,11 +58,11 @@
          <div class="tabgroup">
 	         <div class="tabs">
 	            <!-- .tab*4>{Link $} -->
-	            <div class="tab active">Sign In</div>
-	            <div class="tab">Sign Up</div>
+	            <div class="tab signin active">Sign In</div>
+	            <div class="tab signup">Sign Up</div>
 	         </div>
 	         <div class="contents">
-		        <form id="signin-form" class="flex-stretch content active" data-ajax="false">
+		        <form id="signin-form" class="flex-stretch content signin active" data-ajax="false">
 		            <div class="form-control">
 		               <label for="signin-username" class="form-label">Username</label>
 		               <input id="signin-username" type="text" class="form-input" data-role="none" placeholder="Type your username">
@@ -73,14 +79,14 @@
 		            </div>
 		        </form>
 
-		        <form id="signup-form" class="flex-stretch content" data-ajax="false">
+		        <form id="signup-form" class="flex-stretch content signup" data-ajax="false">
 		            <div class="form-control">
 		               <label for="signup-username" class="form-label">Username</label>
 		               <input id="signup-username" type="text" class="form-input" data-role="none" placeholder="Type your username">
 		            </div>
 		            <div class="form-control">
 		               <label for="signup-email" class="form-label">Email</label>
-		               <input id="signup-email" type="text" class="form-input" data-role="none" placeholder="Type your email">
+		               <input id="signup-email" type="email" class="form-input" data-role="none" placeholder="Type your email">
 		            </div>
 		            <div class="form-control">
 		               <label for="signup-password" class="form-label">Password</label>
@@ -88,7 +94,7 @@
 		            </div>
 		            <div class="form-control">
 		               <label for="signup-password-confirm" class="form-label">Confirm Password</label>
-		               <input id="signup-password-confirm" type="password" class="form-input" data-role="none" placeholder="Type your password">
+		               <input id="signup-password-confirm" type="password" class="form-input" data-role="none" placeholder="Confirm your password">
 		            </div>
 		            <div class="form-control">
 		               <input type="submit" class="form-button secondary" value="Sign Up" data-role="none">
@@ -148,21 +154,25 @@
 
         	<hr class="spacer small">
 
-        	<form id="add-location-form" class="flex-stretch content active" data-ajax="false">
-	            <div class="form-control">
-	               <label for="add-date" class="form-label">Date Spotted</label>
-	               <input id="add-date" type="text" class="form-input" data-role="none">
+        	<form id="location-add-form" class="flex-stretch content active" data-ajax="false">
+        		<div class="form-control">
+	               <label for="add-usage-rating" class="form-label">Usage Rating</label>
+	               <input id="add-usage-rating" type="text" class="form-input" data-role="none">
 	            </div>
 	            <div class="form-control">
 	               <label for="add-application" class="form-label">Application</label>
 	               <input id="add-application" type="text" class="form-input" data-role="none">
 	            </div>
 	            <div class="form-control">
+	               <label for="add-font-style" class="form-label">Font Style</label>
+	               <input id="add-font-style" type="text" class="form-input" data-role="none">
+	            </div>
+	            <div class="form-control">
 	               <label for="add-note" class="form-label">Note</label>
 	               <textarea id="add-note" data-role="none" class="form-input" maxlength="250"></textarea>
 	            </div>
 	            <div class="form-control">
-	               <a href="#" data-rel="back" class="form-button">Confirm</a>
+	               <input type="submit" class="form-button" value="Confirm" data-role="none">
 	               <hr class="spacer xs">
 	               <a href="#" data-rel="back" class="text-centered">Cancel</a>
 	            </div>
@@ -202,7 +212,7 @@
 					</a>
 				</li>
 				<li class="flex-none">
-					<a href="#" data-activate="#confirm-delete" class="nav-link">
+					<a href="#" data-activate="#location-delete-modal" class="nav-link">
 						<span class="topnav-button">Delete</span>
 					</a>
 				</li>
@@ -211,6 +221,13 @@
 		<div data-role="main">
 			<div class="edit-form page-side-padding page-top-padding"></div>
 		</div>
+
+		<div class="modal" id="location-delete-modal">
+	         <div class="modal-back" data-deactivate="#location-delete-modal"></div>
+	         <div class="modal-popup">
+	            <div class="modal-body"></div>
+	         </div>
+	     </div>
 	</section>
 
    <section data-role="page" id="list-page">
@@ -256,13 +273,17 @@
 
         	<hr class="spacer small">
 
-        	<form id="add-type-form" class="flex-stretch content active" data-ajax="false">
+        	<form id="type-add-form" class="flex-stretch content active" data-ajax="false">
         		<input type="hidden" id="type-add-destination" value="#list-page">
 	            <div class="form-control">
 	               <label for="add-type-name" class="form-label">Type Name</label>
 	               <input id="add-type-name" type="text" class="form-input" data-role="none">
 	            </div>
-	             <div class="form-control">
+	            <div class="form-control">
+	               <label for="add-type-rating" class="form-label">Rating</label>
+	               <input id="add-type-rating" type="text" class="form-input" data-role="none">
+	            </div>
+	            <div class="form-control">
 	               <label for="add-category" class="form-label">Category</label>
 	               <input id="add-category" type="text" class="form-input" data-role="none">
 	            </div>
@@ -275,7 +296,7 @@
      			   <textarea id="add-description" data-role="none" class="form-input" maxlength="100"></textarea>
 	            </div>
 	            <div class="form-control">
-	               <a href="#" data-rel="back" class="form-button" class="js-type-add">Confirm</a>
+	            	<input type="submit" class="form-button" value="Confirm" data-role="none">
 	               <hr class="spacer xs">
 	               <a href="#" data-rel="back" class="text-centered">Cancel</a>
 	            </div>
@@ -321,9 +342,16 @@
 						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
 					</a>
 				</li>
+				<li class="flex-none">
+					<a href="#location-add-page" class="nav-link">
+						<span class="topnav-button">Next</span>
+					</a>
+				</li>
 			</ul>
 		</header>
 	    <div data-role="main">
+	    	<input type="hidden" id="add-lat">
+         	<input type="hidden" id="add-lng">
 	      	<div class="map"></div>
 			<div class="modal" id="location-modal">
             <div class="modal-drawer bottom">
@@ -345,7 +373,7 @@
 					</a>
 				</li>
 				<li class="flex-none">
-					<a href="#" data-activate="#confirm-delete" class="nav-link">
+					<a href="#" data-activate="#type-delete-modal" class="nav-link">
 						<span class="topnav-button">Delete</span>
 					</a>
 				</li>
@@ -354,6 +382,13 @@
 		<div data-role="main">
 			<div class="edit-form page-side-padding page-top-padding"></div>
 		</div>
+
+		<div class="modal" id="type-delete-modal">
+	         <div class="modal-back" data-deactivate="#type-delete-modal"></div>
+	         <div class="modal-popup">
+	            <div class="modal-body"></div>
+	         </div>
+	     </div>
 	</section>
 
 	<section data-role="page" id="user-profile-page">
@@ -405,7 +440,7 @@
 			</ul>
 		</header>
 		<div data-role="main" class="page-side-padding page-top-padding">
-        	<form id="edit-password-form" class="flex-stretch content active" data-ajax="false">
+        	<form id="password-edit-form" class="flex-stretch content active" data-ajax="false">
 	            <div class="form-control">
 	               <label for="old-password" class="form-label">Old Password</label>
 	               <input id="old-password" type="text" class="form-input" data-role="none">
@@ -426,27 +461,6 @@
 		    </form>
 		</div>
 	</section>
-
-	<div class="modal" id="confirm-delete">
-         <div class="modal-back" data-deactivate="#confirm-delete"></div>
-         <div class="modal-popup">
-            <div class="modal-body">
-            	<div class="display-flex flex-column flex-align-center">
-	            	<div class="icon">
-	            		<img src="images/Cancel Icon.png">
-	            	</div>
-	            	<h3>Are you sure?</h3>
-            		<span>Do you really want to delete this? This action cannot be done.</span>
-	            </div>
-            	<hr class="spacer small">
-            	<div>
-            		<a href="#"data-deactivate="#confirm-delete" class="form-button">Confirm</a>
-	               <hr class="spacer xs">
-	               <a href="#" data-deactivate="#confirm-delete" class="text-centered">Cancel</a>
-	            </div>
-            </div>
-         </div>
-     </div>
 
    <script type="text/template" id="footer-template">
    <ul class="footer-nav">

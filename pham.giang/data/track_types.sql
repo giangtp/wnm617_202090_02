@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 29, 2020 at 03:58 PM
+-- Generation Time: Dec 03, 2020 at 03:35 AM
 -- Server version: 5.6.49-cll-lve
 -- PHP Version: 7.3.6
 
@@ -35,64 +35,65 @@ CREATE TABLE `track_types` (
   `category` varchar(64) NOT NULL,
   `classification` varchar(64) NOT NULL,
   `img` varchar(256) NOT NULL,
-  `description` text NOT NULL
+  `description` text NOT NULL,
+  `type_rating` int(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `track_types`
 --
 
-INSERT INTO `track_types` (`id`, `user_id`, `name`, `category`, `classification`, `img`, `description`) VALUES
-(1, 10, 'Frutiger', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/872/fff/?text=Frutiger', 'Ipsum dolore ad id excepteur reprehenderit aliqua ad veniam incididunt amet officia.'),
-(2, 8, 'Century Gothic', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/764/fff/?text=Century Gothic', 'Fugiat dolore laboris fugiat mollit non qui non ea.'),
-(3, 10, 'Hoefler', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/978/fff/?text=Hoefler', 'Dolor eu ipsum deserunt nostrud quis aliquip esse.'),
-(4, 2, 'Sabon', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/961/fff/?text=Sabon', 'Cupidatat pariatur adipisicing aliqua nulla ex dolore Lorem culpa consectetur.'),
-(5, 5, 'Clarendon', 'Serif', 'Slab Serif', 'https://via.placeholder.com/400/908/fff/?text=Clarendon', 'Do officia laborum non nostrud.'),
-(6, 4, 'Proxima Nova', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/860/fff/?text=Proxima Nova', 'Culpa veniam ex sint aliqua ad proident et adipisicing irure veniam.'),
-(7, 4, 'Caslon', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/852/fff/?text=Caslon', 'Ullamco amet ea do qui deserunt reprehenderit eu.'),
-(8, 4, 'Century Gothic', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/951/fff/?text=Century Gothic', 'Consequat duis voluptate esse aute consequat sit minim et et aliqua fugiat proident aliquip enim.'),
-(9, 6, 'Bodoni', 'Serif', 'Didone', 'https://via.placeholder.com/400/877/fff/?text=Bodoni', 'Amet culpa exercitation cupidatat nulla nostrud veniam ex laborum esse.'),
-(10, 3, 'Bodoni', 'Serif', 'Didone', 'https://via.placeholder.com/400/985/fff/?text=Bodoni', 'Cillum eiusmod eiusmod pariatur in eu eiusmod ea magna consequat dolore ipsum laboris in dolore.'),
-(11, 3, 'Minion', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/939/fff/?text=Minion', 'Fugiat ea veniam eu id esse est duis.'),
-(12, 5, 'Clarendon', 'Serif', 'Slab Serif', 'https://via.placeholder.com/400/933/fff/?text=Clarendon', 'Amet aliquip cillum ad quis nulla dolor.'),
-(13, 8, 'Montserrat', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/914/fff/?text=Montserrat', 'Duis esse aute voluptate do proident adipisicing incididunt cillum ea mollit quis do.'),
-(14, 9, 'Goudy', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/700/fff/?text=Goudy', 'Id cillum sit exercitation laboris voluptate.'),
-(15, 7, 'Avant Garde', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/757/fff/?text=Avant Garde', 'Officia cupidatat excepteur labore nostrud voluptate ipsum duis laboris veniam consequat fugiat in culpa.'),
-(16, 9, 'Cambria', 'Serif', 'Transitional', 'https://via.placeholder.com/400/766/fff/?text=Cambria', 'Dolore elit fugiat labore aute tempor laboris enim magna anim minim ipsum.'),
-(17, 8, 'Futura', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/849/fff/?text=Futura', 'Nulla amet sit ex laborum.'),
-(18, 6, 'Meta', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/927/fff/?text=Meta', 'Pariatur exercitation reprehenderit eiusmod laboris.'),
-(19, 4, 'Akzidenz-Grotesk', 'Sans Serif', 'Grotesque', 'https://via.placeholder.com/400/787/fff/?text=Akzidenz-Grotesk', 'Culpa nulla tempor pariatur exercitation.'),
-(20, 1, 'VAG Rounded', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/967/fff/?text=VAG Rounded', 'Dolore ex consequat adipisicing tempor id sunt id.'),
-(21, 10, 'Lato', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/777/fff/?text=Lato', 'Amet elit aliquip ex sint aliqua velit aute.'),
-(22, 2, 'Meta', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/714/fff/?text=Meta', 'Ullamco ad velit sint nulla ad culpa reprehenderit ullamco consectetur voluptate.'),
-(23, 8, 'Franklin Gothic', 'Sans Serif', 'Grotesque', 'https://via.placeholder.com/400/929/fff/?text=Franklin Gothic', 'Veniam adipisicing incididunt sunt dolore aliquip pariatur tempor consectetur excepteur adipisicing ut.'),
-(24, 8, 'Meta', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/806/fff/?text=Meta', 'Officia reprehenderit voluptate enim mollit ut laborum.'),
-(25, 8, 'Optima', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/844/fff/?text=Optima', 'Do duis in occaecat id occaecat.'),
-(26, 9, 'Gotham', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/859/fff/?text=Gotham', 'Duis in ut sint nisi aute cupidatat excepteur id dolore.'),
-(27, 8, 'Bodoni', 'Serif', 'Didone', 'https://via.placeholder.com/400/718/fff/?text=Bodoni', 'Et tempor nisi qui dolor ex in aliqua elit ipsum.'),
-(28, 10, 'Gibson', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/714/fff/?text=Gibson', 'Et deserunt exercitation amet mollit.'),
-(29, 5, 'Calibri', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/971/fff/?text=Calibri', 'Elit enim deserunt adipisicing aliquip ex exercitation enim tempor id aute laborum eiusmod.'),
-(30, 4, 'Frutiger', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/727/fff/?text=Frutiger', 'Proident nulla sunt quis excepteur labore.'),
-(31, 4, 'Rockwell', 'Serif', 'Slab Serif', 'https://via.placeholder.com/400/873/fff/?text=Rockwell', 'Voluptate quis consectetur dolor sint dolore veniam nulla ipsum non nulla exercitation ea officia.'),
-(32, 1, 'Lato', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/808/fff/?text=Lato', 'Fugiat cupidatat Lorem tempor elit sit exercitation aliquip proident labore quis elit sint duis.'),
-(33, 7, 'Didot', 'Serif', 'Didone', 'https://via.placeholder.com/400/995/fff/?text=Didot', 'Nostrud elit reprehenderit minim occaecat pariatur amet aute irure qui adipisicing ea commodo eiusmod reprehenderit.'),
-(34, 10, 'Sabon', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/963/fff/?text=Sabon', 'Duis incididunt ex incididunt proident.'),
-(35, 7, 'Roboto', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/802/fff/?text=Roboto', 'Consectetur dolor ad commodo ullamco amet commodo ea.'),
-(36, 9, 'Calibri', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/898/fff/?text=Calibri', 'Anim proident anim sunt deserunt non ex labore non sint veniam cupidatat sint veniam ipsum.'),
-(37, 7, 'Frutiger', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/721/fff/?text=Frutiger', 'Fugiat sunt quis nostrud id et magna reprehenderit voluptate.'),
-(38, 1, 'Meta', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/969/fff/?text=Meta', 'Et Lorem non anim pariatur.'),
-(39, 4, 'Baskerville', 'Serif', 'Transitional', 'https://via.placeholder.com/400/749/fff/?text=Baskerville', 'Nisi et duis sint adipisicing enim.'),
-(40, 5, 'Century Gothic', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/887/fff/?text=Century Gothic', 'Minim exercitation do qui id quis ut.'),
-(41, 1, 'Century Gothic', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/770/fff/?text=Century Gothic', 'Eiusmod qui sit culpa dolor consequat nulla culpa ullamco magna esse dolor reprehenderit enim.'),
-(42, 9, 'Gibson', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/917/fff/?text=Gibson', 'Mollit cillum veniam sit laboris aliqua et.'),
-(43, 5, 'Clarendon', 'Serif', 'Slab Serif', 'https://via.placeholder.com/400/768/fff/?text=Clarendon', 'Elit Lorem pariatur cillum amet occaecat nostrud.'),
-(44, 6, 'Avant Garde', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/901/fff/?text=Avant Garde', 'Sint nostrud adipisicing laborum laborum ipsum nulla ullamco sit.'),
-(45, 1, 'Franklin Gothic', 'Sans Serif', 'Grotesque', 'https://via.placeholder.com/400/789/fff/?text=Franklin Gothic', 'Eiusmod ullamco dolor nisi do dolore velit elit dolor eu sit.'),
-(46, 7, 'Clarendon', 'Serif', 'Slab Serif', 'https://via.placeholder.com/400/962/fff/?text=Clarendon', 'Ipsum proident aute tempor nostrud magna occaecat esse exercitation dolore officia fugiat exercitation quis laborum.'),
-(47, 1, 'Franklin Gothic', 'Sans Serif', 'Grotesque', 'https://via.placeholder.com/400/724/fff/?text=Franklin Gothic', 'Cillum id ex sint consequat adipisicing excepteur commodo tempor elit laboris quis mollit.'),
-(48, 1, 'Palatino', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/864/fff/?text=Palatino', 'Tempor pariatur dolore elit mollit id ipsum amet et quis in cupidatat.'),
-(49, 3, 'Noto Sans', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/853/fff/?text=Noto Sans', 'Laboris enim reprehenderit fugiat eu ad laborum laboris.'),
-(50, 10, 'Sabon', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/978/fff/?text=Sabon', 'Adipisicing magna amet fugiat cupidatat excepteur amet deserunt aliqua id cillum.');
+INSERT INTO `track_types` (`id`, `user_id`, `name`, `category`, `classification`, `img`, `description`, `type_rating`) VALUES
+(1, 7, 'Century Gothic', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/976/fff/?text=Century Gothic', 'Nisi amet Lorem tempor Lorem adipisicing est excepteur laborum aliqua enim id.', 1),
+(2, 7, 'Baskerville', 'Serif', 'Transitional', 'https://via.placeholder.com/400/825/fff/?text=Baskerville', 'Minim est proident sunt culpa laboris irure ipsum id deserunt culpa veniam pariatur excepteur.', 5),
+(3, 9, 'Caslon', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/998/fff/?text=Caslon', 'Exercitation ea ex deserunt esse tempor nisi eu.', 4),
+(4, 3, 'Times', 'Serif', 'Transitional', 'https://via.placeholder.com/400/921/fff/?text=Times', 'Pariatur exercitation pariatur est id mollit cillum duis in id id.', 2),
+(5, 6, 'Cambria', 'Serif', 'Transitional', 'https://via.placeholder.com/400/763/fff/?text=Cambria', 'Sint dolor velit fugiat deserunt sunt.', 1),
+(6, 9, 'Calibri', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/962/fff/?text=Calibri', 'Irure ad ut labore reprehenderit cupidatat eu exercitation aliqua do minim.', 5),
+(7, 1, 'Trajan', 'Serif', 'Display Serif', 'https://via.placeholder.com/400/803/fff/?text=Trajan', 'Non laboris aute incididunt cupidatat laboris mollit ea.', 5),
+(8, 1, 'Minion', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/727/fff/?text=Minion', 'Ullamco non voluptate duis Lorem.', 2),
+(9, 2, 'Univers', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/826/fff/?text=Univers', 'Adipisicing aliquip et occaecat Lorem dolore ipsum aute occaecat enim esse.', 1),
+(10, 5, 'Lucida Sans', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/727/fff/?text=Lucida Sans', 'Aliquip commodo fugiat deserunt id magna enim irure consequat culpa Lorem.', 2),
+(11, 6, 'Rockwell', 'Serif', 'Slab Serif', 'https://via.placeholder.com/400/870/fff/?text=Rockwell', 'Duis sunt laborum dolore minim.', 4),
+(12, 7, 'Lucida Sans', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/827/fff/?text=Lucida Sans', 'Proident sint nulla ex cillum laboris aliqua esse pariatur aliquip veniam sit cillum.', 1),
+(13, 9, 'Lucida Sans', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/798/fff/?text=Lucida Sans', 'Ex velit exercitation incididunt sit tempor.', 4),
+(14, 5, 'Cambria', 'Serif', 'Transitional', 'https://via.placeholder.com/400/937/fff/?text=Cambria', 'Sunt tempor velit proident proident velit.', 2),
+(15, 4, 'Noto Sans', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/741/fff/?text=Noto Sans', 'Pariatur non id est aliquip duis aute voluptate duis duis.', 3),
+(16, 8, 'Arial', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/863/fff/?text=Arial', 'Aute quis laborum consectetur eiusmod anim et consectetur ullamco.', 4),
+(17, 4, 'Raleway', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/808/fff/?text=Raleway', 'Ullamco Lorem occaecat sit et anim voluptate sit cupidatat ullamco enim et pariatur Lorem minim.', 5),
+(18, 10, 'Sabon', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/869/fff/?text=Sabon', 'Id officia reprehenderit proident ut eu consequat.', 3),
+(19, 7, 'Gibson', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/998/fff/?text=Gibson', 'Et deserunt est irure consectetur excepteur labore reprehenderit.', 5),
+(20, 7, 'Proxima Nova', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/849/fff/?text=Proxima Nova', 'Officia veniam exercitation ex do nisi sunt in culpa excepteur pariatur qui in.', 3),
+(21, 10, 'Frutiger', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/791/fff/?text=Frutiger', 'Occaecat do exercitation sint laborum pariatur non eiusmod.', 5),
+(22, 3, 'Univers', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/855/fff/?text=Univers', 'Dolor id laboris officia in exercitation et enim irure.', 1),
+(23, 7, 'Adelle', 'Serif', 'Slab Serif', 'https://via.placeholder.com/400/842/fff/?text=Adelle', 'Adipisicing qui excepteur aute ad.', 1),
+(24, 3, 'Verdana', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/773/fff/?text=Verdana', 'Pariatur officia cupidatat occaecat cillum duis.', 4),
+(25, 2, 'Calibri', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/994/fff/?text=Calibri', 'Qui aliqua excepteur quis aute labore non anim nostrud officia.', 1),
+(26, 8, 'Minion', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/708/fff/?text=Minion', 'Ut quis anim veniam duis enim occaecat.', 1),
+(27, 6, 'Univers', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/815/fff/?text=Univers', 'Fugiat duis reprehenderit labore elit Lorem fugiat dolore eiusmod.', 2),
+(28, 6, 'Interstate', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/966/fff/?text=Interstate', 'Fugiat dolor aliquip sit est ut.', 5),
+(29, 5, 'Roboto', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/903/fff/?text=Roboto', 'Non ut nisi quis nostrud cupidatat magna et ad minim.', 4),
+(30, 9, 'Meta', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/718/fff/?text=Meta', 'Incididunt irure consectetur esse proident ex culpa excepteur laboris laboris in nisi voluptate.', 2),
+(31, 1, 'Goudy', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/973/fff/?text=Goudy', 'Irure sunt adipisicing eiusmod est minim quis sit voluptate.', 3),
+(32, 4, 'Verdana', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/891/fff/?text=Verdana', 'In ex pariatur in commodo veniam.', 4),
+(33, 4, 'Adelle', 'Serif', 'Slab Serif', 'https://via.placeholder.com/400/715/fff/?text=Adelle', 'Dolore elit culpa magna fugiat in elit minim ad esse dolor do in.', 2),
+(34, 9, 'Avant Garde', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/884/fff/?text=Avant Garde', 'Ad excepteur ad ex amet amet mollit sit cillum elit aliqua ex.', 5),
+(35, 10, 'Univers', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/739/fff/?text=Univers', 'Ullamco elit ipsum nulla proident Lorem veniam ipsum officia reprehenderit cupidatat id voluptate incididunt.', 4),
+(36, 6, 'Gibson', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/729/fff/?text=Gibson', 'Mollit adipisicing non anim dolore elit laborum.', 3),
+(37, 9, 'Montserrat', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/730/fff/?text=Montserrat', 'Dolor veniam aute ullamco aliqua occaecat est sit.', 5),
+(38, 6, 'Roboto', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/891/fff/?text=Roboto', 'Qui et occaecat fugiat voluptate commodo mollit ea et voluptate sit amet.', 2),
+(39, 9, 'Frutiger', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/875/fff/?text=Frutiger', 'Pariatur in eu aliqua consequat.', 4),
+(40, 10, 'Gill Sans', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/778/fff/?text=Gill Sans', 'Fugiat ex aute esse laborum deserunt tempor ad duis aliquip velit exercitation mollit amet.', 2),
+(41, 1, 'Georgia', 'Serif', 'Transitional', 'https://via.placeholder.com/400/790/fff/?text=Georgia', 'Enim esse minim magna elit.', 5),
+(42, 2, 'Roboto', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/722/fff/?text=Roboto', 'Aliquip fugiat anim anim et qui incididunt occaecat fugiat amet eiusmod nisi anim officia.', 2),
+(43, 1, 'Verdana', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/747/fff/?text=Verdana', 'Non irure Lorem aliqua proident Lorem sint.', 4),
+(44, 5, 'Baskerville', 'Serif', 'Transitional', 'https://via.placeholder.com/400/965/fff/?text=Baskerville', 'Irure eiusmod excepteur dolore ex dolor labore cillum proident adipisicing officia ut.', 3),
+(45, 9, 'Hoefler', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/854/fff/?text=Hoefler', 'Qui in incididunt do sit consectetur occaecat voluptate ipsum sint.', 2),
+(46, 4, 'Avenir', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/733/fff/?text=Avenir', 'Eu esse quis cillum laboris cillum cillum aute occaecat minim adipisicing quis.', 3),
+(47, 5, 'Roboto', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/795/fff/?text=Roboto', 'Ullamco fugiat quis proident ut Lorem qui esse minim deserunt exercitation esse officia est.', 5),
+(48, 2, 'Roboto', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/785/fff/?text=Roboto', 'Deserunt consequat labore tempor excepteur enim amet sint do id pariatur voluptate minim ex laborum.', 1),
+(49, 3, 'Neutra Text', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/835/fff/?text=Neutra Text', 'Incididunt ipsum ea ex commodo enim quis commodo proident ullamco sint cillum dolore.', 3),
+(50, 9, 'Sabon', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/958/fff/?text=Sabon', 'Deserunt anim deserunt excepteur sint.', 5);
 
 --
 -- Indexes for dumped tables

@@ -79,7 +79,14 @@ const TypeProfilePage = async() => {
 	console.log(type, loc, allLocs);
 
 	$("#type-profile-page .profile").html(makeTypeProfile(type.result));
-	$("#type-profile-page .last-spot").html(makeLastSpot(loc.result));
+
+  console.log(allLocs.result.length);
+
+  if(allLocs.result.length!=0) {
+    $("#type-profile-page .last-spot").html(makeLastSpot(loc.result));
+  } else {
+    $("#type-profile-page .last-spot").html("N/A");
+  }
 
 	$("#type-profile-page .locations-spot").html(allLocs.result.length);
     makeMap("#type-profile-page .map").then(map_el=>{
@@ -89,22 +96,43 @@ const TypeProfilePage = async() => {
 
 const TypeMapPage = async() => {
 
-  let d = await query({type:'locations_by_type_id',params:[sessionStorage.typeId]});
+  let loc = await query({type:'locations_by_type_id',params:[sessionStorage.typeId]});
 
-  console.log(d);
+  console.log(loc);
 
-    makeMap("#type-map-page .map").then(map_el=>{
-         makeMarkers(map_el,d.result);
+  let map_el = await makeMap("#type-map-page .map");
+   makeMarkers(map_el,loc.result);
 
-      map_el.data("markers").forEach((o,i)=>{
-        o.addListener("click",function(){
-           // console.log("honk")
+  map_el.data("markers").forEach((o,i)=>{
+    o.addListener("click",function(){
+       // console.log("honk")
 
-           $("#location-modal").addClass("active");
-           $("#location-modal .modal-body")
-              .html(makeLocationPopup(d.result[i]))
-        }) 
-     })
+       $("#location-modal").addClass("active");
+       $("#location-modal .modal-body")
+          .html(makeLocationPopup(loc.result[i]))
+    }) 
+  })
+
+  let map = map_el.data("map");
+
+  map.addListener("click",function(e){
+    console.log(e, map.getCenter())
+
+    let posFromClick = {
+       lat:e.latLng.lat(),
+       lng:e.latLng.lng(),
+       icon:"images/Location Add.png"
+    };
+    let posFromCenter = {
+       lat:map.getCenter().lat(),
+       lng:map.getCenter().lng(),
+       icon:"images/Location Add.png"
+    };
+
+    $("#add-lat").val(posFromClick.lat)
+    $("#add-lng").val(posFromClick.lng)
+
+    makeMarkers(map_el,[posFromClick])
    })
 }
 
@@ -120,6 +148,7 @@ const TypeEditPage = async() => {
    console.log(d)
 
    $("#type-edit-page .edit-form").html(makeTypeEdit(d.result));
+   $("#type-delete-modal .modal-body").html(makeTypeDelete(d.result));
 }
 
 const UserEditPage = async() => {
@@ -134,5 +163,6 @@ const LocationEditPage = async() => {
    console.log(d)
 
    $("#location-edit-page .edit-form").html(makeLocationEdit(d.result));
+   $("#location-delete-modal .modal-body").html(makeLocationDelete(d.result));
 }
 
