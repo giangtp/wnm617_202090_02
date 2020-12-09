@@ -25,7 +25,7 @@ function fetchAll($r) {
 
 
 // connection, prepared statement, parameters
-function makeQuery($c,$ps,$p) {
+function makeQuery($c,$ps,$p,$makeResults=true) {
    try {
       if(count($p)) {
          $stmt = $c->prepare($ps);
@@ -34,7 +34,7 @@ function makeQuery($c,$ps,$p) {
          $stmt = $c->query($ps);
       }
 
-      $r = fetchAll($stmt);
+      $r = $makeResults ? fetchAll($stmt) : [];
 
       return [
          "result"=>$r
@@ -45,6 +45,20 @@ function makeQuery($c,$ps,$p) {
          "error"=>"Query Failed: ".$e->getMessage()
       ];
    }
+}
+
+function makeUpload($file,$folder) {
+   $filename = microtime(true) . "_" . $_FILES[$file]['name'];
+
+   if(@move_uploaded_file(
+      $_FILES[$file]['tmp_name'],
+      $folder.$filename
+   )) return ['result'=>$filename];
+   else return [
+      "error"=>"File Upload Failed",
+      "_FILES"=>$_FILES,
+      "filename"=>$filename
+   ];
 }
 
 function makeStatement($data){
@@ -118,7 +132,46 @@ function makeStatement($data){
         return makeQuery($c,"SELECT MAX(date_create) as last_spot FROM track_locations WHERE type_id = ?",$p);
 
 
-        // CRUD
+
+         /*SEARCH & FILTER*/
+
+        case "search_types":
+         $p = ["%$p[0]%",$p[1]];
+         return makeQuery($c,"SELECT * FROM
+            `track_types`
+            WHERE
+               `name` LIKE ?
+               AND user_id = ?
+            ",$p);
+
+        //recent-page search
+        case "type_search_recent":
+           $p = ["%$p[0]%",$p[1]];
+           return makeQuery($c,"
+              SELECT * 
+              FROM `track_types` t
+              INNER JOIN (
+                SELECT id, type_id, MAX(date_create) as date_create, lat, lng, icon
+                FROM `track_locations`
+                GROUP BY type_id
+                ORDER BY `date_create` DESC
+              ) l
+              ON t.id = l.type_id
+              WHERE 
+                 a.name LIKE ?
+                 AND a.user_id = ?
+              ",$p);
+
+        case "type_filter":
+           return makeQuery($c,"SELECT * FROM
+              `track_types`
+              WHERE
+                 `$p[0]` = ?
+                 AND user_id = ?
+              ",[$p[1],$p[2]]);
+
+
+        /* CRUD */
 
         // INSERT
         case "insert_user":
@@ -129,8 +182,8 @@ function makeStatement($data){
         		`track_users`
         		(`name`,`username`,`email`,`password`,`phone`,`img`,`occupation`)
         		VALUES
-        		(?,?,?,md5(?),?,'https://via.placeholder.com/400/?text=USER',?)
-        		",$p,false);
+        		('Unknown',?,?,md5(?),'XXXXXXXX','https://via.placeholder.com/400/?text=USER','Jobless')
+        		",$p, false);
         	return ["id"=>$c->lastInsertId()];
 
 	      case "insert_type":
@@ -145,7 +198,7 @@ function makeStatement($data){
         case "insert_location":
          $r = makeQuery($c,"INSERT INTO
             `track_locations`
-            (`type_id`,`lat`,`lng`,`usage_rating`,`img`,`icon`,`application`,`font_style``note`,`date_create`)
+            (`type_id`,`lat`,`lng`,`usage_rating`,`img`,`icon`,`application`,`font_style`,`note`,`date_create`)
             VALUES
             (?, ?, ?, ?, 'https://via.placeholder.com/400/?text=LOCATION','images/Location Icon.png',?,?,?, NOW())
             ",$p,false);
@@ -163,6 +216,15 @@ function makeStatement($data){
                `email` = ?,
                `phone` = ?,
                `occupation` = ?
+            WHERE `id` = ?
+            ",$p,false);
+         return ["result"=>"success"];
+
+         case "update_user_image":
+         $r = makeQuery($c,"UPDATE
+            `track_users`
+            SET
+               `img` = ?
             WHERE `id` = ?
             ",$p,false);
          return ["result"=>"success"];
@@ -206,6 +268,13 @@ function makeStatement($data){
         default: return ["error"=>"No matched type"];
 	}
 }
+
+
+if(!empty($_FILES)) {
+   $r = makeUpload("image","../uploads/");
+   die(json_encode($r));
+}
+
 
 $data = json_decode(file_get_contents("php://input"));
 

@@ -160,7 +160,7 @@ const makeTypeEdit = templater(o=>`
 
 const makeUserEdit = templater(o=>`
 <div class="display-flex flex-align-center flex-column">
-	<a href="#">
+	<a href="#user-upload-page">
 		<div class="image-circle edit-image">
 			<div class="overlay"></div>
 			<img src="${o.img}">
@@ -314,3 +314,34 @@ const makeLocationDelete = o=>`
    <a href="#" data-deactivate="#location-delete-modal" class="text-centered">Cancel</a>
 </div>
 `;
+
+const makeEmptyListResult = (o) => {
+	return `
+	<div class="display-flex flex-align-center flex-column page-side-padding page-top-padding text-centered">
+		<img class="illustration" src=''>
+		<h3></h3>
+		<p></p>
+	 </div>
+	`
+}
+
+
+const filterList = (types,category) => {
+   let a = [...(new Set(types.map(o=>o[category])))];
+   return templater(o=>`<div class="filter" data-field="${category}" data-value="${o}">${o[0].toUpperCase()+o.substr(1)}</div>`)(a);
+}
+
+const makeFilterList = (types) => {
+   return `
+   <div class="filter" data-field="category" data-value="all">All</div> | 
+   ${filterList(types,'category')} | 
+   ${filterList(types,'classification')} 
+   `;
+}
+
+
+const makeUploaderImage = ({namespace,folder,name}) => {
+   $(`#${namespace}-image`).val(folder+name);
+   $(`#${namespace}-page .image-uploader`)
+      .css({'background-image':`url('${folder+name}')`})
+}

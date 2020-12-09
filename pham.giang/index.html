@@ -232,10 +232,15 @@
 
    <section data-role="page" id="list-page">
       	<header data-role="header" class="display-flex display-justify-center">
-      		<input id="type-list-search" type="search" class="form-input flex-stretch" data-role="none" placeholder="Search">
+      		<form class="hotdog" id="list-search-form" data-ajax="false">
+      			<input id="list-search-input" type="search" data-role="none" placeholder="Search">
+      		</form>
       		<hr class="vertical-spacer small">
 	      	<i class='fas icon flex-none' style="line-height: 1.45em;">&#xf002;</i>
     	</header>
+    	<header data-role="header">
+         <div class="filter-list"></div>
+      	</header>
       <div data-role="main">
       		<div class="overscroll">
 		      	<ul class="type-list">
@@ -280,8 +285,16 @@
 	               <input id="add-type-name" type="text" class="form-input" data-role="none">
 	            </div>
 	            <div class="form-control">
-	               <label for="add-type-rating" class="form-label">Rating</label>
-	               <input id="add-type-rating" type="text" class="form-input" data-role="none">
+	            	<label for="add-type-rating" class="form-label">Rating</label>
+			        <div class="form-select">
+			            <select id="add-type-rating">
+			                <option>1</option>
+			                <option>2</option>
+			                <option>3</option>
+			                <option>4</option>
+			                <option>5</option>
+			            </select>
+			        </div>
 	            </div>
 	            <div class="form-control">
 	               <label for="add-category" class="form-label">Category</label>
@@ -326,11 +339,11 @@
 			<div class="profile-bottom">
 				<a href="#type-map-page">
 					<div class="map"></div>
+			        <div class="button-circle floater bottom right">
+						<i class='fas icon'>&#xf067;</i>
+					</div>					
 				</a>
 			</div>
-	        <!-- <a href="#type-edit-page"class="button-circle floater bottom right">
-				<i class='fas icon'>&#xf304;</i>
-			</a> -->
 		</div>
 	</section>
 
@@ -402,16 +415,16 @@
 
 		<footer data-role="footer" data-template="#footer-template"></footer>
 
-      <div class="modal" id="setting-modal">
-         <div class="modal-back" data-deactivate="#setting-modal"></div>
-         <div class="modal-popup">
-            <ul class="modal-list">
-        		<li><a href="#user-edit-page" data-deactivate="#setting-modal">Edit user profile</a></li>
-        		<li><a href="#password-edit-page" data-deactivate="#setting-modal">Edit password</a></li>
-        		<li class="js-logout" data-deactivate="#setting-modal">Logout</li>
-            </ul>
-         </div>
-     </div>
+    	<div class="modal" id="setting-modal">
+			<div class="modal-back" data-deactivate="#setting-modal"></div>
+			<div class="modal-popup">
+				<ul class="modal-list">
+					<li><a href="#user-edit-page" data-deactivate="#setting-modal">Edit user profile</a></li>
+					<li><a href="#password-edit-page" data-deactivate="#setting-modal">Edit password</a></li>
+					<li class="js-logout" data-deactivate="#setting-modal">Logout</li>
+	            </ul>
+	        </div>
+		</div>
    </section>
 
    <section data-role="page" id="user-edit-page">
@@ -429,6 +442,31 @@
 		</div>
 	</section>
 
+
+	<section data-role="page" id="user-upload-page">
+		<header data-role="header">
+			<ul>
+				<li>
+					<a href="#" data-rel="back" class="nav-link">
+						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+					</a>
+				</li>
+				<li class="flex-stretch"></li>
+       		    <li><a href="#" class="js-user-upload nav-link">Save</a>
+       		    </li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<form id="user-upload-form" data-ajax="false">
+	            <input type="hidden" id="user-upload-image">
+	            <label class="image-uploader full">
+	               <input type="file" data-role="none" id="user-upload-input">
+	            </label>
+	        </form>
+		</div>
+	</section>
+
+
 	<section data-role="page" id="password-edit-page">
 		<header data-role="header">
 			<ul>
@@ -441,37 +479,42 @@
 		</header>
 		<div data-role="main" class="page-side-padding page-top-padding">
         	<form id="password-edit-form" class="flex-stretch content active" data-ajax="false">
+
 	            <div class="form-control">
 	               <label for="old-password" class="form-label">Old Password</label>
 	               <input id="old-password" type="text" class="form-input" data-role="none">
-	            </div>
+				</div>
+
 	            <div class="form-control">
 	               <label for="new-password" class="form-label">New Password</label>
 	               <input id="new-password" type="text" class="form-input" data-role="none">
-	            </div>
+				</div>
+
 	            <div class="form-control">
 	               <label for="confirm-new-password" class="form-label">Confirm New Password</label>
 	               <input id="confirm-new-password" type="text" class="form-input" data-role="none">
 	            </div>
+
 	            <div class="form-control">
 	               <a href="#" data-rel="back" class="form-button">Confirm</a>
 	               <hr class="spacer xs">
 	               <a href="#" data-rel="back" class="text-centered">Cancel</a>
 	            </div>
+
 		    </form>
 		</div>
 	</section>
 
    <script type="text/template" id="footer-template">
-   <ul class="footer-nav">
+	<ul class="footer-nav">
        <li>
-       	<a href="#recent-page" id="recent-nav"><i class='fas icon XM'>&#xf1da;</i><p>Recent</p></a>
+			<a href="#recent-page" id="recent-nav"><i class='fas icon XM'>&#xf1da;</i><p>Recent</p></a>
        </li>
        <li>
-       	<a href="#list-page" id="list-nav"><i class='fas icon XM'>&#xf0ca;</i><p>List</p></a>
+			<a href="#list-page" id="list-nav"><i class='fas icon XM'>&#xf0ca;</i><p>List</p></a>
        </li>
        <li>
-       	<a href="#user-profile-page" id="profile-nav"><i class='fas icon XM'>&#xf2bd;</i><p>Profile</p></a>
+			<a href="#user-profile-page" id="profile-nav"><i class='fas icon XM'>&#xf2bd;</i><p>Profile</p></a>
        </li>
     </ul>
    </script>

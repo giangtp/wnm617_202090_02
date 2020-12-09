@@ -24,10 +24,9 @@ const checkSignupForm = () => {
    			console.log(d.id)
 
             $("#signup-form")[0].reset();
-            query({type:'types_by_user_id',params:[sessionStorage.userId]})
-            .then(d=>{
+            
+            sessionStorage.userId = d.id;
              $.mobile.navigate("#list-page"); 
-         })
    	})
    }
 }
@@ -152,4 +151,75 @@ const checkLocationDelete = id => {
       }
       $.mobile.navigate("#type-map-page"); 
    });
+} 
+
+const checkSearchForm = async () => {
+   let s = $("#list-search-input").val();
+   console.log(s)
+
+   let r = await query({type:"search_types",params:[s,sessionStorage.userId]});
+
+   if(r.result.length==0) {
+      $("#list-page .type-list").html(
+         `<div class="display-flex flex-align-center flex-column page-side-padding page-top-padding text-centered">
+            <img class="illustration" src='images/no_search.png'alt='no search found'>
+            <h3>Oops, No Results Found</h3>
+            <p>We cannot find what you're trying to search, please try again.</p>
+         </div>`
+      );
+   } else {
+      $("#list-page .type-list").html(makeTypeList(r.result));
+   }
+   console.log(r)
+}
+
+const checkListFilter = async (d) => {
+   let r = d.value=='all' ?
+      await query({
+         type:'types_by_user_id',
+         params:[sessionStorage.userId]
+      }) :
+      await query({
+         type:'type_filter',
+         params:[d.field,d.value,sessionStorage.userId]
+      });
+
+   console.log(r)
+
+   if(r.result.length==0) {
+      $("#list-page .type-list").html(
+         `<div class="display-flex flex-align-center flex-column page-side-padding page-top-padding text-centered">
+            <img class="illustration" src='images/no_search.png'alt='no search found'>
+            <h3>Oops, No Results Found</h3>
+            <p>We cannot find what you're trying to search, please try again.</p>
+          </div>`
+      );
+   } else {
+      $("#list-page .type-list").html(makeTypeList(r.result));
+   }
+}
+
+const checkUpload = file => {
+   let fd = new FormData();
+   fd.append("image",file);
+
+   return fetch('data/api.php',{
+      method:'POST',
+      body:fd
+   }).then(d=>d.json())
+}
+
+const checkUserUpload = () => {
+   let upload = $("#user-upload-image").val()
+   if(upload=="") return;
+
+   query({
+      type:'update_user_image',
+      params:[upload,sessionStorage.userId]
+   }).then(d=>{
+      if(d.error) {
+         throw d.error;
+      }
+      window.history.back();
+   })
 }

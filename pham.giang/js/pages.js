@@ -45,6 +45,8 @@ const ListPage = async() => {
 	let d = await query({type:'types_by_user_id',params:[sessionStorage.userId]});
 	console.log(d);
 
+  $("#list-page .filter-list").html(makeFilterList(d.result))
+
 	if(d.result.length==0) {
     	$("#list-page .type-list").html(
     		`<div class="display-flex flex-align-center flex-column page-side-padding page-top-padding text-centered">
@@ -68,7 +70,7 @@ const UserProfilePage = async() => {
    $("#user-profile-page .profile").html(makeUserProfile(user.result));
    $("#user-profile-page .types-spot").html(types.result.length);
    $("#user-profile-page .locations-spot").html(locs.result.length);
-}
+} //scrolling not working
 
 const TypeProfilePage = async() => {
 
@@ -148,7 +150,7 @@ const TypeEditPage = async() => {
    console.log(d)
 
    $("#type-edit-page .edit-form").html(makeTypeEdit(d.result));
-   $("#type-delete-modal .modal-body").html(makeTypeDelete(d.result));
+   $("#type-delete-modal .modal-body").html(makeTypeDelete(d.result[0]));
 }
 
 const UserEditPage = async() => {
@@ -163,6 +165,20 @@ const LocationEditPage = async() => {
    console.log(d)
 
    $("#location-edit-page .edit-form").html(makeLocationEdit(d.result));
-   $("#location-delete-modal .modal-body").html(makeLocationDelete(d.result));
+   $("#location-delete-modal .modal-body").html(makeLocationDelete(d.result[0]));
 }
 
+const UserUploadPage = async() => {
+   query({
+      type:'user_by_id',
+      params:[sessionStorage.userId]
+   }).then(d=>{
+      console.log(d)
+
+      makeUploaderImage({
+         namespace:'user-upload',
+         folder:'',
+         name:d.result[0].img
+      })
+   });
+}

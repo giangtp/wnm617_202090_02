@@ -20,6 +20,7 @@ $(()=>{
          case 'location-page': LocationPage(); break;
          case 'location-edit-page': LocationEditPage(); break;
          case 'user-edit-page': UserEditPage(); break;
+         case 'user-upload-page': UserUploadPage(); break;
          case 'type-edit-page': TypeEditPage(); break;
          case 'type-map-page': TypeMapPage(); 
             $('#location-modal').removeClass('.active');
@@ -64,6 +65,10 @@ $(()=>{
       e.preventDefault();
       checkLocationEditForm();
    })
+   .on("submit","#list-search-form",function(e){
+      e.preventDefault();
+      checkSearchForm();
+   })
 
 
    /* ANCHOR CLICKS */
@@ -90,6 +95,26 @@ $(()=>{
    .on("click",".js-location-delete",function(e){
       checkLocationDelete($(this).data("id"));
    })
+      .on("click",".js-user-upload",function(e){
+      checkUserUpload();
+   })
+
+   .on("click",".filter",function(e){
+      checkListFilter($(this).data());
+   })
+   .on("change",".image-uploader input",function(e){
+      checkUpload(this.files[0])
+      .then(d=>{
+         console.log(d)
+         makeUploaderImage({
+            namespace:'user-upload',
+            folder:'uploads/',
+            name:d.result
+         })
+      })
+   })
+
+
 
 
    .on("click","[data-activate]",function(){
