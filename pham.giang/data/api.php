@@ -144,6 +144,14 @@ function makeStatement($data){
                AND user_id = ?
             ",$p);
 
+        case "type_filter":
+           return makeQuery($c,"SELECT * FROM
+              `track_types`
+              WHERE
+                 `$p[0]` = ?
+                 AND user_id = ?
+              ",[$p[1],$p[2]]);
+
         //recent-page search
         case "type_search_recent":
            $p = ["%$p[0]%",$p[1]];
@@ -158,17 +166,9 @@ function makeStatement($data){
               ) l
               ON t.id = l.type_id
               WHERE 
-                 a.name LIKE ?
-                 AND a.user_id = ?
+                 t.name LIKE ?
+                 AND t.user_id = ?
               ",$p);
-
-        case "type_filter":
-           return makeQuery($c,"SELECT * FROM
-              `track_types`
-              WHERE
-                 `$p[0]` = ?
-                 AND user_id = ?
-              ",[$p[1],$p[2]]);
 
 
         /* CRUD */
@@ -207,6 +207,17 @@ function makeStatement($data){
 
         // UPDATE
 
+         case "user_onboarding":
+         $r = makeQuery($c,"UPDATE
+            `track_users`
+            SET
+               `name` = ?,
+               `phone` = ?,
+               `occupation` = ?
+            WHERE `id` = ?
+            ",$p,false);
+         return ["result"=>"success"];
+
          case "update_user":
          $r = makeQuery($c,"UPDATE
             `track_users`
@@ -242,6 +253,15 @@ function makeStatement($data){
             ",$p,false);
          return ["result"=>"success"];
 
+         case "update_type_image":
+         $r = makeQuery($c,"UPDATE
+            `track_types`
+            SET
+               `img` = ?
+            WHERE `id` = ?
+            ",$p,false);
+         return ["result"=>"success"];
+
          case "update_location":
          $r = makeQuery($c,"UPDATE
             `track_locations`
@@ -250,6 +270,15 @@ function makeStatement($data){
                `application` = ?,
                `font_style` = ?,
                `note` = ?
+            WHERE `id` = ?
+            ",$p,false);
+         return ["result"=>"success"];
+
+         case "update_location_image":
+         $r = makeQuery($c,"UPDATE
+            `track_locations`
+            SET
+               `img` = ?
             WHERE `id` = ?
             ",$p,false);
          return ["result"=>"success"];

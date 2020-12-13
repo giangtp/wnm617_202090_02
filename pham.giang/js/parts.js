@@ -116,7 +116,7 @@ const makeLocationProfile = templater(o=>`
 
 const makeTypeEdit = templater(o=>`
 <div class="display-flex flex-align-center flex-column">
-	<a href="#">
+	<a href="#type-upload-page">
 		<div class="image-circle edit-image">
 			<div class="overlay"></div>
 			<img src="${o.img}">
@@ -135,8 +135,17 @@ const makeTypeEdit = templater(o=>`
        <input id="edit-type-name" type="text" class="form-input" data-role="none" value="${o.name}">
     </div>
     <div class="form-control">
-       <label for="edit-type-rating" class="form-label">Rating</label>
-       <input id="edit-type-rating" type="text" class="form-input" data-role="none" value="${o.type_rating}">
+    	<label for="edit-type-rating" class="form-label">Rating</label>
+        <div class="form-select">
+            <select id="rating-value" data-role="none">
+            	<option hidden selected class="type-rating">${o.type_rating}</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
     </div>
     <div class="form-control">
        <label for="edit-category" class="form-label">Category</label>
@@ -219,8 +228,17 @@ const makeLocationEdit = templater(o=>`
 
 <form id="location-edit-form" class="flex-stretch content active" data-ajax="false">
 	<div class="form-control">
-       <label for="edit-usage-rating" class="form-label">Usage Rating</label>
-       <input id="edit-usage-rating" type="text" class="form-input" data-role="none" value="${o.usage_rating}">
+    	<label for="edit-usage-rating" class="form-label">Rating</label>
+        <div class="form-select">
+            <select id="edit-usage-rating" data-role="none">
+            	<option hidden selected>${o.usage_rating}</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
     </div>
     <div class="form-control">
        <label for="edit-application" class="form-label">Application</label>
@@ -244,7 +262,7 @@ const makeLocationEdit = templater(o=>`
 
 const makeLastSpot = templater(o=>`${o.last_spot}`);
 
-const makeTypePopup = o=>`
+/* const makeTypePopup = o=>`
 <div class="display-flex">
 	<div class="image-circle">
 	   <img src="${o.img}" style="width:100px;height:100px">
@@ -261,8 +279,8 @@ const makeTypePopup = o=>`
 	</div>
 </div>
 <hr class="spacer xs">
-<a href="#" class="form-button js-type-jump" data-id="${o.type_id}" data-deactivate="#recent-type-modal">Visit</a> 
-`;
+ 
+`;*/
 
 const makeLocationPopup = o=>`
 <div class="display-flex">
@@ -315,7 +333,7 @@ const makeLocationDelete = o=>`
 </div>
 `;
 
-const makeEmptyListResult = (o) => {
+/* const makeEmptyListResult = (o) => {
 	return `
 	<div class="display-flex flex-align-center flex-column page-side-padding page-top-padding text-centered">
 		<img class="illustration" src=''>
@@ -323,7 +341,7 @@ const makeEmptyListResult = (o) => {
 		<p></p>
 	 </div>
 	`
-}
+} */
 
 
 const filterList = (types,category) => {
@@ -333,9 +351,8 @@ const filterList = (types,category) => {
 
 const makeFilterList = (types) => {
    return `
-   <div class="filter" data-field="category" data-value="all">All</div> | 
-   ${filterList(types,'category')} | 
-   ${filterList(types,'classification')} 
+   <div class="filter active" data-field="category" data-value="all">All</div>
+   ${filterList(types,'category')}
    `;
 }
 
@@ -345,3 +362,5 @@ const makeUploaderImage = ({namespace,folder,name}) => {
    $(`#${namespace}-page .image-uploader`)
       .css({'background-image':`url('${folder+name}')`})
 }
+
+// const checkRating = 

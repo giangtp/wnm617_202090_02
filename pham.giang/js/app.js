@@ -11,20 +11,19 @@ $(()=>{
 
       // Routing
       switch(ui.toPage[0].id) {
-         case 'recent-page': RecentPage();
-            $('#recent-type-modal').removeClass('.active');  
-            break;
+         case 'recent-page': RecentPage(); break;
          case 'list-page': ListPage(); break;
          case 'user-profile-page': UserProfilePage(); break;
          case 'type-profile-page': TypeProfilePage(); break;
          case 'location-page': LocationPage(); break;
          case 'location-edit-page': LocationEditPage(); break;
+         case 'location-upload-page': LocationUploadPage(); break;
          case 'user-edit-page': UserEditPage(); break;
          case 'user-upload-page': UserUploadPage(); break;
          case 'type-edit-page': TypeEditPage(); break;
-         case 'type-map-page': TypeMapPage(); 
-            $('#location-modal').removeClass('.active');
-            break;
+         case 'type-upload-page': TypeUploadPage(); break;
+         case 'type-map-page': TypeMapPage(); break;
+         case 'map-add-page': MapAddPage();break;
       }
    })
 
@@ -39,6 +38,11 @@ $(()=>{
    .on("submit","#signup-form",function(e){
       e.preventDefault();
       checkSignupForm();
+   })
+
+   .on("submit","#onboarding-form",function(e){
+      e.preventDefault();
+      checkOnboardingForm();
    })
 
    .on("submit","#user-edit-form",function(e){
@@ -69,6 +73,10 @@ $(()=>{
       e.preventDefault();
       checkSearchForm();
    })
+      .on("submit","#recent-search-form",function(e){
+      e.preventDefault();
+      checkRecentSearch();
+   })
 
 
    /* ANCHOR CLICKS */
@@ -95,12 +103,23 @@ $(()=>{
    .on("click",".js-location-delete",function(e){
       checkLocationDelete($(this).data("id"));
    })
-      .on("click",".js-user-upload",function(e){
+   .on("click",".js-user-upload",function(e){
       checkUserUpload();
    })
+   .on("click",".js-type-upload",function(e){
+      checkTypeUpload();
+   })
+   .on("click",".js-location-upload",function(e){
+      checkLocationUpload();
+   })
+   .on("click",".js-search-jump",function(e){
+      checkSearchForm();
+   })  
 
    .on("click",".filter",function(e){
       checkListFilter($(this).data());
+      $(this).addClass("active")
+         .siblings().removeClass("active")
    })
    .on("change",".image-uploader input",function(e){
       checkUpload(this.files[0])

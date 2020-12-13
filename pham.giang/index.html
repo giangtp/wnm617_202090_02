@@ -49,6 +49,9 @@
 		</div>
    </section> -->
 
+
+   <!-- SIGN IN -->
+
 	<section data-role="page" id="signin-page">
       <div data-role="main" class="display-flex flex-align-center flex-justify-center flex-column">
       	 <div class="logo">
@@ -111,26 +114,316 @@
 		</div>
    </section>
 
+
+
+   <!-- ONBOARDING -->
+
+   <section data-role="page" id="complete-signup-page">
+		<div data-role="main">
+			<div class="page-side-padding page-top-padding overscroll">
+				<div class="display-flex flex-align-center flex-column text-centered">
+					<img class="illustration" src='images/signup.png'>
+		    		<h2>You're Almost There</h2>
+		    		<p>Before we begin, please fill in these information to complete your sign up.</p>
+	    		</div>
+
+	    		<form id="onboarding-form" class="flex-stretch content active" data-ajax="false">
+				    <div class="form-control">
+				       <label for="add-fullname" class="form-label">Full Name</label>
+				       <input id="add-fullname" type="text" class="form-input" data-role="none" placeholder="Enter your full name">
+				    </div>
+				    <div class="form-control">
+				       <label for="add-occupation" class="form-label">Occupation</label>
+				       <input id="add-occupation" type="text" class="form-input" data-role="none" placeholder="Enter your occupation">
+				    </div>
+				    <div class="form-control">
+				       <label for="add-phone" class="form-label">Phone</label>
+				       <input id="add-phone" type="tel" class="form-input" data-role="none" placeholder="Enter your phone number">
+				    </div>
+				    <div class="form-control">
+				       <input type="submit" class="form-button" value="Confirm" data-role="none">
+				    </div>
+				</form>
+			</div>
+		</div>
+   </section>
+
+
+
+   <!-- RECENT PAGE -->
+
    <section data-role="page" id="recent-page">
 	    <div data-role="main">
 	      	<div class="map">	
 	      	</div>
-	      	<ul class="recent-list display-inline-flex"></ul>
-	      	<div class="modal" id="recent-type-modal">
+	      	<!-- <ul class="recent-list display-inline-flex"></ul>-->
+	      	<div class="display-flex">
+		      	<form class="hotdog" id="recent-search-form" data-ajax="false">
+	      			<input id="recent-search-input" type="search" data-role="none" placeholder="Search">
+	      		</form>
+      		</div>
+	      	<!-- <div class="modal" id="recent-type-modal">
 	            <div class="modal-drawer bottom">
 	            	<div class="floater close-button" data-deactivate="#recent-type-modal" class="flex-none">
 	            		<i class='fas icon small'>&#xf00d;</i>
 	            	</div>
 	               <div class="modal-body"></div>
 	            </div>
-	         </div>
+	         </div> -->
+
+	         <div class="modal" id="no-search-modal">
+			      <div class="modal-toast bottom" data-deactivate="#no-search-modal">
+			      	<i class='fas icon small flex-none' style="color: var(--color-main);">&#xf06a;</i> 
+					<span class="message">Message</span>
+			      </div>
+			 </div>
 	  	</div>
 
     	<footer data-role="footer" data-template="#footer-template"></footer>
    </section>
 
 
-   <section data-role="page" id="location-add-page">
+
+   <!-- LIST PAGE -->
+
+
+   <section data-role="page" id="list-page">
+      	<header data-role="header" class="display-flex display-justify-center">
+      		<form class="hotdog" id="list-search-form" data-ajax="false">
+      			<input id="list-search-input" type="search" data-role="none" placeholder="Search">
+      		</form>
+      		<hr class="vertical-spacer small">
+	      	<i class='fas icon flex-none js-search-jump' style="line-height: 1.45em;">&#xf002;</i>
+    	</header>
+    	<header data-role="header" class="secondary">
+        	<div class="filter-list"></div>
+      	</header>
+      <div data-role="main">
+      		<div class="overscroll">
+		      	<ul class="type-list">
+		         	<!-- li*10>a[href=#type-profile-page]{type $} -->
+		        </ul>
+	        </div>
+	        <a href="#type-add-page"class="button-circle floater bottom right">
+		        <i class='fas icon'>&#xf067;</i>
+		    </a>
+      </div>
+      <footer data-role="footer" data-template="#footer-template"></footer>
+   </section>
+
+   <section data-role="page" id="type-add-page">
+		<header data-role="header">
+			<ul>
+				<li>
+					<a href="#" data-rel="back" class="nav-link">
+						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+					</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main" class="page-side-padding page-top-padding">
+			<div class="display-flex flex-align-center flex-column">
+	        	<a href="#">
+	        		<div class="image-circle edit-image">
+	        			<img src="images/Empty-Image.png">
+	        			<div class="edit-image-icon">
+		        			<i class='fas icon XS'>&#xf067;</i>
+		        		</div>
+	        		</div>
+	        	</a>
+        	</div>
+
+        	<hr class="spacer small">
+
+        	<form id="type-add-form" class="flex-stretch content active" data-ajax="false">
+        		<input type="hidden" id="type-add-destination" value="#list-page">
+	            <div class="form-control">
+	               <label for="add-type-name" class="form-label">Type Name</label>
+	               <input id="add-type-name" type="text" class="form-input" data-role="none">
+	            </div>
+	            <div class="form-control">
+	            	<label for="add-type-rating" class="form-label">Rating</label>
+			        <div class="form-select">
+			            <select id="add-type-rating" data-role="none">
+			                <option>1</option>
+			                <option>2</option>
+			                <option>3</option>
+			                <option>4</option>
+			                <option>5</option>
+			            </select>
+			        </div>
+	            </div>
+	            <div class="form-control">
+	               <label for="add-category" class="form-label">Category</label>
+	               <input id="add-category" type="text" class="form-input" data-role="none">
+	            </div>
+	            <div class="form-control">
+	               <label for="add-classification" class="form-label">Classification</label>
+	               <input id="add-classification" type="text" class="form-input" data-role="none">
+	            </div>
+	            <div class="form-control">
+	               <label for="add-description" class="form-label">Description</label>
+     			   <textarea id="add-description" data-role="none" class="form-input" maxlength="100"></textarea>
+	            </div>
+	            <div class="form-control">
+	            	<input type="submit" class="form-button" value="Confirm" data-role="none">
+	               <hr class="spacer xs">
+	               <a href="#" data-rel="back" class="text-centered">Cancel</a>
+	            </div>
+		    </form>
+		</div>
+	</section>
+
+
+
+	<!-- TYPE PROFILE -->
+
+	<section data-role="page" id="type-profile-page">
+		<header data-role="header">
+			<ul>
+				<li class="flex-stretch">
+					<a href="#" data-rel="back" class="nav-link">
+						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+					</a>
+				</li>
+				<li class="flex-none">
+					<a href="#type-edit-page" class="nav-link">
+						<span class="topnav-button">Edit</span>
+					</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main" class="display-flex flex-column">
+			<div class="profile-top">
+				<div class="profile"></div>
+			</div>
+			<div class="profile-bottom">
+				<a href="#type-map-page">
+					<div class="map"></div>
+			        <div class="button-circle floater bottom right">
+						<i class='fas icon'>&#xf06e;</i>
+					</div>					
+				</a>
+			</div>
+		</div>
+	</section>
+
+	 <section data-role="page" id="type-map-page">
+	 	<header data-role="header">
+			<ul>
+				<li class="flex-stretch">
+					<a href="#" data-rel="back" class="nav-link">
+						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+					</a>
+				</li>
+				<li class="flex-none">
+					<a href="#map-add-page" class="nav-link">
+						<span class="topnav-button" data-activate="#guide-modal">Add</span>
+					</a>
+				</li>
+			</ul>
+		</header>
+	    <div data-role="main">
+	      	<div class="map"></div>
+			<div class="modal" id="location-modal">
+            	<div class="modal-drawer bottom">
+	            	<div class="floater close-button" data-deactivate="#location-modal" class="flex-none">
+	            		<i class='fas icon small'>&#xf00d;</i>
+	            	</div>
+	               <div class="modal-body"></div>
+	            </div>
+	        </div>
+	  	</div>
+   </section>
+
+   <section data-role="page" id="map-add-page">
+	 	<header data-role="header">
+			<ul>
+				<li class="flex-stretch">
+					<a href="#" data-rel="back" class="nav-link">
+						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+					</a>
+				</li>
+				<li class="flex-none">
+					<a href="#location-add-page" class="nav-link">
+						<span class="topnav-button">Next</span>
+					</a>
+				</li>
+			</ul>
+		</header>
+	    <div data-role="main" data-deactivate="#guide-modal">
+	    	<input type="hidden" id="add-lat">
+         	<input type="hidden" id="add-lng">
+	      	<div class="map"></div>
+	      	<div class="modal active" id="guide-modal">
+		         <div class="modal-drawer bottom text-centered">
+		            <div class="modal-body">
+		            	<div class="icon"><img src="images/Location Add.png"></div>
+		            	<h3>Add a New Location</h3>
+			            <div>Record a new location for your type by clicking where you've found it on the map.</div>
+		        	</div>
+		         </div>
+		     </div>
+	  	</div>
+   </section>
+
+	<section data-role="page" id="type-edit-page">
+		<header data-role="header">
+			<ul>
+				<li class="flex-stretch">
+					<a href="#" data-rel="back" class="nav-link">
+						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+					</a>
+				</li>
+				<li class="flex-none">
+					<a href="#" data-activate="#type-delete-modal" class="nav-link">
+						<span class="topnav-button">Delete</span>
+					</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="edit-form page-side-padding page-top-padding"></div>
+		</div>
+
+		<div class="modal" id="type-delete-modal">
+	         <div class="modal-back" data-deactivate="#type-delete-modal"></div>
+	         <div class="modal-popup">
+	            <div class="modal-body"></div>
+	         </div>
+	     </div>
+	</section>
+
+	<section data-role="page" id="type-upload-page">
+		<header data-role="header">
+			<ul>
+				<li>
+					<a href="#" data-rel="back" class="nav-link">
+						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+					</a>
+				</li>
+				<li class="flex-stretch"></li>
+       		    <li><a href="#" class="js-user-upload nav-link">Save</a>
+       		    </li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<form id="type-upload-form" data-ajax="false">
+	            <input type="hidden" id="type-upload-image">
+	            <label class="image-uploader full">
+	               <input type="file" data-role="none" id="type-upload-input">
+	            </label>
+	        </form>
+		</div>
+	</section>
+
+
+
+
+
+	<!-- LOCATION -->
+
+	<section data-role="page" id="location-add-page">
 		<header data-role="header">
 			<ul>
 				<li>
@@ -155,9 +448,17 @@
         	<hr class="spacer small">
 
         	<form id="location-add-form" class="flex-stretch content active" data-ajax="false">
-        		<div class="form-control">
-	               <label for="add-usage-rating" class="form-label">Usage Rating</label>
-	               <input id="add-usage-rating" type="text" class="form-input" data-role="none">
+	            <div class="form-control">
+	            	<label for="add-usage-rating" class="form-label">Rating</label>
+			        <div class="form-select">
+			            <select id="add-usage-rating" data-role="none">
+			                <option>1</option>
+			                <option>2</option>
+			                <option>3</option>
+			                <option>4</option>
+			                <option>5</option>
+			            </select>
+			        </div>
 	            </div>
 	            <div class="form-control">
 	               <label for="add-application" class="form-label">Application</label>
@@ -230,31 +531,7 @@
 	     </div>
 	</section>
 
-   <section data-role="page" id="list-page">
-      	<header data-role="header" class="display-flex display-justify-center">
-      		<form class="hotdog" id="list-search-form" data-ajax="false">
-      			<input id="list-search-input" type="search" data-role="none" placeholder="Search">
-      		</form>
-      		<hr class="vertical-spacer small">
-	      	<i class='fas icon flex-none' style="line-height: 1.45em;">&#xf002;</i>
-    	</header>
-    	<header data-role="header">
-         <div class="filter-list"></div>
-      	</header>
-      <div data-role="main">
-      		<div class="overscroll">
-		      	<ul class="type-list">
-		         	<!-- li*10>a[href=#type-profile-page]{type $} -->
-		        </ul>
-	        </div>
-	        <a href="#type-add-page"class="button-circle floater bottom right">
-		        <i class='fas icon'>&#xf067;</i>
-		    </a>
-      </div>
-      <footer data-role="footer" data-template="#footer-template"></footer>
-   </section>
-
-   <section data-role="page" id="type-add-page">
+		<section data-role="page" id="location-upload-page">
 		<header data-role="header">
 			<ul>
 				<li>
@@ -262,147 +539,24 @@
 						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
 					</a>
 				</li>
-			</ul>
-		</header>
-		<div data-role="main" class="page-side-padding page-top-padding">
-			<div class="display-flex flex-align-center flex-column">
-	        	<a href="#">
-	        		<div class="image-circle edit-image">
-	        			<img src="images/Empty-Image.png">
-	        			<div class="edit-image-icon">
-		        			<i class='fas icon XS'>&#xf067;</i>
-		        		</div>
-	        		</div>
-	        	</a>
-        	</div>
-
-        	<hr class="spacer small">
-
-        	<form id="type-add-form" class="flex-stretch content active" data-ajax="false">
-        		<input type="hidden" id="type-add-destination" value="#list-page">
-	            <div class="form-control">
-	               <label for="add-type-name" class="form-label">Type Name</label>
-	               <input id="add-type-name" type="text" class="form-input" data-role="none">
-	            </div>
-	            <div class="form-control">
-	            	<label for="add-type-rating" class="form-label">Rating</label>
-			        <div class="form-select">
-			            <select id="add-type-rating">
-			                <option>1</option>
-			                <option>2</option>
-			                <option>3</option>
-			                <option>4</option>
-			                <option>5</option>
-			            </select>
-			        </div>
-	            </div>
-	            <div class="form-control">
-	               <label for="add-category" class="form-label">Category</label>
-	               <input id="add-category" type="text" class="form-input" data-role="none">
-	            </div>
-	            <div class="form-control">
-	               <label for="add-classification" class="form-label">Classification</label>
-	               <input id="add-classification" type="text" class="form-input" data-role="none">
-	            </div>
-	            <div class="form-control">
-	               <label for="add-description" class="form-label">Description</label>
-     			   <textarea id="add-description" data-role="none" class="form-input" maxlength="100"></textarea>
-	            </div>
-	            <div class="form-control">
-	            	<input type="submit" class="form-button" value="Confirm" data-role="none">
-	               <hr class="spacer xs">
-	               <a href="#" data-rel="back" class="text-centered">Cancel</a>
-	            </div>
-		    </form>
-		</div>
-	</section>
-
-	<section data-role="page" id="type-profile-page">
-		<header data-role="header">
-			<ul>
-				<li class="flex-stretch">
-					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
-					</a>
-				</li>
-				<li class="flex-none">
-					<a href="#type-edit-page" class="nav-link">
-						<span class="topnav-button">Edit</span>
-					</a>
-				</li>
-			</ul>
-		</header>
-		<div data-role="main" class="display-flex flex-column">
-			<div class="profile-top">
-				<div class="profile"></div>
-			</div>
-			<div class="profile-bottom">
-				<a href="#type-map-page">
-					<div class="map"></div>
-			        <div class="button-circle floater bottom right">
-						<i class='fas icon'>&#xf067;</i>
-					</div>					
-				</a>
-			</div>
-		</div>
-	</section>
-
-	 <section data-role="page" id="type-map-page">
-	 	<header data-role="header">
-			<ul>
-				<li class="flex-stretch">
-					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
-					</a>
-				</li>
-				<li class="flex-none">
-					<a href="#location-add-page" class="nav-link">
-						<span class="topnav-button">Next</span>
-					</a>
-				</li>
-			</ul>
-		</header>
-	    <div data-role="main">
-	    	<input type="hidden" id="add-lat">
-         	<input type="hidden" id="add-lng">
-	      	<div class="map"></div>
-			<div class="modal" id="location-modal">
-            <div class="modal-drawer bottom">
-	            	<div class="floater close-button" data-deactivate="#location-modal" class="flex-none">
-	            		<i class='fas icon small'>&#xf00d;</i>
-	            	</div>
-	               <div class="modal-body"></div>
-	            </div>
-	        </div>
-	  	</div>
-   </section>
-
-	<section data-role="page" id="type-edit-page">
-		<header data-role="header">
-			<ul>
-				<li class="flex-stretch">
-					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
-					</a>
-				</li>
-				<li class="flex-none">
-					<a href="#" data-activate="#type-delete-modal" class="nav-link">
-						<span class="topnav-button">Delete</span>
-					</a>
-				</li>
+				<li class="flex-stretch"></li>
+       		    <li><a href="#" class="js-location-upload nav-link">Save</a>
+       		    </li>
 			</ul>
 		</header>
 		<div data-role="main">
-			<div class="edit-form page-side-padding page-top-padding"></div>
+			<form id="location-upload-form" data-ajax="false">
+	            <input type="hidden" id="location-upload-image">
+	            <label class="image-uploader full">
+	               <input type="file" data-role="none" id="location-upload-input">
+	            </label>
+	        </form>
 		</div>
-
-		<div class="modal" id="type-delete-modal">
-	         <div class="modal-back" data-deactivate="#type-delete-modal"></div>
-	         <div class="modal-popup">
-	            <div class="modal-body"></div>
-	         </div>
-	     </div>
 	</section>
+
+
+
+	<!-- USER PROFILE -->
 
 	<section data-role="page" id="user-profile-page">
 		<div data-role="main">

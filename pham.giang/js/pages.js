@@ -1,9 +1,9 @@
 const RecentPage = async() => {
  
-	let types = await query({type:'recent_types',params:[sessionStorage.userId]});
+	// let types = await query({type:'recent_types',params:[sessionStorage.userId]});
 	let locs = await query({type:'recent_locations',params:[sessionStorage.userId]});
 
-	console.log(types, locs);
+	console.log(locs);
 
    let valid_types = locs.result.reduce((r,o)=>{
       o.icon = o.img;
@@ -11,14 +11,13 @@ const RecentPage = async() => {
       return r;
    },[])
 
-   if(types.result.length!=0) {
+   /* if(types.result.length!=0) {
 		$("#recent-page .recent-list").html(makeRecentList(types.result))
 		.append("<li class='view-all'><a href='#list-page'>View All</a></li>");
    } else {
    		// Do nothing
-   }
+   }*/
 
-	
 
 	let map_el = await makeMap("#recent-page .map");
 
@@ -30,13 +29,13 @@ const RecentPage = async() => {
       o.addListener("click",function(){
          // console.log("honk")
 
-        /* sessionStorage.typeId = valid_types[i].type_id;
-         $.mobile.navigate("#type-profile-page"); */
+        sessionStorage.typeId = valid_types[i].type_id;
+         $.mobile.navigate("#type-profile-page"); 
 
-         $("#recent-type-modal").addClass("active");
+        /* $("#recent-type-modal").addClass("active");
          $("#recent-type-modal .modal-body")
-            .html(makeTypePopup(valid_types[i]))
-      }) 
+            .html(makeTypePopup(valid_types[i])) */
+      })
    })
 }
 
@@ -103,7 +102,15 @@ const TypeMapPage = async() => {
   console.log(loc);
 
   let map_el = await makeMap("#type-map-page .map");
-   makeMarkers(map_el,loc.result);
+  // makeMarkers(map_el,loc.result);
+
+   let loc_icon = loc.result.reduce((r,o)=>{
+      o.icon = o.img;
+      if(o.lat && o.lng) r.push(o);
+      return r;
+   },[])
+
+   makeMarkers(map_el,loc_icon);
 
   map_el.data("markers").forEach((o,i)=>{
     o.addListener("click",function(){
@@ -111,9 +118,15 @@ const TypeMapPage = async() => {
 
        $("#location-modal").addClass("active");
        $("#location-modal .modal-body")
-          .html(makeLocationPopup(loc.result[i]))
+          .html(makeLocationPopup(loc_icon[i]))
     }) 
   })
+}
+
+const MapAddPage = async() => {
+
+  let map_el = await makeMap("#map-add-page .map");
+   makeMarkers(map_el,[]);
 
   let map = map_el.data("map");
 
@@ -177,6 +190,36 @@ const UserUploadPage = async() => {
 
       makeUploaderImage({
          namespace:'user-upload',
+         folder:'',
+         name:d.result[0].img
+      })
+   });
+}
+
+const TypeUploadPage = async() => {
+   query({
+      type:'type_by_id',
+      params:[sessionStorage.typeId]
+   }).then(d=>{
+      console.log(d)
+
+      makeUploaderImage({
+         namespace:'type-upload',
+         folder:'',
+         name:d.result[0].img
+      })
+   });
+}
+
+const TypeUploadPage = async() => {
+   query({
+      type:'location_by_id',
+      params:[sessionStorage.locationId]
+   }).then(d=>{
+      console.log(d)
+
+      makeUploaderImage({
+         namespace:'location-upload',
          folder:'',
          name:d.result[0].img
       })

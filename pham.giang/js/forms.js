@@ -26,26 +26,25 @@ const checkSignupForm = () => {
             $("#signup-form")[0].reset();
             
             sessionStorage.userId = d.id;
-             $.mobile.navigate("#list-page"); 
+             $.mobile.navigate("#complete-signup-page"); 
    	})
    }
 }
 
-const checkUserEditForm = () => {
-   let username = $("#edit-username").val();
-   let name = $("#edit-fullname").val();
-   let email = $("#edit-email").val();
-   let phone = $("#edit-phone").val();
-   let occupation = $("#edit-occupation").val();
+const checkOnboardingForm = () => {
+   let name = $("#add-fullname").val();
+   let phone = $("#add-phone").val();
+   let occupation = $("#add-occupation").val();
 
    query({
-      type:'update_user',
-      params:[username,name,email,phone,occupation,sessionStorage.userId]})
+      type:'user_onboarding',
+      params:[name,phone,occupation,sessionStorage.userId]})
    .then(d=>{
       if(d.error) {
          throw d.error;
       }
-      window.history.back();
+      $("#onboarding-form")[0].reset();
+      $.mobile.navigate("#list-page"); 
    })
 }
 
@@ -153,6 +152,36 @@ const checkLocationDelete = id => {
    });
 } 
 
+
+const checkRecentSearch = async () => {
+   let s = $("#recent-search-input").val();
+   let r = await query({type:"type_search_recent",params:[s,sessionStorage.userId]});
+   let map_el = await makeMap("#recent-page .map");
+
+   let found_type = r.result.reduce((r,o)=>{
+      o.icon = o.img;
+      if(o.lat && o.lng) r.push(o);
+      return r;
+   },[])
+
+   console.log(s, r)
+
+   if(r.result.length==0) {
+      makeWarning("#no-search-modal","No Results Found");
+      return;
+   } else {
+      makeMarkers(map_el,found_type);
+
+      map_el.data("markers").forEach((o,i)=>{
+         o.addListener("click",function(){
+            sessionStorage.typeId = valid_types[i].type_id;
+            $.mobile.navigate("#type-profile-page"); 
+         }) 
+      })
+   }
+   console.log(r)
+}
+
 const checkSearchForm = async () => {
    let s = $("#list-search-input").val();
    console.log(s)
@@ -163,7 +192,7 @@ const checkSearchForm = async () => {
       $("#list-page .type-list").html(
          `<div class="display-flex flex-align-center flex-column page-side-padding page-top-padding text-centered">
             <img class="illustration" src='images/no_search.png'alt='no search found'>
-            <h3>Oops, No Results Found</h3>
+            <h3>No Results Found</h3>
             <p>We cannot find what you're trying to search, please try again.</p>
          </div>`
       );
@@ -216,6 +245,36 @@ const checkUserUpload = () => {
    query({
       type:'update_user_image',
       params:[upload,sessionStorage.userId]
+   }).then(d=>{
+      if(d.error) {
+         throw d.error;
+      }
+      window.history.back();
+   })
+}
+
+const checkTypeUpload = () => {
+   let upload = $("#type-upload-image").val()
+   if(upload=="") return;
+
+   query({
+      type:'update_type_image',
+      params:[upload,sessionStorage.typeId]
+   }).then(d=>{
+      if(d.error) {
+         throw d.error;
+      }
+      window.history.back();
+   })
+}
+
+const checkTypeUpload = () => {
+   let upload = $("#location-upload-image").val()
+   if(upload=="") return;
+
+   query({
+      type:'update_location_image',
+      params:[upload,sessionStorage.locationId]
    }).then(d=>{
       if(d.error) {
          throw d.error;

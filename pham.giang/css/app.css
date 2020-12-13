@@ -173,6 +173,7 @@ hr.vertical-spacer {
     margin: 0;
     outline: 0;
     border: 1px solid var(--color-neutral-light);
+    color:var(--color-neutral-light);
 }
 
 .hotdog {
@@ -187,7 +188,7 @@ hr.vertical-spacer {
    background-color:transparent;
    border-width:0;
    font:inherit;
-   color:var(--color-neutral-dark);
+   color:var(--color-neutral-light);
    border-radius:0;
    padding:0;
    margin:0;
@@ -199,12 +200,13 @@ hr.vertical-spacer {
 .form-select select {
 	display: inline-block;
 	border-width: 0;
-	background-color: transparent;
+	background-color: var(--color-white);
 	font: inherit;
-	color: var(--color-neutral);
-	border-bottom: 3px solid var(--color-neutral);
+	color: var(--color-neutral-light);
+	border: 1px solid var(--color-neutral-light);
+	padding: 0.5em 1em;
+    margin: 0;
 	width: 100%;
-	height: 2.5em;
 	-webkit-appearance: none;
 	outline: 0;
 	transition: all 0.6s;
@@ -317,6 +319,11 @@ textarea {
 	color: var(--color-white);
 }
 
+.ui-header.secondary{
+	background:var(--color-white);
+	border-bottom: 1px solid var(--color-neutral-light);
+}
+
 .ui-header .ui-title {
    margin:0;
    padding:0;
@@ -366,10 +373,22 @@ a.nav-link{
 .filter-list {
     display: flex;
     overflow: auto;
+    width: max-content;
 }
 .filter {
-    padding: 0px 0.5em;
-    font-weight:bold;
+    padding: 0.25em 1em;
+    border: 1px solid var(--color-neutral-light);
+    transition-duration: 0.3s;
+    border-radius: 50px;
+    color: var(--color-neutral-dark);
+}
+	.filter:not(:last-child){
+		margin-right: 0.5em;
+	}
+.filter.active{
+	background-color: var(--color-neutral-light);
+	color: var(--color-neutral-dark);
+	font-weight: bold;
 }
 
 
@@ -552,8 +571,6 @@ a.nav-link{
    flex: 1 1 100%;
 }
 
-
-
 .modal-foot input {
    display:block;
    width:100%;
@@ -569,14 +586,13 @@ a.nav-link{
    position: absolute;
    width: 100%;
    box-shadow: 1px 1px 5px rgba(0,0,0,0.15);
-   border-radius: 0.2em;
+   border-radius: 10px;
    padding: 1em;
    text-align: center;
    left: 50%;
    transition: all 0.3s;
    background-color: var(--color-white);
 	text-align: center;
-	padding: 1em;
 }
 	.modal-toast.top {
 	   top:1em;
@@ -825,6 +841,18 @@ section#user-profile-page a#profile-nav {
 		width: 4em;
 	}
 
+#recent-search-form{
+	margin-top: 1em;
+	position: absolute;
+	width: 90%;
+	left: 5%;
+	z-index: 4;
+	box-shadow:0 0 5px rgba(0,0,0,0.3);
+}
+
+#recent-page .modal-toast{
+	width: 90%;
+}
 
 /* TYPE PAGE */
 
