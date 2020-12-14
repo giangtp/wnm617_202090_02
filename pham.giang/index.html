@@ -36,20 +36,6 @@
 </head>
 <body>
 
-	<!-- <section data-role="page" id="onboarding-page">
-      	<div data-role="main" class="display-flex flex-align-center flex-justify-center flex-column">
-      		<h1>WELCOME</h1>
-      		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh</p>
-      		<hr class="spacer small">
-      		<div class="onboarding-image">
-      			<img src="images/Empty-Image.png" alt="Image">
-      		</div>
-      		<hr class="spacer">
-      		<a href="#signin-page" class="form-button">Skip</a>
-		</div>
-   </section> -->
-
-
    <!-- SIGN IN -->
 
 	<section data-role="page" id="signin-page">
@@ -148,6 +134,20 @@
 		</div>
    </section>
 
+   	<section data-role="page" id="onboarding-page-1">
+      	<div data-role="main" class="display-flex flex-align-center flex-justify-center flex-column">
+      		<h1>WELCOME</h1>
+      		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh</p>
+      		<hr class="spacer small">
+      		<div class="illustration">
+      			<img src="images/onboarding_1.png" alt="Image">
+      		</div>
+      		<hr class="spacer">
+      		<a href="#onboarding-page-2" class="form-button">Next</a>
+      		<a href="#list-page">Skip</a>
+		</div>
+    </section>
+
 
 
    <!-- RECENT PAGE -->
@@ -222,19 +222,6 @@
 			</ul>
 		</header>
 		<div data-role="main" class="page-side-padding page-top-padding">
-			<div class="display-flex flex-align-center flex-column">
-	        	<a href="#">
-	        		<div class="image-circle edit-image">
-	        			<img src="images/Empty-Image.png">
-	        			<div class="edit-image-icon">
-		        			<i class='fas icon XS'>&#xf067;</i>
-		        		</div>
-	        		</div>
-	        	</a>
-        	</div>
-
-        	<hr class="spacer small">
-
         	<form id="type-add-form" class="flex-stretch content active" data-ajax="false">
         		<input type="hidden" id="type-add-destination" value="#list-page">
 	            <div class="form-control">
@@ -245,6 +232,7 @@
 	            	<label for="add-type-rating" class="form-label">Rating</label>
 			        <div class="form-select">
 			            <select id="add-type-rating" data-role="none">
+			            	<option hidden></option>
 			                <option>1</option>
 			                <option>2</option>
 			                <option>3</option>
@@ -318,7 +306,7 @@
 				</li>
 				<li class="flex-none">
 					<a href="#map-add-page" class="nav-link">
-						<span class="topnav-button" data-activate="#guide-modal">Add</span>
+						<span class="topnav-button">Add</span>
 					</a>
 				</li>
 			</ul>
@@ -352,8 +340,10 @@
 			</ul>
 		</header>
 	    <div data-role="main" data-deactivate="#guide-modal">
-	    	<input type="hidden" id="add-lat">
-         	<input type="hidden" id="add-lng">
+	    	<form class="add-coordinates">
+		    	<input type="hidden" id="add-lat">
+	         	<input type="hidden" id="add-lng">
+         	</form>
 	      	<div class="map"></div>
 	      	<div class="modal active" id="guide-modal">
 		         <div class="modal-drawer bottom text-centered">
@@ -383,7 +373,9 @@
 			</ul>
 		</header>
 		<div data-role="main">
-			<div class="edit-form page-side-padding page-top-padding"></div>
+			<div class="page-side-padding page-top-padding">
+				<div class="edit-form"></div>
+			</div>
 		</div>
 
 		<div class="modal" id="type-delete-modal">
@@ -403,7 +395,7 @@
 					</a>
 				</li>
 				<li class="flex-stretch"></li>
-       		    <li><a href="#" class="js-user-upload nav-link">Save</a>
+       		    <li><a href="#" class="js-type-upload nav-link">Save</a>
        		    </li>
 			</ul>
 		</header>
@@ -415,6 +407,7 @@
 	            </label>
 	        </form>
 		</div>
+		<footer><div class="text-centered page-top-padding">Tap to upload image</div></footer>
 	</section>
 
 
@@ -434,24 +427,12 @@
 			</ul>
 		</header>
 		<div data-role="main" class="page-side-padding page-top-padding">
-			<div class="display-flex flex-align-center flex-column">
-	        	<a href="#">
-	        		<div class="image-circle edit-image">
-	        			<img src="images/Empty-Image.png">
-	        			<div class="edit-image-icon">
-		        			<i class='fas icon XS'>&#xf067;</i>
-		        		</div>
-	        		</div>
-	        	</a>
-        	</div>
-
-        	<hr class="spacer small">
-
         	<form id="location-add-form" class="flex-stretch content active" data-ajax="false">
 	            <div class="form-control">
 	            	<label for="add-usage-rating" class="form-label">Rating</label>
 			        <div class="form-select">
 			            <select id="add-usage-rating" data-role="none">
+			            	<option hidden></option>
 			                <option>1</option>
 			                <option>2</option>
 			                <option>3</option>
@@ -520,7 +501,9 @@
 			</ul>
 		</header>
 		<div data-role="main">
-			<div class="edit-form page-side-padding page-top-padding"></div>
+			<div class="page-side-padding page-top-padding">
+				<div class="edit-form"></div>
+			</div>
 		</div>
 
 		<div class="modal" id="location-delete-modal">
@@ -552,6 +535,7 @@
 	            </label>
 	        </form>
 		</div>
+		<footer><div class="text-centered page-top-padding">Tap to upload image</div></footer>
 	</section>
 
 
@@ -618,6 +602,7 @@
 	            </label>
 	        </form>
 		</div>
+		<footer><div class="text-centered page-top-padding page-side-padding">Tap to upload image</div></footer>
 	</section>
 
 

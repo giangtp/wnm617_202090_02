@@ -27,8 +27,9 @@ const makeMarkers = (map_el, map_locs) => {
 
    markers = [];
 
+   let customMarker = CreateCustomMarker();
    map_locs.forEach(o=>{
-      let m = new google.maps.Marker({
+     /* let m = new google.maps.Marker({
          position: o,
          map: map,
          icon:{
@@ -37,13 +38,73 @@ const makeMarkers = (map_el, map_locs) => {
                width:50,
                height:50
             }
-         }
-      });
+         } 
+   });*/
+      let m = new customMarker(o.lat, o.lng, map, o.icon);
       markers.push(m);
    });
 
    map_el.data("markers",markers);
    setTimeout(()=>setMapBounds(map_el, map_locs),150);
+}
+
+
+//Custom marker function borrowed from: https://stackoverflow.com/questions/46416883/how-add-circle-shape-in-google-maps-custom-icon
+
+function CreateCustomMarker(){
+   function CustomMarker(lat,lng, map, imageSrc) {
+     this.latlng_ = new google.maps.LatLng(lat,lng);
+     this.imageSrc = imageSrc;
+     // Once the LatLng and text are set, add the overlay to the map.  This will
+     // trigger a call to panes_changed which should in turn call draw.
+     this.setMap(map);
+   }
+
+   CustomMarker.prototype = new google.maps.OverlayView();
+
+   CustomMarker.prototype.draw = function() {
+     // Check if the div has been created.
+     var div = this.div_;
+     if (!div) {
+       // Create a overlay text DIV
+       div = this.div_ = document.createElement('div');
+       // Create the DIV representing our CustomMarker
+       div.className = "customMarker"
+
+
+       var img = document.createElement("img");
+       img.src = this.imageSrc;
+       div.appendChild(img);
+       var me = this;
+       google.maps.event.addDomListener(div, "click", function(event) {
+         google.maps.event.trigger(me, "click");
+       });
+
+       // Then add the overlay to the DOM
+       var panes = this.getPanes();
+       panes.overlayImage.appendChild(div);
+     }
+
+     // Position the overlay 
+     var point = this.getProjection().fromLatLngToDivPixel(this.latlng_);
+     if (point) {
+       div.style.left = point.x + 'px';
+       div.style.top = point.y + 'px';
+     }
+   };
+
+   CustomMarker.prototype.remove = function() {
+     // Check if the overlay was on the map and needs to be removed.
+     if (this.div_) {
+       this.div_.parentNode.removeChild(this.div_);
+       this.div_ = null;
+     }
+   };
+
+   CustomMarker.prototype.getPosition = function() {
+     return this.latlng_;
+   };
+   return CustomMarker;
 }
 
 

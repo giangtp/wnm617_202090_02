@@ -182,7 +182,7 @@ function makeStatement($data){
         		`track_users`
         		(`name`,`username`,`email`,`password`,`phone`,`img`,`occupation`)
         		VALUES
-        		('Unknown',?,?,md5(?),'XXXXXXXX','https://via.placeholder.com/400/?text=USER','Jobless')
+        		('Unknown',?,?,md5(?),'XXXXXXXX','images/user_default.png','Jobless')
         		",$p, false);
         	return ["id"=>$c->lastInsertId()];
 
@@ -191,7 +191,7 @@ function makeStatement($data){
 	            `track_types`
 	            (`user_id`,`name`,`category`,`classification`,`img`,`description`,`type_rating`)
 	            VALUES
-	            (?,?,?,?,'https://via.placeholder.com/400/?text=TYPE',?,?)
+	            (?,?,?,?,'images/type_default.png',?,?)
 	            ",$p,false);
 	         return ["id"=>$c->lastInsertId()];
 
@@ -200,7 +200,7 @@ function makeStatement($data){
             `track_locations`
             (`type_id`,`lat`,`lng`,`usage_rating`,`img`,`icon`,`application`,`font_style`,`note`,`date_create`)
             VALUES
-            (?, ?, ?, ?, 'https://via.placeholder.com/400/?text=LOCATION','images/Location Icon.png',?,?,?, NOW())
+            (?, ?, ?, ?, 'images/location_default.png','images/Location Icon.png',?,?,?, NOW())
             ",$p,false);
          return ["id"=>$c->lastInsertId()];
 

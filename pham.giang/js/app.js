@@ -11,19 +11,37 @@ $(()=>{
 
       // Routing
       switch(ui.toPage[0].id) {
-         case 'recent-page': RecentPage(); break;
-         case 'list-page': ListPage(); break;
+         case 'recent-page': RecentPage(); 
+            $("#recent-search-form")[0].reset();
+            break;
+         case 'list-page': ListPage(); 
+            $("#list-search-form")[0].reset();
+            break;
          case 'user-profile-page': UserProfilePage(); break;
          case 'type-profile-page': TypeProfilePage(); break;
          case 'location-page': LocationPage(); break;
+         case 'type-add-page': 
+            $("#type-add-form")[0].reset(); break;
+         case 'location-add-page': 
+            $("#location-add-form")[0].reset(); break;
          case 'location-edit-page': LocationEditPage(); break;
+            $("#location-edit-form")[0].reset();
+            break;
          case 'location-upload-page': LocationUploadPage(); break;
          case 'user-edit-page': UserEditPage(); break;
+            $("#user-edit-form")[0].reset();
+            break;
          case 'user-upload-page': UserUploadPage(); break;
          case 'type-edit-page': TypeEditPage(); break;
+            $("#type-edit-form")[0].reset();
+            break;
          case 'type-upload-page': TypeUploadPage(); break;
-         case 'type-map-page': TypeMapPage(); break;
-         case 'map-add-page': MapAddPage();break;
+         case 'type-map-page': TypeMapPage(); 
+            $("#type-map-page .modal").removeClass("active");
+            break;
+         case 'map-add-page': MapAddPage(); 
+            $("#map-add-page .modal").addClass("active");
+            break;
       }
    })
 
@@ -127,6 +145,28 @@ $(()=>{
          console.log(d)
          makeUploaderImage({
             namespace:'user-upload',
+            folder:'uploads/',
+            name:d.result
+         })
+      })
+   })
+   .on("change",".image-uploader input",function(e){
+      checkUpload(this.files[0])
+      .then(d=>{
+         console.log(d)
+         makeUploaderImage({
+            namespace:'location-upload',
+            folder:'uploads/',
+            name:d.result
+         })
+      })
+   })
+   .on("change",".image-uploader input",function(e){
+      checkUpload(this.files[0])
+      .then(d=>{
+         console.log(d)
+         makeUploaderImage({
+            namespace:'type-upload',
             folder:'uploads/',
             name:d.result
          })

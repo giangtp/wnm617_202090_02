@@ -22,6 +22,7 @@ const RecentPage = async() => {
 	let map_el = await makeMap("#recent-page .map");
 
 	// console.log(map_el.data('map'))
+  
 
 	makeMarkers(map_el,valid_types);
 
@@ -211,7 +212,7 @@ const TypeUploadPage = async() => {
    });
 }
 
-const TypeUploadPage = async() => {
+const LocationUploadPage = async() => {
    query({
       type:'location_by_id',
       params:[sessionStorage.locationId]

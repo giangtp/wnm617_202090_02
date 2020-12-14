@@ -38,7 +38,7 @@ h6{
 	margin: 0.5em 0;
 }
 
-h2{
+h1, h2{
 	color: var(--color-main);
 }
 
@@ -172,8 +172,10 @@ hr.vertical-spacer {
     padding: 0.5em 1em;
     margin: 0;
     outline: 0;
-    border: 1px solid var(--color-neutral-light);
-    color:var(--color-neutral-light);
+    border: 1px solid var(--color-secondary);
+    color:var(--color-neutral-medium);
+    transition-duration: 0.6s;
+    border-radius: 10px;
 }
 
 .hotdog {
@@ -188,13 +190,14 @@ hr.vertical-spacer {
    background-color:transparent;
    border-width:0;
    font:inherit;
-   color:var(--color-neutral-light);
+   color:var(--color-neutral-medium);
    border-radius:0;
    padding:0;
    margin:0;
    width:100%;
    flex:1;
    outline:0;
+   transition-duration: 0.6s;
 }
 
 .form-select select {
@@ -202,18 +205,24 @@ hr.vertical-spacer {
 	border-width: 0;
 	background-color: var(--color-white);
 	font: inherit;
-	color: var(--color-neutral-light);
-	border: 1px solid var(--color-neutral-light);
+	color: var(--color-neutral-medium);
+	border: 1px solid var(--color-secondary);
 	padding: 0.5em 1em;
     margin: 0;
 	width: 100%;
 	-webkit-appearance: none;
 	outline: 0;
-	transition: all 0.6s;
+	transition-duration: 0.6s;
+	border-radius: 10px;
+}
+
+.form-input:focus::placeholder{
+	color: transparent;
 }
 
 .form-select select:focus,
-.form-input:focus {
+.form-input:focus,
+.hotdog input:focus {
 	color: var(--color-neutral-dark);
 }
 
@@ -248,6 +257,7 @@ select option{
     outline: 0;
     text-align: center;
     font-weight: bold;
+    border-radius: 50px;
 }
 	.form-button.half{
 		width: 50%;
@@ -755,12 +765,13 @@ section#user-profile-page a#profile-nav {
 
 .image-uploader.full {
    position:absolute;
-   top:0;
-   left:0;
-   width:100%;
-   height:100%;
+   top:5%;
+   left:5%;
+   width:90%;
+   height:90%;
 
    background-size:contain;
+   background-position: center;
    background-repeat:no-repeat;
 }
 .ui-mobile label.image-uploader {
@@ -777,7 +788,17 @@ section#user-profile-page a#profile-nav {
 		color:var(--color-main);
 	}
 
+.rating{
+	height: 2em;
+}
+	.rating img{
+		max-height:100%;
+		width: auto;
+	}
 
+.type-list .rating{
+	height: 1em;
+}
 
 /* PAGES */
 
@@ -785,6 +806,21 @@ section#user-profile-page a#profile-nav {
 	padding: 0 2em;
 	text-align: center;
 	background-color: var(--color-neutral-light);
+}
+#user-upload-page,
+#type-upload-page,
+#location-upload-page{
+	background-color: var(--color-neutral-dark);
+}
+#user-upload-page header,
+#user-upload-page footer,
+#type-upload-page header,
+#type-upload-page footer,
+#location-upload-page header,
+#location-upload-page footer{
+	background: transparent;
+	box-shadow: none;
+	color: var(--color-white);
 }
 
 /* SIGNIN PAGE */
@@ -861,6 +897,10 @@ section#user-profile-page a#profile-nav {
 	border-bottom: 1px solid var(--color-neutral-light);
 }
 
+.type-list h3 {
+	margin-top: 0;
+}
+
 #type-profile-page .profile-top{
 	height: 67%;
 	flex: none;
@@ -880,6 +920,44 @@ section#user-profile-page a#profile-nav {
 }
 
 /* MAP ELEMENTS */
+
+#type-profile-page .customMarker{
+	height: 50px;
+	width: 50px;
+	border: none;
+	box-shadow: none;
+	background-color: transparent;
+}
+
+	#type-profile-page .customMarker:after{
+		opacity: 0;
+	}
+
+.customMarker{
+	height: 70px;
+	width: 70px;
+	position: absolute;
+	border: 5px solid var(--color-white);
+	box-shadow:0 0 5px rgba(0,0,0,0.3);
+	background-color: var(--color-white);
+	border-radius: 50%;
+	display: inline-flex;
+}
+	.customMarker:after {
+	  content: "";
+	  position: absolute;
+	  bottom: -20px;
+	  left: 35%;
+	  border-width: 20px 10px 0;
+	  border-style: solid;
+	  border-color: var(--color-white) transparent;
+	  display: block;
+	  width: 0;
+	}
+.customMarker img{
+	border-radius: 50%;
+	max-width: 100%;
+}
 
 .location-icon{
 	position: absolute;

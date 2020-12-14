@@ -48,6 +48,24 @@ const checkOnboardingForm = () => {
    })
 }
 
+const checkUserEditForm = () => {
+   let username = $("#edit-username").val();
+   let name = $("#edit-fullname").val();
+   let email = $("#edit-email").val();
+   let phone = $("#edit-phone").val();
+   let occupation = $("#edit-occupation").val();
+
+   query({
+      type:'update_user',
+      params:[username,name,email,phone,occupation,sessionStorage.userId]})
+   .then(d=>{
+      if(d.error) {
+         throw d.error;
+      }
+      window.history.back();
+   })
+}
+
 const checkTypeAddForm = () => {
    let name = $("#add-type-name").val();
    let category = $("#add-category").val();
@@ -174,7 +192,7 @@ const checkRecentSearch = async () => {
 
       map_el.data("markers").forEach((o,i)=>{
          o.addListener("click",function(){
-            sessionStorage.typeId = valid_types[i].type_id;
+            sessionStorage.typeId = found_type[i].type_id;
             $.mobile.navigate("#type-profile-page"); 
          }) 
       })
@@ -268,7 +286,7 @@ const checkTypeUpload = () => {
    })
 }
 
-const checkTypeUpload = () => {
+const checkLocationUpload = () => {
    let upload = $("#location-upload-image").val()
    if(upload=="") return;
 

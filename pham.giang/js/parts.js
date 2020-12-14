@@ -17,10 +17,17 @@ const makeRecentList = templater(o=>`
 const makeTypeList = templater(o=>`
 <li>
 	<div class="display-flex flex-align-center js-type-jump" data-id="${o.id}">
-		<div class="image-circle listing-image">
-			<img src="${o.img}">
-		</div>
-		<h3>${o.name}</h3>
+		<div class="display-flex">
+			<div class="image-circle listing-image">
+				<img src="${o.img}">
+			</div>
+			<div class="display-flex flex-column">
+				<h3>${o.name}</h3>
+				<div class="rating">
+					<img src="images/stars-${o.type_rating}.png">
+				</div>
+			</div>
+		</div>	
 	</div>
 </li>
 `);
@@ -62,19 +69,17 @@ const makeUserProfile = templater(o=>`
 
 const makeTypeProfile = templater(o=>`
 <div class="page-side-padding page-top-padding">
-	<div class="display-flex flex-align-center flex-column">
-		<a href="#type-edit-page">
-			<div class="image-circle profile-image">
-				<img src="${o.img}">
-			</div>
-		</a>
+	<div class="display-flex flex-align-center flex-column">	
+		<div class="image-circle profile-image">
+			<img src="${o.img}">
+		</div>
 		<h2>${o.name}</h2>
+		<div class="rating">
+			<img src="images/stars-${o.type_rating}.png">
+		</div>
 	</div>
+	<hr class="spacer xs">
 	<table>
-		<tr>
-			<td><strong>Rating</strong></td>
-			<td class="text-right">${o.type_rating}</td>
-		</tr>
 		<tr>
 			<td><strong>Category</strong></td>
 			<td class="text-right">${o.category}</td>
@@ -103,8 +108,10 @@ const makeLocationProfile = templater(o=>`
 </div>
 
 <div class="page-side-padding page-top-padding profile-bottom">
+	<div class="rating display-flex flex-align-center">
+		<img src="images/stars-${o.usage_rating}.png">
+	</div>
 	<ul class="info">
-		<li><strong>Usage Rating</strong>: ${o.usage_rating}</li>
 		<li><strong>Date Spotted</strong>: ${o.date_create}</li>
 		<li><strong>Application</strong>: ${o.application}</li>
 		<li><strong>Font Style</strong>: ${o.font_style}</li>
@@ -213,7 +220,7 @@ const makeUserEdit = templater(o=>`
 
 const makeLocationEdit = templater(o=>`
 <div class="display-flex flex-align-center flex-column">
-	<a href="#">
+	<a href="#location-upload-page">
 		<div class="image-circle edit-image">
 			<div class="overlay"></div>
 			<img src="${o.img}">
@@ -362,5 +369,3 @@ const makeUploaderImage = ({namespace,folder,name}) => {
    $(`#${namespace}-page .image-uploader`)
       .css({'background-image':`url('${folder+name}')`})
 }
-
-// const checkRating = 
