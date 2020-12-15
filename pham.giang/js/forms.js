@@ -44,7 +44,7 @@ const checkOnboardingForm = () => {
          throw d.error;
       }
       $("#onboarding-form")[0].reset();
-      $.mobile.navigate("#list-page"); 
+      $.mobile.navigate("#onboarding-page"); 
    })
 }
 
@@ -166,7 +166,7 @@ const checkLocationDelete = id => {
       if(d.error) {
          throw d.error;
       }
-      $.mobile.navigate("#type-map-page"); 
+      window.history.go(-2);
    });
 } 
 

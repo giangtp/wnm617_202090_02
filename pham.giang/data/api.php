@@ -200,7 +200,7 @@ function makeStatement($data){
             `track_locations`
             (`type_id`,`lat`,`lng`,`usage_rating`,`img`,`icon`,`application`,`font_style`,`note`,`date_create`)
             VALUES
-            (?, ?, ?, ?, 'images/location_default.png','images/Location Icon.png',?,?,?, NOW())
+            (?, ?, ?, ?, 'images/type_default.png','images/Location Icon.png',?,?,?, NOW())
             ",$p,false);
          return ["id"=>$c->lastInsertId()];
 

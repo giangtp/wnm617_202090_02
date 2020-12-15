@@ -105,15 +105,13 @@
    <!-- ONBOARDING -->
 
    <section data-role="page" id="complete-signup-page">
-		<div data-role="main">
-			<div class="page-side-padding page-top-padding overscroll">
-				<div class="display-flex flex-align-center flex-column text-centered">
-					<img class="illustration" src='images/signup.png'>
-		    		<h2>You're Almost There</h2>
-		    		<p>Before we begin, please fill in these information to complete your sign up.</p>
-	    		</div>
+		<div data-role="main" class="page-side-padding page-top-padding">
+			<div class="overscroll display-flex flex-column flex-align-center flex-justify-center">
+				<img class="illustration" src='images/signup.png'>
+	    		<h2>You're Almost There</h2>
+	    		<p class="text-centered">Before we begin, please fill in these information to complete your sign up.</p>
 
-	    		<form id="onboarding-form" class="flex-stretch content active" data-ajax="false">
+	    		<form id="onboarding-form" data-ajax="false">
 				    <div class="form-control">
 				       <label for="add-fullname" class="form-label">Full Name</label>
 				       <input id="add-fullname" type="text" class="form-input" data-role="none" placeholder="Enter your full name">
@@ -134,17 +132,55 @@
 		</div>
    </section>
 
-   	<section data-role="page" id="onboarding-page-1">
+   	<section data-role="page" id="onboarding-page">
       	<div data-role="main" class="display-flex flex-align-center flex-justify-center flex-column">
-      		<h1>WELCOME</h1>
-      		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh</p>
-      		<hr class="spacer small">
-      		<div class="illustration">
-      			<img src="images/onboarding_1.png" alt="Image">
-      		</div>
-      		<hr class="spacer">
-      		<a href="#onboarding-page-2" class="form-button">Next</a>
-      		<a href="#list-page">Skip</a>
+      		<h1>Welcome</h1>	
+	      	<div class="carousel-container">
+				<div class="slide">
+					<div>Say hello to your new personal typography tracking app.</div>
+					<div class="fade"><img src="images/onboarding_1.png"></div>
+					<div class="text-centered">
+					  <span class="dot active" onclick="currentSlide(1)"></span>
+					  <span class="dot" onclick="currentSlide(2)"></span>
+					  <span class="dot" onclick="currentSlide(3)"></span>
+					</div>
+
+					<hr class="spacer">
+
+					<a href="#" class="form-button" onclick="plusSlides(1)">Next</a>
+					<hr class="spacer xs">
+      				<a href="#list-page">Skip</a>
+				</div>
+
+				<div class="slide">
+					<div>Log in every typeface that you find.</div>
+					<div class="fade"><img src="images/onboarding_2.png"></div>
+					<div class="text-centered">
+					  <span class="dot" onclick="currentSlide(1)"></span>
+					  <span class="dot active" onclick="currentSlide(2)"></span>
+					  <span class="dot" onclick="currentSlide(3)"></span>
+					</div>
+
+					<hr class="spacer">
+
+					<a href="#" class="form-button" onclick="plusSlides(1)">Next</a>
+					<hr class="spacer xs">
+      				<a href="#list-page">Skip</a>
+				</div>
+
+				<div class="slide">
+					<div>Keep track of their locations wherever you find them.</div>
+					<div class="fade"><img src="images/onboarding_3.png"></div>
+					<div class="text-centered">
+					  <span class="dot" onclick="currentSlide(1)"></span>
+					  <span class="dot" onclick="currentSlide(2)"></span>
+					  <span class="dot active" onclick="currentSlide(3)"></span>
+					</div>
+
+					<hr class="spacer small">
+					<a href="#list-page" class="form-button">Finish</a>
+				</div>
+			</div>
 		</div>
     </section>
 
@@ -192,20 +228,22 @@
       		<form class="hotdog" id="list-search-form" data-ajax="false">
       			<input id="list-search-input" type="search" data-role="none" placeholder="Search">
       		</form>
-      		<hr class="vertical-spacer small">
-	      	<i class='fas icon flex-none js-search-jump' style="line-height: 1.45em;">&#xf002;</i>
+      		<hr class="vertical-spacer xs">
+	      	<div class='icon medium flex-none js-search-jump'>
+	      		<img src="images/search_icon.png">
+	      	</div>
     	</header>
     	<header data-role="header" class="secondary">
         	<div class="filter-list"></div>
       	</header>
       <div data-role="main">
       		<div class="overscroll">
-		      	<ul class="type-list">
-		         	<!-- li*10>a[href=#type-profile-page]{type $} -->
-		        </ul>
+		      	<ul class="type-list"></ul>
 	        </div>
 	        <a href="#type-add-page"class="button-circle floater bottom right">
-		        <i class='fas icon'>&#xf067;</i>
+		        <div class='icon medium' style="margin-top: 0.3em;">
+		        	<img src="images/add_icon.png">
+		        </div>
 		    </a>
       </div>
       <footer data-role="footer" data-template="#footer-template"></footer>
@@ -213,12 +251,16 @@
 
    <section data-role="page" id="type-add-page">
 		<header data-role="header">
-			<ul>
-				<li>
+			<ul class="display-flex flex-align-center">
+				<li class="flex-none">
 					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+						<div class='icon flex-none'>
+				      		<img src="images/back_icon.png">
+				      	</div>
 					</a>
 				</li>
+				<li class="flex-stretch text-centered">ADD TYPE</li>
+				<li class="flex-none"></li>
 			</ul>
 		</header>
 		<div data-role="main" class="page-side-padding page-top-padding">
@@ -226,32 +268,32 @@
         		<input type="hidden" id="type-add-destination" value="#list-page">
 	            <div class="form-control">
 	               <label for="add-type-name" class="form-label">Type Name</label>
-	               <input id="add-type-name" type="text" class="form-input" data-role="none">
+	               <input id="add-type-name" type="text" class="form-input" data-role="none" placeholder="Enter typeface">
 	            </div>
 	            <div class="form-control">
 	            	<label for="add-type-rating" class="form-label">Rating</label>
 			        <div class="form-select">
 			            <select id="add-type-rating" data-role="none">
-			            	<option hidden></option>
-			                <option>1</option>
-			                <option>2</option>
-			                <option>3</option>
-			                <option>4</option>
-			                <option>5</option>
+			            	<option hidden>Rate the typeface</option>
+			                <option value="1">1 - Terrible: &#9733;</option>
+			                <option value="2">2 - Bad: &#9733;&#9733;</option>
+			                <option value="3">3 - Decent: &#9733;&#9733;&#9733;</option>
+			                <option value="4">4 - Good: &#9733;&#9733;&#9733;&#9733;</option>
+			                <option value="5">5 - Amazing: &#9733;&#9733;&#9733;&#9733;&#9733;</option>
 			            </select>
 			        </div>
 	            </div>
 	            <div class="form-control">
 	               <label for="add-category" class="form-label">Category</label>
-	               <input id="add-category" type="text" class="form-input" data-role="none">
+	               <input id="add-category" type="text" class="form-input" data-role="none" placeholder="e.g., Sans-serif">
 	            </div>
 	            <div class="form-control">
 	               <label for="add-classification" class="form-label">Classification</label>
-	               <input id="add-classification" type="text" class="form-input" data-role="none">
+	               <input id="add-classification" type="text" class="form-input" data-role="none" placeholder="e.g., Humanist Sans">
 	            </div>
 	            <div class="form-control">
 	               <label for="add-description" class="form-label">Description</label>
-     			   <textarea id="add-description" data-role="none" class="form-input" maxlength="100"></textarea>
+     			   <textarea id="add-description" data-role="none" class="form-input" maxlength="100" placeholder="Say something about the type"></textarea>
 	            </div>
 	            <div class="form-control">
 	            	<input type="submit" class="form-button" value="Confirm" data-role="none">
@@ -268,15 +310,20 @@
 
 	<section data-role="page" id="type-profile-page">
 		<header data-role="header">
-			<ul>
-				<li class="flex-stretch">
-					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+			<ul class="display-flex flex-align-center">
+				<li class="flex-none">
+					<a href="#list-page" class="nav-link">
+						<div class='icon flex-none'>
+				      		<img src="images/back_icon.png">
+				      	</div>
 					</a>
 				</li>
+				<li class="flex-stretch text-centered">TYPE PROFILE</li>
 				<li class="flex-none">
 					<a href="#type-edit-page" class="nav-link">
-						<span class="topnav-button">Edit</span>
+						<div class='icon flex-none'>
+				      		<img src="images/edit_icon_2.png">
+				      	</div>
 					</a>
 				</li>
 			</ul>
@@ -285,11 +332,13 @@
 			<div class="profile-top">
 				<div class="profile"></div>
 			</div>
-			<div class="profile-bottom">
+			<div class="profile-bottom">		
+				<div class="map"></div>
 				<a href="#type-map-page">
-					<div class="map"></div>
 			        <div class="button-circle floater bottom right">
-						<i class='fas icon'>&#xf06e;</i>
+						<div class='icon XM' style="margin-top: 0.4em;">
+				        	<img src="images/view_icon.png">
+				        </div>
 					</div>					
 				</a>
 			</div>
@@ -298,15 +347,20 @@
 
 	 <section data-role="page" id="type-map-page">
 	 	<header data-role="header">
-			<ul>
-				<li class="flex-stretch">
+			<ul class="display-flex flex-align-center">
+				<li class="flex-none">
 					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+						<div class='icon flex-none'>
+				      		<img src="images/back_icon.png">
+				      	</div>
 					</a>
 				</li>
+				<li class="flex-stretch text-centered">TYPE MAP</li>
 				<li class="flex-none">
 					<a href="#map-add-page" class="nav-link">
-						<span class="topnav-button">Add</span>
+						<div class='icon flex-none'>
+				      		<img src="images/add_icon.png">
+				      	</div>
 					</a>
 				</li>
 			</ul>
@@ -326,15 +380,20 @@
 
    <section data-role="page" id="map-add-page">
 	 	<header data-role="header">
-			<ul>
-				<li class="flex-stretch">
+			<ul class="display-flex flex-align-center">
+				<li class="flex-none">
 					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+						<div class='icon flex-none'>
+				      		<img src="images/back_icon.png">
+				      	</div>
 					</a>
 				</li>
+				<li class="flex-stretch text-centered">SELECT LOCATION</li>
 				<li class="flex-none">
 					<a href="#location-add-page" class="nav-link">
-						<span class="topnav-button">Next</span>
+						<div class='icon flex-none'>
+				      		<img src="images/next_icon.png">
+				      	</div>
 					</a>
 				</li>
 			</ul>
@@ -348,9 +407,9 @@
 	      	<div class="modal active" id="guide-modal">
 		         <div class="modal-drawer bottom text-centered">
 		            <div class="modal-body">
-		            	<div class="icon"><img src="images/Location Add.png"></div>
+		            	<div class="icon large"><img src="images/Location Add.png"></div>
 		            	<h3>Add a New Location</h3>
-			            <div>Record a new location for your type by clicking where you've found it on the map.</div>
+			            <div>Tap anywhere on the map to add a new location for your type.</div>
 		        	</div>
 		         </div>
 		     </div>
@@ -359,15 +418,20 @@
 
 	<section data-role="page" id="type-edit-page">
 		<header data-role="header">
-			<ul>
-				<li class="flex-stretch">
+			<ul class="display-flex flex-align-center">
+				<li class="flex-none">
 					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+						<div class='icon flex-none'>
+				      		<img src="images/back_icon.png">
+				      	</div>
 					</a>
 				</li>
+				<li class="flex-stretch text-centered">TYPE EDIT</li>
 				<li class="flex-none">
 					<a href="#" data-activate="#type-delete-modal" class="nav-link">
-						<span class="topnav-button">Delete</span>
+						<div class='icon flex-none'>
+				      		<img src="images/delete_icon.png">
+				      	</div>
 					</a>
 				</li>
 			</ul>
@@ -391,11 +455,17 @@
 			<ul>
 				<li>
 					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+						<div class='icon flex-none'>
+				      		<img src="images/back_icon.png">
+				      	</div>
 					</a>
 				</li>
 				<li class="flex-stretch"></li>
-       		    <li><a href="#" class="js-type-upload nav-link">Save</a>
+       		    <li><a href="#" class="js-type-upload nav-link">
+       		    	<div class="icon">
+       		    		<img src="images/upload_icon.png">
+       		    	</div>
+       		    </a>
        		    </li>
 			</ul>
 		</header>
@@ -418,12 +488,16 @@
 
 	<section data-role="page" id="location-add-page">
 		<header data-role="header">
-			<ul>
-				<li>
+			<ul class="display-flex flex-align-center">
+				<li class="flex-none">
 					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+						<div class='icon flex-none'>
+				      		<img src="images/back_icon.png">
+				      	</div>
 					</a>
 				</li>
+				<li class="flex-stretch text-centered">ADD LOCATION</li>
+				<li class="flex-none"></li>
 			</ul>
 		</header>
 		<div data-role="main" class="page-side-padding page-top-padding">
@@ -432,26 +506,26 @@
 	            	<label for="add-usage-rating" class="form-label">Rating</label>
 			        <div class="form-select">
 			            <select id="add-usage-rating" data-role="none">
-			            	<option hidden></option>
-			                <option>1</option>
-			                <option>2</option>
-			                <option>3</option>
-			                <option>4</option>
-			                <option>5</option>
+			            	<option hidden>Rate the design</option>
+			                <option value="1">1 - Terrible: &#9733;</option>
+			                <option value="2">2 - Bad: &#9733;&#9733;</option>
+			                <option value="3">3 - Decent: &#9733;&#9733;&#9733;</option>
+			                <option value="4">4 - Good: &#9733;&#9733;&#9733;&#9733;</option>
+			                <option value="5">5 - Amazing: &#9733;&#9733;&#9733;&#9733;&#9733;</option>
 			            </select>
 			        </div>
 	            </div>
 	            <div class="form-control">
 	               <label for="add-application" class="form-label">Application</label>
-	               <input id="add-application" type="text" class="form-input" data-role="none">
+	               <input id="add-application" type="text" class="form-input" data-role="none" placeholder="e.g., poster">
 	            </div>
 	            <div class="form-control">
 	               <label for="add-font-style" class="form-label">Font Style</label>
-	               <input id="add-font-style" type="text" class="form-input" data-role="none">
+	               <input id="add-font-style" type="text" class="form-input" data-role="none" placeholder="e.g., Italic">
 	            </div>
 	            <div class="form-control">
 	               <label for="add-note" class="form-label">Note</label>
-	               <textarea id="add-note" data-role="none" class="form-input" maxlength="250"></textarea>
+	               <textarea id="add-note" data-role="none" class="form-input" maxlength="250" placeholder="Say something about the design"></textarea>
 	            </div>
 	            <div class="form-control">
 	               <input type="submit" class="form-button" value="Confirm" data-role="none">
@@ -465,15 +539,20 @@
 
    	<section data-role="page" id="location-page">
 		<header data-role="header">
-			<ul>
-				<li class="flex-stretch">
+			<ul class="display-flex flex-align-center">
+				<li class="flex-none">
 					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+						<div class='icon flex-none'>
+				      		<img src="images/back_icon.png">
+				      	</div>
 					</a>
 				</li>
+				<li class="flex-stretch text-centered">LOCATION PROFILE</li>
 				<li class="flex-none">
 					<a href="#location-edit-page" class="nav-link">
-						<span class="topnav-button">Edit</span>
+						<div class='icon flex-none'>
+				      		<img src="images/edit_icon_2.png">
+				      	</div>
 					</a>
 				</li>
 			</ul>
@@ -487,15 +566,20 @@
 
    <section data-role="page" id="location-edit-page">
 		<header data-role="header">
-			<ul>
-				<li class="flex-stretch">
+			<ul class="display-flex flex-align-center">
+				<li class="flex-none">
 					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+						<div class='icon flex-none'>
+				      		<img src="images/back_icon.png">
+				      	</div>
 					</a>
 				</li>
+				<li class="flex-stretch text-centered">EDIT LOCATION</li>
 				<li class="flex-none">
 					<a href="#" data-activate="#location-delete-modal" class="nav-link">
-						<span class="topnav-button">Delete</span>
+						<div class='icon flex-none'>
+				      		<img src="images/delete_icon.png">
+				      	</div>
 					</a>
 				</li>
 			</ul>
@@ -519,11 +603,17 @@
 			<ul>
 				<li>
 					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+						<div class='icon flex-none'>
+				      		<img src="images/back_icon.png">
+				      	</div>
 					</a>
 				</li>
 				<li class="flex-stretch"></li>
-       		    <li><a href="#" class="js-location-upload nav-link">Save</a>
+       		    <li><a href="#" class="js-location-upload nav-link">
+       		    	<div class="icon">
+       		    		<img src="images/upload_icon.png">
+       		    	</div>
+       		    </a>
        		    </li>
 			</ul>
 		</header>
@@ -547,7 +637,9 @@
 			<div class="profile">
 			</div>
 			<a href="#" data-activate="#setting-modal" class="button-circle floater bottom right">
-				<i class='fas icon'>&#xf013;</i>
+				<div class='icon medium' style="margin-top: 0.3em;">
+		        	<img src="images/settings_icon.png">
+		        </div>
 			</a>
 		</div>
 
@@ -567,12 +659,16 @@
 
    <section data-role="page" id="user-edit-page">
 		<header data-role="header">
-			<ul>
-				<li>
+			<ul class="display-flex flex-align-center">
+				<li class="flex-none">
 					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+						<div class='icon flex-none'>
+				      		<img src="images/back_icon.png">
+				      	</div>
 					</a>
 				</li>
+				<li class="flex-stretch text-centered">EDIT USER PROFILE</li>
+				<li class="flex-none"></li>
 			</ul>
 		</header>
 		<div data-role="main">
@@ -586,11 +682,17 @@
 			<ul>
 				<li>
 					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+						<div class='icon flex-none'>
+				      		<img src="images/back_icon.png">
+				      	</div>
 					</a>
 				</li>
 				<li class="flex-stretch"></li>
-       		    <li><a href="#" class="js-user-upload nav-link">Save</a>
+       		    <li><a href="#" class="js-user-upload nav-link">
+       		    	<div class="icon">
+       		    		<img src="images/upload_icon.png">
+       		    	</div>
+       		    </a>
        		    </li>
 			</ul>
 		</header>
@@ -608,12 +710,16 @@
 
 	<section data-role="page" id="password-edit-page">
 		<header data-role="header">
-			<ul>
+			<ul class="display-flex flex-align-center">
 				<li>
 					<a href="#" data-rel="back" class="nav-link">
-						<i class='fas icon'>&#xf104;</i> <span class="topnav-button">Back</span>
+						<div class='icon flex-none'>
+				      		<img src="images/back_icon.png">
+				      	</div>
 					</a>
 				</li>
+				<li class="flex-stretch text-centered">EDIT PASSWORD</li>
+				<li class="flex-none"></li>
 			</ul>
 		</header>
 		<div data-role="main" class="page-side-padding page-top-padding">
@@ -621,17 +727,17 @@
 
 	            <div class="form-control">
 	               <label for="old-password" class="form-label">Old Password</label>
-	               <input id="old-password" type="text" class="form-input" data-role="none">
+	               <input id="old-password" type="text" class="form-input" data-role="none" placeholder="Enter your old password">
 				</div>
 
 	            <div class="form-control">
 	               <label for="new-password" class="form-label">New Password</label>
-	               <input id="new-password" type="text" class="form-input" data-role="none">
+	               <input id="new-password" type="text" class="form-input" data-role="none" placeholder="Enter your new password">
 				</div>
 
 	            <div class="form-control">
 	               <label for="confirm-new-password" class="form-label">Confirm New Password</label>
-	               <input id="confirm-new-password" type="text" class="form-input" data-role="none">
+	               <input id="confirm-new-password" type="text" class="form-input" data-role="none" placeholder="Confirm your new password">
 	            </div>
 
 	            <div class="form-control">
@@ -647,16 +753,24 @@
    <script type="text/template" id="footer-template">
 	<ul class="footer-nav">
        <li>
-			<a href="#recent-page" id="recent-nav"><i class='fas icon XM'>&#xf1da;</i><p>Recent</p></a>
+			<a href="#recent-page" id="recent-nav">
+				<div class='icon'></div>
+				<p>Recent</p>
+			</a>
        </li>
        <li>
-			<a href="#list-page" id="list-nav"><i class='fas icon XM'>&#xf0ca;</i><p>List</p></a>
+			<a href="#list-page" id="list-nav">
+				<div class='icon'></div>
+				<p>List</p>
+			</a>
        </li>
        <li>
-			<a href="#user-profile-page" id="profile-nav"><i class='fas icon XM'>&#xf2bd;</i><p>Profile</p></a>
+			<a href="#user-profile-page" id="profile-nav">
+				<div class='icon'></div>
+				<p>Profile</p>
+			</a>
        </li>
     </ul>
    </script>
-
 </body>
 </html>
