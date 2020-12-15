@@ -865,6 +865,11 @@ section#user-profile-page a#profile-nav div{
 	padding: 0 2em;
 	text-align: center;
 }
+#location-warning-modal,
+#type-warning-modal{
+	width:90%;
+	left: 5%;
+}
 
 
 /* SIGNIN PAGE */

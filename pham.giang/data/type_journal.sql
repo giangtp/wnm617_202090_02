@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 15, 2020 at 12:40 PM
+-- Generation Time: Dec 15, 2020 at 02:49 PM
 -- Server version: 5.6.49-cll-lve
 -- PHP Version: 7.3.6
 
@@ -311,7 +311,8 @@ INSERT INTO `track_locations` (`id`, `type_id`, `lat`, `lng`, `note`, `img`, `ic
 (267, 62, 38.566033, -122.560298, 'Went to Calistoga to visit a friend today. We went to this ice cream place in the area and I spotted their logo using Neutra Text, which is cool even if it\'s not the main focus of the design.', 'uploads/1608056628.045_Sweet+Creamery5.png', 'images/Location Icon.png', 'Logo', 'Book', 3, '2020-12-15'),
 (268, 63, 37.771349, -122.407230, 'Found this designer cafe while strolling around SF. Thought their logo was really cool. How geometric the design is definitely fitting to be using DIN.', 'uploads/1608058563.4491_window-sign.jpg', 'images/Location Icon.png', 'Logo', 'Bold', 4, '2020-12-15'),
 (269, 59, 37.779340, -122.425532, 'This timeline interactive display was shown at this Neoclassical Art exhibition that I attended. Noticed that they used both Bodoni and Neutra Text in the design. There are several different fonts used, yet they all work really well together.', 'uploads/1608059297.0759_Neoclassical-Timeline-01.jpg', 'images/Location Icon.png', 'Timeline display', 'Regular, Italic, Condensed Bold', 4, '2020-12-15'),
-(270, 62, 37.778556, -122.425383, 'It\'s very interesting to see Neutra Text paired up with Bodoni. Both typefaces are elegant so they actually work really well together despite the fact that there are several different fonts on the same layout.', 'uploads/1608059565.1868_Neoclassical-Timeline.jpg', 'images/Location Icon.png', 'Timeline display', 'Book & Demi', 4, '2020-12-15');
+(270, 62, 37.778556, -122.425383, 'It\'s very interesting to see Neutra Text paired up with Bodoni. Both typefaces are elegant so they actually work really well together despite the fact that there are several different fonts on the same layout.', 'uploads/1608059565.1868_Neoclassical-Timeline.jpg', 'images/Location Icon.png', 'Timeline display', 'Book & Demi', 4, '2020-12-15'),
+(271, 64, 37.752157, -122.456059, 'sfjsfjkjdkf', 'images/type_default.png', 'images/Location Icon.png', 'poster', 'Bold', 2, '2020-12-15');
 
 -- --------------------------------------------------------
 
@@ -458,13 +459,13 @@ ALTER TABLE `track_users`
 -- AUTO_INCREMENT for table `track_locations`
 --
 ALTER TABLE `track_locations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=271;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=272;
 
 --
 -- AUTO_INCREMENT for table `track_types`
 --
 ALTER TABLE `track_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `track_users`
