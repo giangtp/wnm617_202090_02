@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@300;400&display=swap');
 
+
+/* FORMATTING ELEMENTS */
+
 *,*::after,*::before {
 	box-sizing: border-box;
 }
@@ -391,29 +394,6 @@ a.nav-link{
 	padding-bottom: 1.5em;
 }
 
-/* FILTER */
-
-.filter-list {
-    display: flex;
-    overflow: auto;
-    width: max-content;
-}
-.filter {
-    padding: 0.25em 1em;
-    border: 1px solid var(--color-neutral-light);
-    transition-duration: 0.3s;
-    border-radius: 50px;
-    color: var(--color-neutral-dark);
-}
-	.filter:not(:last-child){
-		margin-right: 0.5em;
-	}
-.filter.active{
-	background-color: var(--color-neutral-light);
-	color: var(--color-neutral-dark);
-	font-weight: bold;
-}
-
 
 
 /* FLOATER */
@@ -507,40 +487,6 @@ a.nav-link{
     height: 100%;
     background-color:rgba(0,0,0,0.7);
 }
-
-/* CAROUSEL */
-
-.carousel-container {
-  max-width: 100%;
-  position: relative;
-  margin: 0;
-}
-
-.slide{
-	display: none;
-}
-
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 5px;
-  background-color: var(--color-neutral-light);
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-	.dot.active {
-	  background-color: var(--color-secondary);
-	}
-
-.fade {
-  animation: fade 1.5s;
-}
-	@keyframes fade {
-	  from {opacity: .4}
-	  to {opacity: 1}
-	}
 
 
 /* MODAL POPUP*/
@@ -665,6 +611,41 @@ a.nav-link{
 	}
 
 
+/* CAROUSEL */
+
+.carousel-container {
+  max-width: 100%;
+  position: relative;
+  margin: 0;
+}
+
+.slide{
+	display: none;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 5px;
+  background-color: var(--color-neutral-light);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+	.dot.active {
+	  background-color: var(--color-secondary);
+	}
+
+.fade {
+  animation: fade 1.5s;
+}
+	@keyframes fade {
+	  from {opacity: .4}
+	  to {opacity: 1}
+	}
+
+
 /* NAV */
 
 section#recent-page a#recent-nav,
@@ -702,11 +683,6 @@ section#user-profile-page a#profile-nav div{
    background-image: url("../images/profile_icon_active.png");
 }
 
-.topnav-button{
-	margin-left: 0.5em;
-	line-height: 1.4em;
-}
-
 .footer-nav p{
 	margin: 0;
 	font-size: 0.8em;
@@ -714,7 +690,7 @@ section#user-profile-page a#profile-nav div{
 
 
 
-/* IMAGES */
+/* ICONS & IMAGES */
 
 .logo {
 	width: 7em;
@@ -787,36 +763,50 @@ section#user-profile-page a#profile-nav div{
 		border-radius: 50%;
 	}
 
-.listing-image img{
-	height: 3em;
-	width: 3em;
-	margin-right: 1em;
+
+.illustration{
+	width: 70%;
+}
+	.illustration~h3{
+		color:var(--color-main);
+	}
+
+
+
+/* IMAGE UPLOAD */
+
+#user-upload-page,
+#type-upload-page,
+#location-upload-page{
+	background-color: var(--color-neutral-dark);
+}
+#user-upload-page header,
+#user-upload-page footer,
+#type-upload-page header,
+#type-upload-page footer,
+#location-upload-page header,
+#location-upload-page footer{
+	background: transparent;
+	box-shadow: none;
+	color: var(--color-white);
 }
 
-.view-all{
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	text-align: center;
-	line-height: 1.1em;
-	font-size: 0.8em;
-	text-shadow:
-	-1px -1px 0 var(--color-white),
-    1px -1px 0 var(--color-white),
-    -1px 1px 0 var(--color-white),
-    1px 1px 0 var(--color-white);
-}
+.image-uploader.full {
+   position:absolute;
+   top:5%;
+   left:5%;
+   width:90%;
+   height:90%;
 
-.profile-image img{
-	height: 8em;
-	width: 8em;
+   background-size:contain;
+   background-position: center;
+   background-repeat:no-repeat;
 }
-
-.location-image img{
-	object-fit: cover;
-	object-position: center;
-	height: 40vh;
-	width: 100%;
+.ui-mobile label.image-uploader {
+   margin:0;
+}
+.image-uploader input {
+   display:none;
 }
 
 .edit-image{
@@ -841,43 +831,33 @@ section#user-profile-page a#profile-nav div{
 }
 	.edit-image-icon img{
 		width: 70%;
+		object-fit: contain;
 	}
 
-.image-uploader.full {
-   position:absolute;
-   top:5%;
-   left:5%;
-   width:90%;
-   height:90%;
 
-   background-size:contain;
-   background-position: center;
-   background-repeat:no-repeat;
-}
-.ui-mobile label.image-uploader {
-   margin:0;
-}
-.image-uploader input {
-   display:none;
-}
+/* FILTER */
 
-.illustration{
-	width: 70%;
+.filter-list {
+    display: flex;
+    overflow: auto;
+    width: max-content;
 }
-	.illustration~h3{
-		color:var(--color-main);
+.filter {
+    padding: 0.25em 1em;
+    border: 1px solid var(--color-neutral-light);
+    transition-duration: 0.3s;
+    border-radius: 50px;
+    color: var(--color-neutral-dark);
+}
+	.filter:not(:last-child){
+		margin-right: 0.5em;
 	}
+.filter.active{
+	background-color: var(--color-neutral-light);
+	color: var(--color-neutral-dark);
+	font-weight: bold;
+}
 
-.rating{
-	height: 1.75em;
-}
-	.rating img{
-		max-height:100%;
-		width: auto;
-	}
-.rating.small{
-	height:1em;
-}
 
 /* PAGES */
 
@@ -885,21 +865,7 @@ section#user-profile-page a#profile-nav div{
 	padding: 0 2em;
 	text-align: center;
 }
-#user-upload-page,
-#type-upload-page,
-#location-upload-page{
-	background-color: var(--color-neutral-dark);
-}
-#user-upload-page header,
-#user-upload-page footer,
-#type-upload-page header,
-#type-upload-page footer,
-#location-upload-page header,
-#location-upload-page footer{
-	background: transparent;
-	box-shadow: none;
-	color: var(--color-white);
-}
+
 
 /* SIGNIN PAGE */
 
@@ -968,7 +934,44 @@ section#user-profile-page a#profile-nav div{
 	width: 90%;
 }
 
-/* TYPE PAGE */
+.view-all{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	line-height: 1.1em;
+	font-size: 0.8em;
+	text-shadow:
+	-1px -1px 0 var(--color-white),
+    1px -1px 0 var(--color-white),
+    -1px 1px 0 var(--color-white),
+    1px 1px 0 var(--color-white);
+}
+
+
+
+/* USER PAGE */
+
+#user-profile-page .profile-top{
+	height: 8em;
+    overflow: visible;
+    padding: 4em 0;
+	flex: 1;
+	position: relative;
+    background: linear-gradient(90deg, rgba(225,76,86,1) 0%, rgba(248,162,86,1) 100%); 
+}
+#user-profile-page .profile-bottom{
+	flex: none;
+	overflow: auto;
+	height: 80%;
+    padding-top: 4.5em;
+    padding-bottom: 8em;
+}
+
+
+
+
+/* TYPE & LIST PAGE */
 
 .type-list li{
 	padding: 1em 1.5em;
@@ -977,6 +980,12 @@ section#user-profile-page a#profile-nav div{
 
 .type-list h3 {
 	margin-top: 0;
+}
+
+.listing-image img{
+	height: 3em;
+	width: 3em;
+	margin-right: 1em;
 }
 
 #type-profile-page .profile-top{
@@ -989,6 +998,31 @@ section#user-profile-page a#profile-nav div{
 	flex: 1;
 }
 
+
+
+/* LOCATION PAGE */
+
+#location-page .profile-top{
+	flex: 1;
+	position: relative;
+}
+#location-page .profile-bottom{
+	height: 60%;
+	flex: none;
+	overflow: auto;
+	padding-bottom: 4em;
+}
+.location-image img{
+	object-fit: cover;
+	object-position: center;
+	height: 40vh;
+	width: 100%;
+}
+
+
+/* MAP ELEMENTS */
+
+
 .map{
 	height: 100%;
 	width: 100%;
@@ -996,8 +1030,6 @@ section#user-profile-page a#profile-nav div{
 	top: 0;
 	left: 0;
 }
-
-/* MAP ELEMENTS */
 
 #type-profile-page .customMarker,
 #map-add-page .customMarker{
@@ -1076,29 +1108,18 @@ section#user-profile-page a#profile-nav div{
 		width: 15%;
 	}
 
-/* PROFILE PAGE */
+
+
+/* PROFILE ELEMENTS */
 
 .profile{
 	position: relative;
 	height: 100%;
 }
-
-#user-profile-page .profile-top{
+.profile-image img{
 	height: 8em;
-    overflow: visible;
-    padding: 4em 0;
-	flex: 1;
-	position: relative;
-    background: linear-gradient(90deg, rgba(225,76,86,1) 0%, rgba(248,162,86,1) 100%); 
+	width: 8em;
 }
-#user-profile-page .profile-bottom{
-	flex: none;
-	overflow: auto;
-	height: 80%;
-    padding-top: 4.5em;
-    padding-bottom: 8em;
-}
-
 .info {
 	width: 100%;
 	border-radius: 10px;
@@ -1131,14 +1152,17 @@ section#user-profile-page a#profile-nav div{
 	width: 50%;
 }
 
-/* LOCATION PAGE */
-#location-page .profile-top{
-	flex: 1;
-	position: relative;
+.rating{
+	height: 1.75em;
 }
-#location-page .profile-bottom{
-	height: 60%;
-	flex: none;
-	overflow: auto;
-	padding-bottom: 4em;
+	.rating img{
+		max-height:100%;
+		width: auto;
+	}
+.rating.small{
+	height:1em;
 }
+
+
+
+

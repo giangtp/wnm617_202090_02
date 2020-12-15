@@ -1,18 +1,20 @@
-/* const makeTypeList = (a) => {
-	return a.reduce((r,o,i,a)=>{
-		return r+`
-		<div>${o.name}</div>
-		`
-	},'');
-} */
+/* LIST */
 
-const makeRecentList = templater(o=>`
+/* const makeRecentList = templater(o=>`
 <li>
 	<div class="image-circle image-border recent-list-image js-type-jump" data-id="${o.type_id}">
 		<img src="${o.img}">
 	</div> 
 </li>
 `);
+
+const makeTypeList = (a) => {
+	return a.reduce((r,o,i,a)=>{
+		return r+`
+		<div>${o.name}</div>
+		`
+	},'');
+} */
 
 const makeTypeList = templater(o=>`
 <li>
@@ -31,6 +33,10 @@ const makeTypeList = templater(o=>`
 	</div>
 </li>
 `);
+
+
+
+/* USER */
 
 const makeUserProfile = templater(o=>`
 <div class="profile-top">
@@ -86,6 +92,54 @@ const makeUserProfile = templater(o=>`
 </div>
 `);
 
+const makeUserEdit = templater(o=>`
+<div class="display-flex flex-align-center flex-column">
+	<a href="#user-upload-page">
+		<div class="image-circle edit-image">
+			<div class="overlay"></div>
+			<img src="${o.img}">
+			<div class="edit-image-icon">
+    			<img src="images/edit_icon.png">
+    		</div>
+		</div>
+	</a>
+</div>
+
+<hr class="spacer small">
+
+<form id="user-edit-form" class="flex-stretch content active" data-ajax="false">
+    <div class="form-control">
+       <label for="edit-username" class="form-label">User Name</label>
+       <input id="edit-username" type="text" class="form-input" data-role="none" placeholder="Enter new username" value="${o.username}">
+    </div>
+    <div class="form-control">
+       <label for="edit-fullname" class="form-label">Full Name</label>
+       <input id="edit-fullname" type="text" class="form-input" data-role="none" placeholder="Enter new name" value="${o.name}">
+    </div>
+    <div class="form-control">
+       <label for="edit-occupation" class="form-label">Occupation</label>
+       <input id="edit-occupation" type="text" class="form-input" data-role="none" placeholder="Enter new occupation" value="${o.occupation}">
+    </div>
+    <div class="form-control">
+       <label for="edit-email" class="form-label">Email</label>
+       <input id="edit-email" type="email" class="form-input" data-role="none" placeholder="Enter new email" value="${o.email}">
+    </div>
+    <div class="form-control">
+       <label for="edit-phone" class="form-label">Phone</label>
+       <input id="edit-phone" type="tel" class="form-input" data-role="none" placeholder="Enter new phone number" value="${o.phone}">
+    </div>
+    <div class="form-control">
+       <input type="submit" class="form-button" value="Confirm" data-role="none">
+       <hr class="spacer xs">
+       <a href="#" data-rel="back" class="text-centered">Cancel</a>
+    </div>
+</form>
+`);
+
+
+
+/* TYPE */
+
 const makeTypeProfile = templater(o=>`
 <div class="page-side-padding page-top-padding">
 	<div class="display-flex flex-align-center flex-column">	
@@ -116,27 +170,6 @@ const makeTypeProfile = templater(o=>`
 	<div class="info card">${o.description}</div>
 </div>
 `);
-
-const makeLocationProfile = templater(o=>`
-<div class="location-image profile-top">
-	<img src="${o.img}">
-</div>
-
-<div class="display-flex flex-align-center flex-column page-side-padding page-top-padding profile-bottom">
-	<div class="rating">
-		<img src="images/stars-${o.usage_rating}.png">
-	</div>
-	<hr class="spacer small">
-	<ul class="info">
-		<li><strong>Date Spotted</strong>: ${o.date_create}</li>
-		<li><strong>Application</strong>: ${o.application}</li>
-		<li><strong>Font Style</strong>: ${o.font_style}</li>
-	</ul>
-	<hr class="spacer small">
-	<div class="info card">${o.note}</div>
-</div>
-`);
-
 
 const makeTypeEdit = templater(o=>`
 <div class="display-flex flex-align-center flex-column">
@@ -181,7 +214,7 @@ const makeTypeEdit = templater(o=>`
     </div>
     <div class="form-control">
        <label for="edit-description" class="form-label">Description</label>
-       <textarea id="edit-description" data-role="none" class="form-input" maxlength="100" placeholder="Say something about the type">${o.description}</textarea>
+       <textarea id="edit-description" data-role="none" class="form-input" maxlength="250" placeholder="Say something about the type">${o.description}</textarea>
     </div>
     <div class="form-control">
    		<input type="submit" class="form-button" value="Confirm" data-role="none">
@@ -191,48 +224,67 @@ const makeTypeEdit = templater(o=>`
 </form>
 `);
 
-const makeUserEdit = templater(o=>`
-<div class="display-flex flex-align-center flex-column">
-	<a href="#user-upload-page">
-		<div class="image-circle edit-image">
-			<div class="overlay"></div>
-			<img src="${o.img}">
-			<div class="edit-image-icon">
-    			<img src="images/edit_icon.png">
-    		</div>
+const makeLastSpot = templater(o=>`${o.last_spot}`);
+
+
+const makeTypeDelete = o=>`
+<div class="display-flex flex-column flex-align-center">
+	<div class="icon XL">
+		<img src="images/Cancel-Icon.png">
+	</div>
+	<h3 style="margin-top: 0.5em;">Are you sure?</h3>
+	<span>Do you really want to delete this? This action cannot be done.</span>
+</div>
+<hr class="spacer small">
+<div>
+	<a href="#"data-deactivate="#type-delete-modal" class="form-button js-type-delete" data-id="${o.id}">Confirm</a>
+   <hr class="spacer xs">
+   <a href="#" data-deactivate="#type-delete-modal" class="text-centered">Cancel</a>
+</div>
+`;
+
+/* const makeTypePopup = o=>`
+<div class="display-flex">
+	<div class="image-circle">
+	   <img src="${o.img}" style="width:100px;height:100px">
+	</div>
+	<hr class="vertical-spacer small">
+	<div class="flex-stretch">
+		<div>
+		   <h4>${o.name}</h4>
+		   <h6>Category</h6>
+		   <div>${o.category}</div>
+		   <h6>Classification</h6>
+		   <div>${o.classification}</div>
 		</div>
-	</a>
+	</div>
+</div>
+<hr class="spacer xs">
+ 
+`;*/
+
+
+
+/* LOCATION */
+
+const makeLocationProfile = templater(o=>`
+<div class="location-image profile-top">
+	<img src="${o.img}">
 </div>
 
-<hr class="spacer small">
-
-<form id="user-edit-form" class="flex-stretch content active" data-ajax="false">
-    <div class="form-control">
-       <label for="edit-username" class="form-label">User Name</label>
-       <input id="edit-username" type="text" class="form-input" data-role="none" placeholder="Enter new username" value="${o.username}">
-    </div>
-    <div class="form-control">
-       <label for="edit-fullname" class="form-label">Full Name</label>
-       <input id="edit-fullname" type="text" class="form-input" data-role="none" placeholder="Enter new name" value="${o.name}">
-    </div>
-    <div class="form-control">
-       <label for="edit-occupation" class="form-label">Occupation</label>
-       <input id="edit-occupation" type="text" class="form-input" data-role="none" placeholder="Enter new occupation" value="${o.occupation}">
-    </div>
-    <div class="form-control">
-       <label for="edit-email" class="form-label">Email</label>
-       <input id="edit-email" type="email" class="form-input" data-role="none" placeholder="Enter new email" value="${o.email}">
-    </div>
-    <div class="form-control">
-       <label for="edit-phone" class="form-label">Phone</label>
-       <input id="edit-phone" type="tel" class="form-input" data-role="none" placeholder="Enter new phone number" value="${o.phone}">
-    </div>
-    <div class="form-control">
-       <input type="submit" class="form-button" value="Confirm" data-role="none">
-       <hr class="spacer xs">
-       <a href="#" data-rel="back" class="text-centered">Cancel</a>
-    </div>
-</form>
+<div class="display-flex flex-align-center flex-column page-side-padding page-top-padding profile-bottom">
+	<div class="rating">
+		<img src="images/stars-${o.usage_rating}.png">
+	</div>
+	<hr class="spacer small">
+	<ul class="info">
+		<li><strong>Date Spotted</strong>: ${o.date_create}</li>
+		<li><strong>Application</strong>: ${o.application}</li>
+		<li><strong>Font Style</strong>: ${o.font_style}</li>
+	</ul>
+	<hr class="spacer small">
+	<div class="info card">${o.note}</div>
+</div>
 `);
 
 const makeLocationEdit = templater(o=>`
@@ -284,28 +336,6 @@ const makeLocationEdit = templater(o=>`
 </form>
 `);
 
-const makeLastSpot = templater(o=>`${o.last_spot}`);
-
-/* const makeTypePopup = o=>`
-<div class="display-flex">
-	<div class="image-circle">
-	   <img src="${o.img}" style="width:100px;height:100px">
-	</div>
-	<hr class="vertical-spacer small">
-	<div class="flex-stretch">
-		<div>
-		   <h4>${o.name}</h4>
-		   <h6>Category</h6>
-		   <div>${o.category}</div>
-		   <h6>Classification</h6>
-		   <div>${o.classification}</div>
-		</div>
-	</div>
-</div>
-<hr class="spacer xs">
- 
-`;*/
-
 const makeLocationPopup = o=>`
 <div class="display-flex">
 	<div class="image-circle">
@@ -325,22 +355,6 @@ const makeLocationPopup = o=>`
 <a href="#" class="form-button js-location-jump" data-id="${o.id}" data-deactivate="#location-modal">Visit</a> 
 `;
 
-const makeTypeDelete = o=>`
-<div class="display-flex flex-column flex-align-center">
-	<div class="icon XL">
-		<img src="images/Cancel-Icon.png">
-	</div>
-	<h3 style="margin-top: 0.5em;">Are you sure?</h3>
-	<span>Do you really want to delete this? This action cannot be done.</span>
-</div>
-<hr class="spacer small">
-<div>
-	<a href="#"data-deactivate="#type-delete-modal" class="form-button js-type-delete" data-id="${o.id}">Confirm</a>
-   <hr class="spacer xs">
-   <a href="#" data-deactivate="#type-delete-modal" class="text-centered">Cancel</a>
-</div>
-`;
-
 const makeLocationDelete = o=>`
 <div class="display-flex flex-column flex-align-center">
 	<div class="icon XL">
@@ -358,6 +372,8 @@ const makeLocationDelete = o=>`
 `;
 
 
+/* FILTER */
+
 const filterList = (types,category) => {
    let a = [...(new Set(types.map(o=>o[category])))];
    return templater(o=>`<div class="filter" data-field="${category}" data-value="${o}">${o[0].toUpperCase()+o.substr(1)}</div>`)(a);
@@ -370,6 +386,8 @@ const makeFilterList = (types) => {
    `;
 }
 
+
+/* IMAGE UPLOAD */
 
 const makeUploaderImage = ({namespace,folder,name}) => {
    $(`#${namespace}-image`).val(folder+name);

@@ -40,7 +40,7 @@ const RecentPage = async() => {
    })
 }
 
-//async and await
+
 const ListPage = async() => {
 	let d = await query({type:'types_by_user_id',params:[sessionStorage.userId]});
 	console.log(d);
@@ -60,6 +60,9 @@ const ListPage = async() => {
    }
 }
 
+
+/* USER */
+
 const UserProfilePage = async() => {
    let user = await query({type:'user_by_id',params:[sessionStorage.userId]});
    let types = await query({type:'types_by_user_id',params:[sessionStorage.userId]});
@@ -70,7 +73,32 @@ const UserProfilePage = async() => {
    $("#user-profile-page .profile").html(makeUserProfile(user.result));
    $("#user-profile-page .types-spot").html(types.result.length);
    $("#user-profile-page .locations-spot").html(locs.result.length);
-} //scrolling not working
+} 
+
+const UserEditPage = async() => {
+   let d = await query({type:'user_by_id',params:[sessionStorage.userId]});
+   console.log(d)
+
+   $("#user-edit-page .edit-form").html(makeUserEdit(d.result));
+}
+
+const UserUploadPage = async() => {
+   query({
+      type:'user_by_id',
+      params:[sessionStorage.userId]
+   }).then(d=>{
+      console.log(d)
+
+      makeUploaderImage({
+         namespace:'user-upload',
+         folder:'',
+         name:d.result[0].img
+      })
+   });
+}
+
+
+/* TYPE */
 
 const TypeProfilePage = async() => {
 
@@ -95,6 +123,30 @@ const TypeProfilePage = async() => {
          makeMarkers(map_el,allLocs.result);
    })
 }
+
+const TypeEditPage = async() => {
+   let d = await query({type:'type_by_id',params:[sessionStorage.typeId]});
+   console.log(d)
+
+   $("#type-edit-page .edit-form").html(makeTypeEdit(d.result));
+   $("#type-delete-modal .modal-body").html(makeTypeDelete(d.result[0]));
+}
+
+const TypeUploadPage = async() => {
+   query({
+      type:'type_by_id',
+      params:[sessionStorage.typeId]
+   }).then(d=>{
+      console.log(d)
+
+      makeUploaderImage({
+         namespace:'type-upload',
+         folder:'',
+         name:d.result[0].img
+      })
+   });
+}
+
 
 const TypeMapPage = async() => {
 
@@ -123,6 +175,9 @@ const TypeMapPage = async() => {
     }) 
   })
 }
+
+
+/* LOCATION */
 
 const MapAddPage = async() => {
 
@@ -159,57 +214,12 @@ const LocationPage = async() => {
    $("#location-page .profile").html(makeLocationProfile(d.result));
 }
 
-const TypeEditPage = async() => {
-   let d = await query({type:'type_by_id',params:[sessionStorage.typeId]});
-   console.log(d)
-
-   $("#type-edit-page .edit-form").html(makeTypeEdit(d.result));
-   $("#type-delete-modal .modal-body").html(makeTypeDelete(d.result[0]));
-}
-
-const UserEditPage = async() => {
-   let d = await query({type:'user_by_id',params:[sessionStorage.userId]});
-   console.log(d)
-
-   $("#user-edit-page .edit-form").html(makeUserEdit(d.result));
-}
-
 const LocationEditPage = async() => {
    let d = await query({type:'location_by_id',params:[sessionStorage.locationId]});
    console.log(d)
 
    $("#location-edit-page .edit-form").html(makeLocationEdit(d.result));
    $("#location-delete-modal .modal-body").html(makeLocationDelete(d.result[0]));
-}
-
-const UserUploadPage = async() => {
-   query({
-      type:'user_by_id',
-      params:[sessionStorage.userId]
-   }).then(d=>{
-      console.log(d)
-
-      makeUploaderImage({
-         namespace:'user-upload',
-         folder:'',
-         name:d.result[0].img
-      })
-   });
-}
-
-const TypeUploadPage = async() => {
-   query({
-      type:'type_by_id',
-      params:[sessionStorage.typeId]
-   }).then(d=>{
-      console.log(d)
-
-      makeUploaderImage({
-         namespace:'type-upload',
-         folder:'',
-         name:d.result[0].img
-      })
-   });
 }
 
 const LocationUploadPage = async() => {

@@ -36,7 +36,7 @@
 </head>
 <body>
 
-   <!-- SIGN IN -->
+   <!-- SIGN IN/SIGN UP -->
 
 	<section data-role="page" id="signin-page">
       <div data-role="main" class="display-flex flex-align-center flex-justify-center flex-column">
@@ -222,7 +222,6 @@
 
    <!-- LIST PAGE -->
 
-
    <section data-role="page" id="list-page">
       	<header data-role="header" class="display-flex display-justify-center">
       		<form class="hotdog" id="list-search-form" data-ajax="false">
@@ -248,6 +247,10 @@
       </div>
       <footer data-role="footer" data-template="#footer-template"></footer>
    </section>
+
+
+
+   <!-- TYPE -->
 
    <section data-role="page" id="type-add-page">
 		<header data-role="header">
@@ -293,20 +296,22 @@
 	            </div>
 	            <div class="form-control">
 	               <label for="add-description" class="form-label">Description</label>
-     			   <textarea id="add-description" data-role="none" class="form-input" maxlength="100" placeholder="Say something about the type"></textarea>
+     			   <textarea id="add-description" data-role="none" class="form-input" maxlength="250" placeholder="Say something about the type"></textarea>
 	            </div>
 	            <div class="form-control">
-	            	<input type="submit" class="form-button" value="Confirm" data-role="none">
+	            	<input type="submit" class="form-button" value="Proceed to Image Upload" data-role="none">
 	               <hr class="spacer xs">
 	               <a href="#" data-rel="back" class="text-centered">Cancel</a>
 	            </div>
 		    </form>
 		</div>
+		<div class="modal" id="type-warning-modal">
+	      <div class="modal-toast bottom" data-deactivate="#add-warning-modal">
+	      	<i class='fas icon small flex-none' style="color: var(--color-main);">&#xf06a;</i> 
+			<span class="message">Message</span>
+	      </div>
+	  	</div>
 	</section>
-
-
-
-	<!-- TYPE PROFILE -->
 
 	<section data-role="page" id="type-profile-page">
 		<header data-role="header">
@@ -370,7 +375,9 @@
 			<div class="modal" id="location-modal">
             	<div class="modal-drawer bottom">
 	            	<div class="floater close-button" data-deactivate="#location-modal" class="flex-none">
-	            		<i class='fas icon small'>&#xf00d;</i>
+	            		<div class='icon XS'>
+	            			<img src="images/close_icon_2.png">
+	            		</div>
 	            	</div>
 	               <div class="modal-body"></div>
 	            </div>
@@ -452,20 +459,21 @@
 
 	<section data-role="page" id="type-upload-page">
 		<header data-role="header">
-			<ul>
-				<li>
-					<a href="#" data-rel="back" class="nav-link">
-						<div class='icon flex-none'>
-				      		<img src="images/back_icon.png">
+			<ul class="display-flex flex-align-center">
+				<li class="flex-none">
+					<a href="#" class="nav-link js-cancel-upload">
+						<div class='icon'>
+				      		<img src="images/close_icon.png">
 				      	</div>
 					</a>
 				</li>
-				<li class="flex-stretch"></li>
-       		    <li><a href="#" class="js-type-upload nav-link">
-       		    	<div class="icon">
-       		    		<img src="images/upload_icon.png">
-       		    	</div>
-       		    </a>
+				<li class="flex-stretch text-centered">IMAGE UPLOAD</li>
+       		    <li class="flex-none">
+       		    	<a href="#" class="js-type-upload nav-link">
+	       		    	<div class="icon">
+	       		    		<img src="images/upload_icon.png">
+	       		    	</div>
+	       		    </a>
        		    </li>
 			</ul>
 		</header>
@@ -477,9 +485,8 @@
 	            </label>
 	        </form>
 		</div>
-		<footer><div class="text-centered page-top-padding">Tap to upload image</div></footer>
+		<footer><div class="text-centered page-top-padding">Tap to upload type image</div></footer>
 	</section>
-
 
 
 
@@ -528,12 +535,18 @@
 	               <textarea id="add-note" data-role="none" class="form-input" maxlength="250" placeholder="Say something about the design"></textarea>
 	            </div>
 	            <div class="form-control">
-	               <input type="submit" class="form-button" value="Confirm" data-role="none">
+	               <input type="submit" class="form-button" value="Proceed to Image Upload" data-role="none">
 	               <hr class="spacer xs">
 	               <a href="#" data-rel="back" class="text-centered">Cancel</a>
 	            </div>
 		    </form>
 		</div>
+		<div class="modal" id="location-warning-modal">
+	      <div class="modal-toast bottom" data-deactivate="#add-warning-modal">
+	      	<i class='fas icon small flex-none' style="color: var(--color-main);">&#xf06a;</i> 
+			<span class="message">Message</span>
+	      </div>
+	  	</div>
 	</section>
 
 
@@ -598,22 +611,23 @@
 	     </div>
 	</section>
 
-		<section data-role="page" id="location-upload-page">
+	<section data-role="page" id="location-upload-page">
 		<header data-role="header">
-			<ul>
-				<li>
-					<a href="#" data-rel="back" class="nav-link">
-						<div class='icon flex-none'>
-				      		<img src="images/back_icon.png">
+			<ul class="display-flex flex-align-center">
+				<li class="flex-none">
+					<a href="#" class="nav-link js-cancel-upload">
+						<div class='icon'>
+				      		<img src="images/close_icon.png">
 				      	</div>
 					</a>
 				</li>
-				<li class="flex-stretch"></li>
-       		    <li><a href="#" class="js-location-upload nav-link">
-       		    	<div class="icon">
-       		    		<img src="images/upload_icon.png">
-       		    	</div>
-       		    </a>
+				<li class="flex-stretch text-centered">IMAGE UPLOAD</li>
+       		    <li class="flex-none">
+       		    	<a href="#" class="js-location-upload nav-link">
+	       		    	<div class="icon">
+	       		    		<img src="images/upload_icon.png">
+	       		    	</div>
+	       		    </a>
        		    </li>
 			</ul>
 		</header>
@@ -625,12 +639,12 @@
 	            </label>
 	        </form>
 		</div>
-		<footer><div class="text-centered page-top-padding">Tap to upload image</div></footer>
+		<footer><div class="text-centered page-top-padding">Tap to upload location image</div></footer>
 	</section>
 
 
 
-	<!-- USER PROFILE -->
+	<!-- USER -->
 
 	<section data-role="page" id="user-profile-page">
 		<div data-role="main">
@@ -679,20 +693,21 @@
 
 	<section data-role="page" id="user-upload-page">
 		<header data-role="header">
-			<ul>
-				<li>
-					<a href="#" data-rel="back" class="nav-link">
-						<div class='icon flex-none'>
-				      		<img src="images/back_icon.png">
+			<ul class="display-flex flex-align-center">
+				<li class="flex-none">
+					<a href="#" class="nav-link js-cancel-upload">
+						<div class='icon'>
+				      		<img src="images/close_icon.png">
 				      	</div>
 					</a>
 				</li>
-				<li class="flex-stretch"></li>
-       		    <li><a href="#" class="js-user-upload nav-link">
-       		    	<div class="icon">
-       		    		<img src="images/upload_icon.png">
-       		    	</div>
-       		    </a>
+				<li class="flex-stretch text-centered">IMAGE UPLOAD</li>
+       		    <li class="flex-none">
+	       		    <a href="#" class="js-user-upload nav-link">
+	       		    	<div class="icon">
+	       		    		<img src="images/upload_icon.png">
+	       		    	</div>
+	       		    </a>
        		    </li>
 			</ul>
 		</header>
@@ -704,7 +719,7 @@
 	            </label>
 	        </form>
 		</div>
-		<footer><div class="text-centered page-top-padding page-side-padding">Tap to upload image</div></footer>
+		<footer><div class="text-centered page-top-padding page-side-padding">Tap to upload profile image</div></footer>
 	</section>
 
 

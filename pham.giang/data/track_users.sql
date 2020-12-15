@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 28, 2020 at 04:18 PM
+-- Generation Time: Dec 15, 2020 at 12:39 PM
 -- Server version: 5.6.49-cll-lve
 -- PHP Version: 7.3.6
 
@@ -44,7 +44,7 @@ CREATE TABLE `track_users` (
 --
 
 INSERT INTO `track_users` (`id`, `name`, `username`, `email`, `password`, `phone`, `img`, `occupation`) VALUES
-(1, 'Patel Singleton', 'user1', 'user1@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(908) 564-3177', 'https://via.placeholder.com/400/900/fff/?text=user1', 'Product Designer'),
+(1, 'Pastel Chroma', 'user1', 'user1@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(908) 564-3177', 'uploads/1607936833.4305_user1.jpg', 'Color Designer'),
 (2, 'Mckenzie Knowles', 'user2', 'user2@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(890) 496-2198', 'https://via.placeholder.com/400/723/fff/?text=user2', 'Game Designer'),
 (3, 'Debora Sellers', 'user3', 'user3@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(998) 436-2731', 'https://via.placeholder.com/400/892/fff/?text=user3', 'Motion Designer'),
 (4, 'Kayla Nicholson', 'user4', 'user4@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(833) 573-3252', 'https://via.placeholder.com/400/776/fff/?text=user4', 'Game Designer'),
@@ -53,7 +53,10 @@ INSERT INTO `track_users` (`id`, `name`, `username`, `email`, `password`, `phone
 (7, 'Cervantes Lancaster', 'user7', 'user7@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(990) 472-2621', 'https://via.placeholder.com/400/898/fff/?text=user7', 'UX Designer'),
 (8, 'Washington Jimenez', 'user8', 'user8@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(978) 429-3731', 'https://via.placeholder.com/400/919/fff/?text=user8', 'Motion Designer'),
 (9, 'Herman Rollins', 'user9', 'user9@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(943) 495-3242', 'https://via.placeholder.com/400/761/fff/?text=user9', 'Product Designer'),
-(10, 'Ella Fields', 'user10', 'user10@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(961) 463-2713', 'https://via.placeholder.com/400/750/fff/?text=user10', 'Freelancer');
+(10, 'Ella Fields', 'user10', 'user10@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(961) 463-2713', 'https://via.placeholder.com/400/750/fff/?text=user10', 'Freelancer'),
+(11, 'An Egg', 'tamago', 'eggo@smail.com', '1a1dc91c907325c69271ddf0c944bc72', '1234567890', 'https://via.placeholder.com/400/?text=USER', 'Exeggcute'),
+(12, 'giang p', 'giang101', 'giang@me.me', '1a1dc91c907325c69271ddf0c944bc72', '1234567890', 'uploads/1607874325.0326_user1.jpg', 'graphic designer'),
+(13, 'Giang Pham', 'user0', 'giang-designer@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(123) 4567-890', 'uploads/1607978235.7203__NN06682.jpg', 'Graphic Designer');
 
 --
 -- Indexes for dumped tables
@@ -73,7 +76,7 @@ ALTER TABLE `track_users`
 -- AUTO_INCREMENT for table `track_users`
 --
 ALTER TABLE `track_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

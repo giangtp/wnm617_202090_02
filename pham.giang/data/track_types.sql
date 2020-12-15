@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 03, 2020 at 03:35 AM
+-- Generation Time: Dec 15, 2020 at 12:40 PM
 -- Server version: 5.6.49-cll-lve
 -- PHP Version: 7.3.6
 
@@ -50,10 +50,11 @@ INSERT INTO `track_types` (`id`, `user_id`, `name`, `category`, `classification`
 (4, 3, 'Times', 'Serif', 'Transitional', 'https://via.placeholder.com/400/921/fff/?text=Times', 'Pariatur exercitation pariatur est id mollit cillum duis in id id.', 2),
 (5, 6, 'Cambria', 'Serif', 'Transitional', 'https://via.placeholder.com/400/763/fff/?text=Cambria', 'Sint dolor velit fugiat deserunt sunt.', 1),
 (6, 9, 'Calibri', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/962/fff/?text=Calibri', 'Irure ad ut labore reprehenderit cupidatat eu exercitation aliqua do minim.', 5),
-(7, 1, 'Trajan', 'Serif', 'Display Serif', 'https://via.placeholder.com/400/803/fff/?text=Trajan', 'Non laboris aute incididunt cupidatat laboris mollit ea.', 5),
+(61, 13, 'Garamond', 'Serif', 'Old-Style', 'uploads/1608052263.181_Garamond-Icon.png', 'It\'s a nice elegant typeface and a good choice for more formal design. Unfit for modern design.', 3),
+(57, 13, 'Bebas Neue', 'Sans Serif', 'Geometric', 'uploads/1607979440.9979_Bebas Icon.png', 'One of my favorite typefaces. Really fun to use for flat colorful retro-style designs. ', 5),
 (8, 1, 'Minion', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/727/fff/?text=Minion', 'Ullamco non voluptate duis Lorem.', 2),
 (9, 2, 'Univers', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/826/fff/?text=Univers', 'Adipisicing aliquip et occaecat Lorem dolore ipsum aute occaecat enim esse.', 1),
-(10, 5, 'Lucida Sans', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/727/fff/?text=Lucida Sans', 'Aliquip commodo fugiat deserunt id magna enim irure consequat culpa Lorem.', 2),
+(10, 5, 'Lucida Sans', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/727/fff/?text=Lucida Sans', 'Aliquip commodo fugiat deserunt id magna enim irure consequat culpa Lorem.', 4),
 (11, 6, 'Rockwell', 'Serif', 'Slab Serif', 'https://via.placeholder.com/400/870/fff/?text=Rockwell', 'Duis sunt laborum dolore minim.', 4),
 (12, 7, 'Lucida Sans', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/827/fff/?text=Lucida Sans', 'Proident sint nulla ex cillum laboris aliqua esse pariatur aliquip veniam sit cillum.', 1),
 (13, 9, 'Lucida Sans', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/798/fff/?text=Lucida Sans', 'Ex velit exercitation incididunt sit tempor.', 4),
@@ -93,7 +94,12 @@ INSERT INTO `track_types` (`id`, `user_id`, `name`, `category`, `classification`
 (47, 5, 'Roboto', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/795/fff/?text=Roboto', 'Ullamco fugiat quis proident ut Lorem qui esse minim deserunt exercitation esse officia est.', 5),
 (48, 2, 'Roboto', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/785/fff/?text=Roboto', 'Deserunt consequat labore tempor excepteur enim amet sint do id pariatur voluptate minim ex laborum.', 1),
 (49, 3, 'Neutra Text', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/835/fff/?text=Neutra Text', 'Incididunt ipsum ea ex commodo enim quis commodo proident ullamco sint cillum dolore.', 3),
-(50, 9, 'Sabon', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/958/fff/?text=Sabon', 'Deserunt anim deserunt excepteur sint.', 5);
+(50, 9, 'Sabon', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/958/fff/?text=Sabon', 'Deserunt anim deserunt excepteur sint.', 5),
+(60, 13, 'Futura', 'Sans Serif', 'Geometric', 'uploads/1608047599.8717_Futura Icon.png', 'A great-looking typeface with a lot of versatility. It\'s best used for clean modern design.', 5),
+(58, 13, 'Helvetica', 'Sans Serif', 'Neo-Grotesque', 'uploads/1607991506.1675_Helvetica Icon.png', 'The vanilla of typefaces. Incredibly versatile, but overused so it\'s kinda generic.', 3),
+(59, 13, 'Bodoni', 'Serif', 'Didone', 'uploads/1607992269.3466_Bodoni Icon.png', 'The fashion typeface. Very elegant. Good for display, but terrible for body text.', 4),
+(62, 13, 'Neutra Text', 'Sans Serif', 'Geometric', 'uploads/1608054919.2079_Neutra-Text-Icon.png', 'This is my brand typeface. It\'s one of my absolute favorite. Both elegant and modern.', 5),
+(63, 13, 'DIN', 'Sans Serif', 'Geometric', 'uploads/1608057210.1306_Din-Icon.png', 'Very modern and cool. It\'s best used as a display text rather than body text most of the time.', 4);
 
 --
 -- Indexes for dumped tables
@@ -113,7 +119,7 @@ ALTER TABLE `track_types`
 -- AUTO_INCREMENT for table `track_types`
 --
 ALTER TABLE `track_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

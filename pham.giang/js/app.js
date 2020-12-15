@@ -1,4 +1,4 @@
-// Document Ready
+/* Document Ready */
 
 $(()=>{
 
@@ -19,14 +19,17 @@ $(()=>{
          case 'list-page': ListPage(); 
             $("#list-search-form")[0].reset();
             break;
+
+         // USER
          case 'user-profile-page': UserProfilePage(); break;
          case 'user-edit-page': UserEditPage();break;
          case 'user-upload-page': UserUploadPage(); break;
          case 'password-edit-page': 
             $("#password-edit-form")[0].reset();
             break;
+
+         // TYPE
          case 'type-profile-page': TypeProfilePage(); break;
-         case 'location-page': LocationPage(); break;
          case 'type-add-page': 
             $("#type-add-form")[0].reset();
             break;
@@ -38,6 +41,9 @@ $(()=>{
          case 'map-add-page': MapAddPage(); 
             $("#map-add-page .modal").addClass("active");
             break;
+
+         // LOCATION
+         case 'location-page': LocationPage(); break;
          case 'location-add-page': 
             $("#location-add-form")[0].reset();
             break;
@@ -48,7 +54,6 @@ $(()=>{
 
    /* FORM SUBMISSIONS */
 
-   // event delegation
    .on("submit","#signin-form",function(e){
       e.preventDefault();
       checkSigninForm();
@@ -62,6 +67,16 @@ $(()=>{
    .on("submit","#onboarding-form",function(e){
       e.preventDefault();
       checkOnboardingForm();
+   })
+
+   .on("submit","#recent-search-form",function(e){
+      e.preventDefault();
+      checkRecentSearch();
+   })
+
+   .on("submit","#list-search-form",function(e){
+      e.preventDefault();
+      checkSearchForm();
    })
 
    .on("submit","#user-edit-form",function(e){
@@ -88,17 +103,19 @@ $(()=>{
       e.preventDefault();
       checkLocationEditForm();
    })
-   .on("submit","#list-search-form",function(e){
-      e.preventDefault();
-      checkSearchForm();
-   })
-      .on("submit","#recent-search-form",function(e){
-      e.preventDefault();
-      checkRecentSearch();
-   })
+
 
 
    /* ANCHOR CLICKS */
+
+   .on("click",".js-search-jump",function(e){
+      checkSearchForm();
+   })  
+   .on("click",".filter",function(e){
+      checkListFilter($(this).data());
+      $(this).addClass("active")
+         .siblings().removeClass("active")
+   })
 
    .on("click",".js-logout",function(e){
       sessionStorage.removeItem('userId');
@@ -106,12 +123,10 @@ $(()=>{
       $("#signin-page .signin").addClass("active");
       checkUserId();
    })
-
    .on("click",".js-type-jump",function(e){
       sessionStorage.typeId = $(this).data("id");
       $.mobile.navigate("#type-profile-page");
    })
-
    .on("click",".js-location-jump",function(e){
       sessionStorage.locationId = $(this).data("id");
       $.mobile.navigate("#location-page");
@@ -131,15 +146,15 @@ $(()=>{
    .on("click",".js-location-upload",function(e){
       checkLocationUpload();
    })
-   .on("click",".js-search-jump",function(e){
-      checkSearchForm();
-   })  
-
-   .on("click",".filter",function(e){
-      checkListFilter($(this).data());
-      $(this).addClass("active")
-         .siblings().removeClass("active")
+   .on("click","js-cancel-upload", function(e){
+      console.log("honk");
+      window.history.go(-2);
    })
+
+
+
+   /* IMAGE UPLOAD */
+
    .on("change",".image-uploader input",function(e){
       checkUpload(this.files[0])
       .then(d=>{
@@ -175,7 +190,7 @@ $(()=>{
    })
 
 
-
+   /* DATA ACTIVATION */
 
    .on("click","[data-activate]",function(){
       let target = $(this).data('activate');

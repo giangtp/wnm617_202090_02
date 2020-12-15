@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 03, 2020 at 03:41 AM
+-- Generation Time: Dec 15, 2020 at 12:40 PM
 -- Server version: 5.6.49-cll-lve
 -- PHP Version: 7.3.6
 
@@ -67,8 +67,8 @@ INSERT INTO `track_locations` (`id`, `type_id`, `lat`, `lng`, `note`, `img`, `ic
 (18, 48, 37.677712, -122.412016, 'Labore sunt nulla enim nulla officia reprehenderit fugiat incididunt. Exercitation commodo enim proident culpa proident magna. Enim tempor do labore elit non laborum do dolor consequat consectetur eiusmod cillum sit.', 'https://via.placeholder.com/400/985/fff/?text=location18', 'images/Location Icon.png', 'Poster', 'Underline', 4, '2020-08-02'),
 (19, 10, 37.747223, -122.419539, 'Anim qui incididunt laboris elit. Quis laborum id dolor voluptate ut commodo velit occaecat duis aliquip minim elit pariatur. Cillum eu tempor aliquip ipsum.', 'https://via.placeholder.com/400/735/fff/?text=location19', 'images/Location Icon.png', 'Digital ad', 'Black', 2, '2020-02-12'),
 (20, 39, 37.740829, -122.441729, 'Officia enim sint est esse in officia eu nulla aliquip elit consequat veniam exercitation. Aliquip culpa mollit est in tempor minim ea eiusmod. Ipsum qui magna adipisicing dolor reprehenderit nulla laboris et.', 'https://via.placeholder.com/400/897/fff/?text=location20', 'images/Location Icon.png', 'Packaging', 'Small Caps', 3, '2020-06-29'),
-(21, 7, 37.754743, -122.453572, 'Ex minim ea qui eu velit irure ex eu amet amet anim. Voluptate enim quis veniam duis quis dolor occaecat culpa fugiat amet commodo. Nisi ex id proident incididunt eiusmod eiusmod ad pariatur.', 'https://via.placeholder.com/400/758/fff/?text=location21', 'images/Location Icon.png', 'Digital ad', 'Bold', 1, '2020-09-28'),
-(22, 8, 37.651592, -122.473715, 'Excepteur ullamco ullamco sunt in nisi nulla excepteur enim veniam. Consequat ea nulla labore qui consectetur do enim id eiusmod. Culpa eu in anim do sunt ex commodo excepteur fugiat.', 'https://via.placeholder.com/400/793/fff/?text=location22', 'images/Location Icon.png', 'Billboard', 'Black', 4, '2020-10-07'),
+(21, 7, 37.754743, -122.453572, 'Ex minim ea qui eu velit irure ex eu amet amet anim. Voluptate enim quis veniam duis quis dolor occaecat culpa fugiat amet commodo. Nisi ex id proident incididunt eiusmod eiusmod ad pariatur.', 'uploads/1607914850.9818_helvetica-location-1.jpg', 'images/Location Icon.png', 'Digital ad', 'Bold', 2, '2020-09-28'),
+(22, 8, 37.651592, -122.473715, 'Excepteur ullamco ullamco sunt in nisi nulla excepteur enim veniam. Consequat ea nulla labore qui consectetur do enim id eiusmod. Culpa eu in anim do sunt ex commodo excepteur fugiat.', 'https://via.placeholder.com/400/793/fff/?text=location22', 'images/Location Icon.png', 'Billboard', 'Black', 3, '2020-10-07'),
 (23, 17, 37.704161, -122.485004, 'Id pariatur sint id cillum pariatur eu ex occaecat adipisicing. Laboris eiusmod minim aliquip reprehenderit enim. Commodo labore laborum laborum reprehenderit magna magna nulla sunt consequat laborum veniam aliquip qui.', 'https://via.placeholder.com/400/744/fff/?text=location23', 'images/Location Icon.png', 'Packaging', 'Bold Italic', 5, '2020-03-24'),
 (24, 41, 37.714032, -122.498355, 'Irure consequat laboris nostrud voluptate nulla eiusmod esse non duis. Do exercitation eiusmod occaecat ad irure ipsum cupidatat occaecat tempor exercitation non exercitation. Elit nulla enim excepteur nulla consequat et velit nulla adipisicing eu fugiat.', 'https://via.placeholder.com/400/849/fff/?text=location24', 'images/Location Icon.png', 'Packaging', 'Bold', 5, '2020-06-05'),
 (25, 9, 37.774589, -122.411812, 'Sint officia esse elit cupidatat tempor irure do. Culpa incididunt et eu dolor ipsum quis. Deserunt ex laborum mollit esse in sunt sunt proident laborum id elit enim qui.', 'https://via.placeholder.com/400/956/fff/?text=location25', 'images/Location Icon.png', 'Poster', 'Capitalized', 2, '2020-09-26'),
@@ -167,7 +167,7 @@ INSERT INTO `track_locations` (`id`, `type_id`, `lat`, `lng`, `note`, `img`, `ic
 (118, 11, 37.722857, -122.497375, 'Dolore laboris minim aliquip minim consequat esse reprehenderit aute. Consequat cupidatat eu exercitation ullamco amet culpa aliqua labore sunt tempor ex aliqua culpa id. Qui esse nostrud deserunt pariatur ut excepteur ad ad sint velit Lorem ut.', 'https://via.placeholder.com/400/808/fff/?text=location118', 'images/Location Icon.png', 'Billboard', 'Light', 4, '2020-11-20'),
 (119, 44, 37.739383, -122.479989, 'Occaecat voluptate incididunt ipsum officia duis eiusmod. Officia in laboris qui cupidatat elit id commodo sit aute voluptate anim. Officia ut cupidatat adipisicing laboris ut.', 'https://via.placeholder.com/400/735/fff/?text=location119', 'images/Location Icon.png', 'Billboard', 'Light', 3, '2020-11-06'),
 (120, 48, 37.659325, -122.471140, 'Occaecat mollit eiusmod Lorem veniam id minim. Culpa ullamco velit occaecat occaecat magna sint proident sint aliquip eu aliqua Lorem cillum id. Esse ad est consectetur pariatur ea adipisicing sit cupidatat nulla.', 'https://via.placeholder.com/400/782/fff/?text=location120', 'images/Location Icon.png', 'Book cover', 'Light', 5, '2020-05-07'),
-(121, 41, 37.730381, -122.438440, 'Esse quis occaecat incididunt dolore magna sint cupidatat elit proident nostrud quis cillum ullamco culpa. Et minim ullamco veniam exercitation consequat. Dolore proident anim elit do culpa consequat amet et sint qui id excepteur et.', 'https://via.placeholder.com/400/804/fff/?text=location121', 'images/Location Icon.png', 'Billboard', 'Capitalized', 2, '2020-09-28'),
+(121, 41, 37.730381, -122.438440, 'Esse quis occaecat incididunt dolore magna sint cupidatat elit proident nostrud quis cillum ullamco culpa. Et minim ullamco veniam exercitation consequat. Dolore proident anim elit do culpa consequat amet et sint qui id excepteur et.', 'https://via.placeholder.com/400/804/fff/?text=location121', 'images/Location Icon.png', 'Digital Billboard', 'Small caps', 5, '2020-09-28'),
 (122, 3, 37.682204, -122.482236, 'Qui deserunt eiusmod dolor pariatur proident cillum ex in. Sunt qui exercitation tempor elit consequat ea eu officia. Commodo sint ullamco incididunt amet id commodo Lorem qui laboris do aute sit commodo enim.', 'https://via.placeholder.com/400/825/fff/?text=location122', 'images/Location Icon.png', 'Sign', 'Black', 4, '2020-01-03'),
 (123, 23, 37.682924, -122.444517, 'Duis ea occaecat ex in exercitation magna Lorem ullamco velit consequat non qui. Commodo ad quis ex ad qui amet ea ut aliqua ullamco ipsum. Adipisicing consectetur cillum velit pariatur aute consectetur exercitation nisi.', 'https://via.placeholder.com/400/899/fff/?text=location123', 'images/Location Icon.png', 'Sign', 'Small Caps', 1, '2020-04-26'),
 (124, 5, 37.742314, -122.413161, 'Dolore magna irure ea officia adipisicing aliquip elit officia ullamco irure. Adipisicing minim labore enim ea. Ut duis laborum ut nulla.', 'https://via.placeholder.com/400/805/fff/?text=location124', 'images/Location Icon.png', 'Book cover', 'Bold', 3, '2020-11-28'),
@@ -189,7 +189,9 @@ INSERT INTO `track_locations` (`id`, `type_id`, `lat`, `lng`, `note`, `img`, `ic
 (139, 37, 37.677714, -122.482787, 'Labore sit commodo aute qui. Laborum et ullamco aliquip occaecat qui officia. Adipisicing do pariatur ad et magna pariatur anim cillum sunt.', 'https://via.placeholder.com/400/912/fff/?text=location139', 'images/Location Icon.png', 'Digital ad', 'Black', 3, '2020-01-09'),
 (140, 3, 37.694390, -122.461260, 'Culpa ea sint quis sunt laboris ea magna tempor culpa sint sint mollit fugiat. Dolor proident non quis voluptate duis. Laborum nostrud nisi et commodo in id adipisicing aliquip ullamco minim tempor.', 'https://via.placeholder.com/400/940/fff/?text=location140', 'images/Location Icon.png', 'Book cover', 'Capitalized', 3, '2020-04-20'),
 (141, 40, 37.745344, -122.494381, 'Nostrud ea fugiat cillum aute occaecat magna culpa officia aute. Elit deserunt anim sit duis cupidatat et veniam dolor adipisicing eiusmod sit ex culpa nisi. Do fugiat irure non anim aute proident eiusmod non aliqua id nulla velit.', 'https://via.placeholder.com/400/822/fff/?text=location141', 'images/Location Icon.png', 'Digital ad', 'Bold Italic', 1, '2020-08-24'),
-(142, 8, 37.716189, -122.452514, 'Do ex proident sunt ad voluptate. Ad magna enim ad irure cillum aliqua pariatur tempor elit reprehenderit enim id. Voluptate dolor id minim laboris excepteur velit eu adipisicing sint.', 'https://via.placeholder.com/400/824/fff/?text=location142', 'images/Location Icon.png', 'Poster', 'Regular', 3, '2020-01-28'),
+(259, 8, 37.759545, -122.431252, 'ettrtyrtyrttrrty', 'images/type_default.png', 'images/Location Icon.png', 'Book cover', 'Thin', 2, '2020-12-14'),
+(260, 10, 37.774659, -122.410455, '', 'images/type_default.png', 'images/Location Icon.png', '', '', 1, '2020-12-14'),
+(266, 62, 37.784009, -122.400372, 'Seems like they\'re holding a Georgia O\'Keefe exhibition at SFMOMA. Excited to attend it, but also very excited that they used Neutral Text for the exhibition logo, really awesome. Such a clean yet bold and elegant design. Love it.', 'uploads/1608055306.2027_Bus-shelter.jpg', 'images/Location Icon.png', 'Bus shelter ad', 'Bold Italic Alt', 5, '2020-12-15'),
 (143, 48, 37.677152, -122.501707, 'Velit consectetur minim laboris laboris enim culpa esse velit amet labore. Sunt occaecat nostrud et nisi excepteur laborum irure commodo ullamco labore. Excepteur consequat ad do mollit do adipisicing occaecat reprehenderit irure qui.', 'https://via.placeholder.com/400/975/fff/?text=location143', 'images/Location Icon.png', 'Digital ad', 'Italic', 4, '2020-09-04'),
 (144, 40, 37.730975, -122.409747, 'Culpa incididunt occaecat elit consequat Lorem incididunt aliqua Lorem eiusmod cupidatat. Qui ex magna in aute irure officia pariatur commodo aute reprehenderit. Pariatur exercitation irure officia sunt qui aliquip mollit cillum commodo officia.', 'https://via.placeholder.com/400/933/fff/?text=location144', 'images/Location Icon.png', 'Book cover', 'Regular', 1, '2020-05-09'),
 (145, 41, 37.716261, -122.506628, 'Nostrud elit occaecat non culpa nostrud duis eu velit et veniam. Et irure deserunt sint quis ea velit. Proident non ut labore voluptate nulla enim duis fugiat Lorem quis.', 'https://via.placeholder.com/400/875/fff/?text=location145', 'images/Location Icon.png', 'Poster', 'Black', 3, '2020-08-23'),
@@ -297,7 +299,19 @@ INSERT INTO `track_locations` (`id`, `type_id`, `lat`, `lng`, `note`, `img`, `ic
 (247, 18, 37.765880, -122.474911, 'Ipsum incididunt aliqua cupidatat adipisicing labore labore quis elit id exercitation amet dolore. Elit consectetur deserunt et fugiat dolore. Proident quis adipisicing aliqua reprehenderit anim culpa reprehenderit proident et non est eiusmod.', 'https://via.placeholder.com/400/914/fff/?text=location247', 'images/Location Icon.png', 'Billboard', 'Underline', 3, '2020-05-03'),
 (248, 11, 37.674664, -122.404364, 'Lorem consectetur laborum ea laboris dolore. Amet in quis sunt voluptate sit officia. Fugiat voluptate in nulla est sunt nisi ad quis.', 'https://via.placeholder.com/400/909/fff/?text=location248', 'images/Location Icon.png', 'Poster', 'Bold', 5, '2020-05-26'),
 (249, 3, 37.671071, -122.443372, 'Ipsum mollit culpa nulla deserunt voluptate. Occaecat nostrud cillum magna consequat elit ipsum exercitation. Nostrud consequat ut non nostrud id amet ipsum qui eiusmod sint incididunt.', 'https://via.placeholder.com/400/903/fff/?text=location249', 'images/Location Icon.png', 'Poster', 'Bold Italic', 2, '2020-05-31'),
-(250, 16, 37.721021, -122.433307, 'Voluptate cupidatat reprehenderit sint ullamco do elit esse culpa laboris. Et occaecat ut do occaecat voluptate mollit tempor aliquip. Excepteur ex aliquip aliquip voluptate anim sint dolore fugiat eiusmod do in quis.', 'https://via.placeholder.com/400/848/fff/?text=location250', 'images/Location Icon.png', 'Packaging', 'Bold', 1, '2020-06-23');
+(250, 16, 37.721021, -122.433307, 'Voluptate cupidatat reprehenderit sint ullamco do elit esse culpa laboris. Et occaecat ut do occaecat voluptate mollit tempor aliquip. Excepteur ex aliquip aliquip voluptate anim sint dolore fugiat eiusmod do in quis.', 'https://via.placeholder.com/400/848/fff/?text=location250', 'images/Location Icon.png', 'Packaging', 'Bold', 1, '2020-06-23'),
+(251, 7, 37.751625, -122.711413, 'zdvzddvsdf', 'https://via.placeholder.com/400/?text=LOCATION', 'images/Location Icon.png', 'poster', 'Bold', 3, '2020-12-08'),
+(252, 7, 37.781435, -122.414021, 'kewl', 'https://via.placeholder.com/400/?text=LOCATION', 'images/Location Icon.png', 'Book cover', 'Thin', 4, '2020-12-13'),
+(253, 57, 37.750203, -122.437959, 'This is a series of program handouts at a film festival event I attended recently. The type is clearly the hero of the design. Really like how they come in 4 color variations. The designs are slightly busy though.', 'uploads/1607982114.6614_adison1060.jpg', 'images/Location Icon.png', 'Program handouts', 'Bold & Regular', 3, '2020-12-14'),
+(254, 57, 37.846515, -122.275589, 'This was a featured motion graphics video at my friend\'s senior thesis exhibition. It\'s a kinematic typography video where Bebas was the sole typeface used. The color palette was rather minimal, but the compositions were nice.', 'uploads/1607990800.6129_me&u.jpg', 'images/Location Icon.png', 'Video', 'Bold', 4, '2020-12-14'),
+(262, 58, 37.971773, -122.335909, 'The book design concept is cool, but the execution is not that great. It\'s a handmade accordion book, but the pages are glued together so it doesn\'t look good from the back. The type use feels generic and slapped on without much thought.', 'uploads/1608044257.1065_accordion_book.jpg', 'images/Location Icon.png', 'Book cover', 'Light', 2, '2020-12-15'),
+(263, 60, 37.756222, -122.433807, 'Attended one of my friends\' first exhibition and spotted Futura on one of the featured art cards. The design is clean and minimal and the type does not compete with the art. There isn\'t anything too special about it though.', 'uploads/1608048653.6635_art_card.jpg', 'images/Location Icon.png', 'Gallery card', 'Regular, Bold & Medium', 3, '2020-12-15'),
+(264, 61, 37.898741, -122.479478, 'Picked up these post cards at a church event I went to. They are really well-designed. Look really elegant and fitting with the event. Spotted Garamond used in the info line. It\'s not the focus, but it works well with the overall design.', 'uploads/1608053247.9252_Post-Card.jpg', 'images/Location Icon.png', 'Post card', 'Regular', 4, '2020-12-15'),
+(265, 61, 37.794369, -122.240204, 'There were several of these newsletter hanging around the church longue. They use Garamond for the logo and most of the text. It\'s a very dated-looking design, though nothing offensive.', 'uploads/1608053790.2927_Newsletter.jpg', 'images/Location Icon.png', 'Newsletter', 'Regular, Italic & Bold', 2, '2020-12-15'),
+(267, 62, 38.566033, -122.560298, 'Went to Calistoga to visit a friend today. We went to this ice cream place in the area and I spotted their logo using Neutra Text, which is cool even if it\'s not the main focus of the design.', 'uploads/1608056628.045_Sweet+Creamery5.png', 'images/Location Icon.png', 'Logo', 'Book', 3, '2020-12-15'),
+(268, 63, 37.771349, -122.407230, 'Found this designer cafe while strolling around SF. Thought their logo was really cool. How geometric the design is definitely fitting to be using DIN.', 'uploads/1608058563.4491_window-sign.jpg', 'images/Location Icon.png', 'Logo', 'Bold', 4, '2020-12-15'),
+(269, 59, 37.779340, -122.425532, 'This timeline interactive display was shown at this Neoclassical Art exhibition that I attended. Noticed that they used both Bodoni and Neutra Text in the design. There are several different fonts used, yet they all work really well together.', 'uploads/1608059297.0759_Neoclassical-Timeline-01.jpg', 'images/Location Icon.png', 'Timeline display', 'Regular, Italic, Condensed Bold', 4, '2020-12-15'),
+(270, 62, 37.778556, -122.425383, 'It\'s very interesting to see Neutra Text paired up with Bodoni. Both typefaces are elegant so they actually work really well together despite the fact that there are several different fonts on the same layout.', 'uploads/1608059565.1868_Neoclassical-Timeline.jpg', 'images/Location Icon.png', 'Timeline display', 'Book & Demi', 4, '2020-12-15');
 
 -- --------------------------------------------------------
 
@@ -327,10 +341,11 @@ INSERT INTO `track_types` (`id`, `user_id`, `name`, `category`, `classification`
 (4, 3, 'Times', 'Serif', 'Transitional', 'https://via.placeholder.com/400/921/fff/?text=Times', 'Pariatur exercitation pariatur est id mollit cillum duis in id id.', 2),
 (5, 6, 'Cambria', 'Serif', 'Transitional', 'https://via.placeholder.com/400/763/fff/?text=Cambria', 'Sint dolor velit fugiat deserunt sunt.', 1),
 (6, 9, 'Calibri', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/962/fff/?text=Calibri', 'Irure ad ut labore reprehenderit cupidatat eu exercitation aliqua do minim.', 5),
-(7, 1, 'Trajan', 'Serif', 'Display Serif', 'https://via.placeholder.com/400/803/fff/?text=Trajan', 'Non laboris aute incididunt cupidatat laboris mollit ea.', 5),
+(61, 13, 'Garamond', 'Serif', 'Old-Style', 'uploads/1608052263.181_Garamond-Icon.png', 'It\'s a nice elegant typeface and a good choice for more formal design. Unfit for modern design.', 3),
+(57, 13, 'Bebas Neue', 'Sans Serif', 'Geometric', 'uploads/1607979440.9979_Bebas Icon.png', 'One of my favorite typefaces. Really fun to use for flat colorful retro-style designs. ', 5),
 (8, 1, 'Minion', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/727/fff/?text=Minion', 'Ullamco non voluptate duis Lorem.', 2),
 (9, 2, 'Univers', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/826/fff/?text=Univers', 'Adipisicing aliquip et occaecat Lorem dolore ipsum aute occaecat enim esse.', 1),
-(10, 5, 'Lucida Sans', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/727/fff/?text=Lucida Sans', 'Aliquip commodo fugiat deserunt id magna enim irure consequat culpa Lorem.', 2),
+(10, 5, 'Lucida Sans', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/727/fff/?text=Lucida Sans', 'Aliquip commodo fugiat deserunt id magna enim irure consequat culpa Lorem.', 4),
 (11, 6, 'Rockwell', 'Serif', 'Slab Serif', 'https://via.placeholder.com/400/870/fff/?text=Rockwell', 'Duis sunt laborum dolore minim.', 4),
 (12, 7, 'Lucida Sans', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/827/fff/?text=Lucida Sans', 'Proident sint nulla ex cillum laboris aliqua esse pariatur aliquip veniam sit cillum.', 1),
 (13, 9, 'Lucida Sans', 'Sans Serif', 'Humanist', 'https://via.placeholder.com/400/798/fff/?text=Lucida Sans', 'Ex velit exercitation incididunt sit tempor.', 4),
@@ -370,7 +385,12 @@ INSERT INTO `track_types` (`id`, `user_id`, `name`, `category`, `classification`
 (47, 5, 'Roboto', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/795/fff/?text=Roboto', 'Ullamco fugiat quis proident ut Lorem qui esse minim deserunt exercitation esse officia est.', 5),
 (48, 2, 'Roboto', 'Sans Serif', 'Neo-Grotesque', 'https://via.placeholder.com/400/785/fff/?text=Roboto', 'Deserunt consequat labore tempor excepteur enim amet sint do id pariatur voluptate minim ex laborum.', 1),
 (49, 3, 'Neutra Text', 'Sans Serif', 'Geometric', 'https://via.placeholder.com/400/835/fff/?text=Neutra Text', 'Incididunt ipsum ea ex commodo enim quis commodo proident ullamco sint cillum dolore.', 3),
-(50, 9, 'Sabon', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/958/fff/?text=Sabon', 'Deserunt anim deserunt excepteur sint.', 5);
+(50, 9, 'Sabon', 'Serif', 'Old-Style', 'https://via.placeholder.com/400/958/fff/?text=Sabon', 'Deserunt anim deserunt excepteur sint.', 5),
+(60, 13, 'Futura', 'Sans Serif', 'Geometric', 'uploads/1608047599.8717_Futura Icon.png', 'A great-looking typeface with a lot of versatility. It\'s best used for clean modern design.', 5),
+(58, 13, 'Helvetica', 'Sans Serif', 'Neo-Grotesque', 'uploads/1607991506.1675_Helvetica Icon.png', 'The vanilla of typefaces. Incredibly versatile, but overused so it\'s kinda generic.', 3),
+(59, 13, 'Bodoni', 'Serif', 'Didone', 'uploads/1607992269.3466_Bodoni Icon.png', 'The fashion typeface. Very elegant. Good for display, but terrible for body text.', 4),
+(62, 13, 'Neutra Text', 'Sans Serif', 'Geometric', 'uploads/1608054919.2079_Neutra-Text-Icon.png', 'This is my brand typeface. It\'s one of my absolute favorite. Both elegant and modern.', 5),
+(63, 13, 'DIN', 'Sans Serif', 'Geometric', 'uploads/1608057210.1306_Din-Icon.png', 'Very modern and cool. It\'s best used as a display text rather than body text most of the time.', 4);
 
 -- --------------------------------------------------------
 
@@ -394,7 +414,7 @@ CREATE TABLE `track_users` (
 --
 
 INSERT INTO `track_users` (`id`, `name`, `username`, `email`, `password`, `phone`, `img`, `occupation`) VALUES
-(1, 'Patel Singleton', 'user1', 'user1@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(908) 564-3177', 'https://via.placeholder.com/400/900/fff/?text=user1', 'Product Designer'),
+(1, 'Pastel Chroma', 'user1', 'user1@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(908) 564-3177', 'uploads/1607936833.4305_user1.jpg', 'Color Designer'),
 (2, 'Mckenzie Knowles', 'user2', 'user2@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(890) 496-2198', 'https://via.placeholder.com/400/723/fff/?text=user2', 'Game Designer'),
 (3, 'Debora Sellers', 'user3', 'user3@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(998) 436-2731', 'https://via.placeholder.com/400/892/fff/?text=user3', 'Motion Designer'),
 (4, 'Kayla Nicholson', 'user4', 'user4@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(833) 573-3252', 'https://via.placeholder.com/400/776/fff/?text=user4', 'Game Designer'),
@@ -403,7 +423,10 @@ INSERT INTO `track_users` (`id`, `name`, `username`, `email`, `password`, `phone
 (7, 'Cervantes Lancaster', 'user7', 'user7@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(990) 472-2621', 'https://via.placeholder.com/400/898/fff/?text=user7', 'UX Designer'),
 (8, 'Washington Jimenez', 'user8', 'user8@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(978) 429-3731', 'https://via.placeholder.com/400/919/fff/?text=user8', 'Motion Designer'),
 (9, 'Herman Rollins', 'user9', 'user9@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(943) 495-3242', 'https://via.placeholder.com/400/761/fff/?text=user9', 'Product Designer'),
-(10, 'Ella Fields', 'user10', 'user10@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(961) 463-2713', 'https://via.placeholder.com/400/750/fff/?text=user10', 'Freelancer');
+(10, 'Ella Fields', 'user10', 'user10@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(961) 463-2713', 'https://via.placeholder.com/400/750/fff/?text=user10', 'Freelancer'),
+(11, 'An Egg', 'tamago', 'eggo@smail.com', '1a1dc91c907325c69271ddf0c944bc72', '1234567890', 'https://via.placeholder.com/400/?text=USER', 'Exeggcute'),
+(12, 'giang p', 'giang101', 'giang@me.me', '1a1dc91c907325c69271ddf0c944bc72', '1234567890', 'uploads/1607874325.0326_user1.jpg', 'graphic designer'),
+(13, 'Giang Pham', 'user0', 'giang-designer@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', '(123) 4567-890', 'uploads/1607978235.7203__NN06682.jpg', 'Graphic Designer');
 
 --
 -- Indexes for dumped tables
@@ -435,19 +458,19 @@ ALTER TABLE `track_users`
 -- AUTO_INCREMENT for table `track_locations`
 --
 ALTER TABLE `track_locations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=251;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=271;
 
 --
 -- AUTO_INCREMENT for table `track_types`
 --
 ALTER TABLE `track_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `track_users`
 --
 ALTER TABLE `track_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
