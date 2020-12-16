@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 15, 2020 at 02:39 PM
+-- Generation Time: Dec 15, 2020 at 05:02 PM
 -- Server version: 5.6.49-cll-lve
 -- PHP Version: 7.3.6
 
@@ -99,7 +99,10 @@ INSERT INTO `track_types` (`id`, `user_id`, `name`, `category`, `classification`
 (58, 13, 'Helvetica', 'Sans Serif', 'Neo-Grotesque', 'uploads/1607991506.1675_Helvetica Icon.png', 'The vanilla of typefaces. Incredibly versatile, but overused so it\'s kinda generic.', 3),
 (59, 13, 'Bodoni', 'Serif', 'Didone', 'uploads/1607992269.3466_Bodoni Icon.png', 'The fashion typeface. Very elegant. Good for display, but terrible for body text.', 4),
 (62, 13, 'Neutra Text', 'Sans Serif', 'Geometric', 'uploads/1608054919.2079_Neutra-Text-Icon.png', 'This is my brand typeface. It\'s one of my absolute favorite. Both elegant and modern.', 5),
-(63, 13, 'DIN', 'Sans Serif', 'Geometric', 'uploads/1608057210.1306_Din-Icon.png', 'Very modern and cool. It\'s best used as a display text rather than body text most of the time.', 4);
+(63, 13, 'DIN', 'Sans Serif', 'Geometric', 'uploads/1608057210.1306_Din-Icon.png', 'Very modern and cool. It\'s best used as a display text rather than body text most of the time.', 4),
+(70, 1, 'Comic Sans lol', 'shitty', 'shit', 'uploads/1608075955.1636_Bodoni Icon.png', 'dfgfdghdfgdgfg', 2),
+(69, 12, 'Comic Sans lol', 'Sans Serif', 'Script', 'uploads/1608074562.8753_Times Icon.png', 'adfdfsfasfafsfasfsf', 1),
+(68, 14, 'Comic Sans', 'sans-serif', 'Handwriting', 'uploads/1608073407.4587_inbubble.jpg', 'Useful for children and people with dyslexia.', 5);
 
 --
 -- Indexes for dumped tables
@@ -119,7 +122,7 @@ ALTER TABLE `track_types`
 -- AUTO_INCREMENT for table `track_types`
 --
 ALTER TABLE `track_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

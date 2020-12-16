@@ -172,8 +172,7 @@ const checkTypeAddForm = () => {
       $("#type-add-form")[0].reset();
 
       sessionStorage.typeId = d.id;
-      //$.mobile.navigate($("#type-add-destination").val());
-      $.mobile.navigate("#type-upload-page"); 
+      $.mobile.navigate($("#type-add-destination").val());
    })
 }
 
@@ -203,7 +202,7 @@ const checkTypeDelete = id => {
       if(d.error) {
          throw d.error;
       }
-      $.mobile.navigate("#list-page"); 
+      $.mobile.navigate($("#type-add-destination").val());
    });
 }
 
@@ -227,8 +226,7 @@ const checkLocationAddForm = () => {
          return;
       }
       $("#location-add-form")[0].reset();
-      // window.history.go(-2);
-      $.mobile.navigate("#location-upload-page"); 
+      window.history.go(-2);
    })
 }
 
@@ -285,7 +283,7 @@ const checkUserUpload = () => {
       if(d.error) {
          throw d.error;
       }
-      window.history.go(-2);
+      window.history.back();
    })
 }
 
@@ -300,7 +298,7 @@ const checkTypeUpload = () => {
       if(d.error) {
          throw d.error;
       }
-      window.history.go(-2);
+      window.history.back();
    })
 }
 

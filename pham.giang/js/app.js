@@ -146,10 +146,6 @@ $(()=>{
    .on("click",".js-location-upload",function(e){
       checkLocationUpload();
    })
-   .on("click","js-cancel-upload", function(e){
-      console.log("honk");
-      window.history.go(-2);
-   })
 
 
 
